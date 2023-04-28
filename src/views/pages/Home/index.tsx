@@ -1,6 +1,9 @@
+import { Link } from "react-router-dom";
+import LayoutMain from "../../layouts/LayoutMain/LayoutMain";
+
 function Home() {
     return (
-        <div> 
+        <LayoutMain> 
 
 
             <section className="relative isolate pt-14">
@@ -32,18 +35,18 @@ function Home() {
                     </p>
 
                     <div className="mt-10 flex items-center justify-center gap-x-6">
-                        <a
-                            href="https://app.tailbuilder.com/dashboard"
+                        <Link
+                            to="/dashboard"
                             className="rounded-md text-white bg-skin-brand-500 px-4 py-2.5 text-sm font-semibold shadow-sm hover:bg-orange-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-400"
                         >
                             Get started
-                        </a>
-                        <a
-                            href="https://app.tailbuilder.com/dashboard"
+                        </Link>
+                        <Link
+                            to="/dashboard"
                             className="rounded-md px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-orange-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-400"
                         >
                             Learn More
-                        </a>
+                        </Link>
 
                     </div>
                     </div>
@@ -127,7 +130,7 @@ function Home() {
         
 
 
-        </div>
+        </LayoutMain>
     )
 }
 
