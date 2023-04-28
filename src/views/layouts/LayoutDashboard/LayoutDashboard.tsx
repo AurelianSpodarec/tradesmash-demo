@@ -12,7 +12,7 @@ function LayoutDashboard({ children}:LayoutDashboardProps) {
                 <main className="py-10">
 
                 <div className="px-4 sm:px-6 lg:px-8">
-                    <div className="relative h-[576px] overflow-hidden rounded-xl">
+                    <div className="relative h-[576px] rounded-xl">
                     {children}
                     </div>
                 </div>

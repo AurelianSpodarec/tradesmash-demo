@@ -4,6 +4,7 @@ import { useLayoutEffect, useRef, useState } from 'react'
 import { fakeTrades } from '@/database/fakeTrades';
 import LayoutDashboard from '@/views/layouts/LayoutDashboard/LayoutDashboard';
 import CellBuySell from './CellBuySell';
+import CellStatus from './CellStatus';
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
@@ -28,6 +29,12 @@ function TradingIndex() {
         setIndeterminate(false)
     }
 
+
+    function addTrade() {
+        // Modal popup
+        // push to array
+    }
+
     return (
         <LayoutDashboard>
 
@@ -41,6 +48,7 @@ function TradingIndex() {
             </div>
             <div className="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
             <button
+            onClick={() => addTrade()}
                 type="button"
                 className="block rounded-md bg-skin-brand-600 px-3 py-1.5 text-center text-sm font-semibold leading-6 text-white shadow-sm hover:bg-skin-brand-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-skin-brand-600"
             >
@@ -49,6 +57,11 @@ function TradingIndex() {
             </div>
         </div>
 
+
+        <div className="flex mt-8 flex-col">
+            <span>Total Gross P&L</span>
+            <span className="font-bold text-2xl">£944.69</span>
+        </div>
 
         <div className="mt-8 flow-root">
             <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -70,7 +83,7 @@ function TradingIndex() {
                     </button>
                     </div>
                 )}
-                <table className="min-w-full table-fixed divide-y divide-gray-300">
+                <table className="min-w-full table-fixed divide-y divide-gray-300 ">
 
 
                     <thead>
@@ -166,23 +179,23 @@ function TradingIndex() {
                                 />
                             </td>
 
-                            <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{trade.id}</td>
+                            <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">#{trade.id}</td>
                             <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{trade.date}</td>
                             <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{trade.stock}</td>
                             <CellBuySell item={trade.bs} />
-                            <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{trade.size}</td>
-                            <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{trade.price}</td>
-                            <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{trade.fees}</td>
-                            <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{trade.stop}</td>
-                            <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{trade.target}</td>
+                            <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{trade.size.toFixed(3)}</td>
+                            <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{trade.price}p</td>
+                            <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">£{trade.fees.toFixed(2)}</td>
+                            <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{trade.stop}p</td>
+                            <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{trade.target}p</td>
                             <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{trade.strategy}</td>
                             <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{trade.value}</td>
-                            <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{trade.risk}</td>
+                            <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{trade.risk}%</td>
                             <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{trade.aop}</td>
                             <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{trade.acp}</td>
                             <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{trade.rrRatio}</td>
-                            <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{trade.grossPL}</td>
-                            <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{trade.status}</td>
+                            <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">£{trade.grossPL.toFixed(2)}</td>
+                            <CellStatus item={trade.status} />
                             <td className="whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-3">
                             <a href="#" className="text-skin-brand-600 hover:text-skin-brand-900">
                             Edit<span className="sr-only">, {trade.id}</span>
