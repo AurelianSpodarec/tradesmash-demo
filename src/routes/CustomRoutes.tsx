@@ -21,7 +21,7 @@ function CustomRoutes() {
             element: <DashboardIndex />
         },
         {
-            path: "/dashboard/trading",
+            path: "/dashboard/trades",
             element: <TradingIndex />
         }
     ]);
