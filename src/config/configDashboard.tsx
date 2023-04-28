@@ -9,6 +9,16 @@ export const configDashboard = {
             id: 10,
             name: "Trades",
             url: "/trades",
+        },
+        {
+            id: 10,
+            name: "Trades",
+            url: "/tradelog",
+        },
+        {
+            id: 10,
+            name: "Notebook",
+            url: "/notebook",
         }
     ]
 }
