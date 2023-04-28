@@ -8,7 +8,7 @@ function Layout() {
         <BrowserRouter>
 
             <Header />
-                <main className="bg-[#071520]">
+                <main>
                     <CustomRoutes />
                 </main>
             <Footer />
