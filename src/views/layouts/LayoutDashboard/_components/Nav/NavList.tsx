@@ -1,17 +1,5 @@
 import NavItem from "./NavItem";
-
-const navigation = [
-    {
-        id: 0,
-        name: "Dashboard",
-        slug: "/dashboard",
-    },
-    {
-        id: 10,
-        name: "Trades",
-        slug: "/trades",
-    }
-]
+import { configDashboard } from "../../../../../config/configDashboard";
 
 function NavList() {
     return (
@@ -19,7 +7,7 @@ function NavList() {
         <ul role="list" className="flex flex-1 flex-col gap-y-7">
             <li>
             <ul role="list" className="-mx-2 space-y-1">
-                {navigation && navigation.map((item => {
+                {configDashboard.navigation && configDashboard.navigation.map((item => {
                     return (
                         <NavItem item={item} />
                     )
