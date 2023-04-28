@@ -12,8 +12,13 @@ export const configDashboard = {
         },
         {
             id: 10,
-            name: "Trades",
+            name: "Trade Log",
             url: "/tradelog",
+        },
+        {
+            id: 200,
+            name: "Daily Stats",
+            url: "/stats"
         },
         {
             id: 10,

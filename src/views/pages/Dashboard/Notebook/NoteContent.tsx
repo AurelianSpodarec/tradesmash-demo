@@ -1,6 +1,15 @@
-import dateHelper from "@/utils/dateHelper";
+import react, {useEffect, useRef, useState} from 'react';
+import { Editor } from '@tinymce/tinymce-react';
 
-function NoteContent() {
+
+function NoteContent({ data }:any) {
+    const [editorValue, setEditorValue] = useState(`<p>This is the initial content of the editor.</p>`)
+    const editorRef = useRef(null);
+
+    function onChange(e:any) {
+        setEditorValue(e)
+    }
+
     return (
         <section>
 
@@ -12,7 +21,7 @@ function NoteContent() {
                     
                 </div>
 
-                {/* <Editor
+                <Editor
                     onChange={(e) => onChange(e)}
                     apiKey='your-api-key'
                     onInit={(evt, editor) => editorRef.current = editor}
@@ -31,7 +40,7 @@ function NoteContent() {
                         'removeformat | help',
                     content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
                     }}
-                /> */}
+                />
             </section>
     )
 }

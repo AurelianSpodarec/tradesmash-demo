@@ -15,6 +15,15 @@ const dateHelper = {
         const dayOfWeek = days[date.getDay()];
         
         return `${day}${suffix} ${month} ${dayOfWeek}, ${year}`;
+    },
+    todayDate() {
+        const date = new Date();
+        const suffixes = ["th", "st", "nd", "rd"];
+        const dayOfMonth = date.getDate();
+        const suffix = suffixes[(dayOfMonth - 1) % 10 === 1 && dayOfMonth !== 11 ? 1 : (dayOfMonth - 1) % 10 === 2 && dayOfMonth !== 12 ? 2 : (dayOfMonth - 1) % 10 === 3 && dayOfMonth !== 13 ? 3 : 0];
+        const monthName = date.toLocaleString("default", { month: "long" });
+        const year = date.getFullYear();
+        return `${dayOfMonth}${suffix} ${monthName} ${year}`;
     }
 }
 
