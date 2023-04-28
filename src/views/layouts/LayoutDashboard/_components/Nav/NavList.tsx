@@ -1,5 +1,5 @@
 import NavItem from "./NavItem";
-import { configDashboard } from "../../../../../config/configDashboard";
+import { configDashboard } from "config/configDashboard";
 
 function NavList() {
     return (
