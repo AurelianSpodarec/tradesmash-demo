@@ -1,4 +1,4 @@
-export interface ITrade {
+export default interface ITrade {
     id: number;
     date: string;
     symbol: string;
