@@ -10,12 +10,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tinymce/tinymce-react": "^4.3.0",
     "path": "^0.12.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.10.0",
     "recharts": "^2.5.0",
-    "sass": "^1.62.1"
+    "sass": "^1.62.1",
+    "setimmediate": "^1.0.5"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.9",
