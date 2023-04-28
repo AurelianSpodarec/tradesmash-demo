@@ -1,68 +1,8 @@
-
-interface TradingItem {
-    id: number;
-    date: string;
-    stock: string;
-    bs: "sell" | "buy";
-    size: number;
-    price: number;
-    fees: number;
-    stop: number;
-    target: number;
-    strategy: any;
-    value: number;
-    risk: number;
-    aop: number;
-    acp: number;
-    rrRatio: number;
-    grossPL: number;
-    status: "open" | "closed" | "increased" | "decreased";
-}
-
-const trades:TradingItem[] = [
-    {
-        id: 0,
-        date: "30/03/2023",
-        stock: "CTAG",
-        bs: "sell",
-        size: 10000,
-        price: 6,
-        fees: 1000,
-        stop: 0,
-        target: 0,
-        strategy: "swiping",
-        value: 50,
-        risk: 2.4,
-        aop: 43,
-        acp: 47,
-        rrRatio: 0,
-        grossPL: 0,
-        status: "open",
-    },
-    {
-        id: 0,
-        date: "30/03/2023",
-        stock: "CTAG",
-        bs: "sell",
-        size: 10000,
-        price: 6,
-        fees: 1000,
-        stop: 0,
-        target: 0,
-        strategy: "swiping",
-        value: 50,
-        risk: 2.4,
-        aop: 43,
-        acp: 47,
-        rrRatio: 0,
-        grossPL: 0,
-        status: "open",
-    }
-]
-
-import LayoutDashboard from '@/views/layouts/LayoutDashboard/LayoutDashboard';
 import { useLayoutEffect, useRef, useState } from 'react'
  
+
+import { fakeTrades } from '@/database/fakeTrades';
+import LayoutDashboard from '@/views/layouts/LayoutDashboard/LayoutDashboard';
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
@@ -72,17 +12,17 @@ function TradingIndex() {
     const checkbox = useRef()
     const [checked, setChecked] = useState(false)
     const [indeterminate, setIndeterminate] = useState(false)
-    const [selectedTrades, setSelectedPeople] = useState([])
+    const [selectedTrades, setSelectedTrades] = useState([])
 
     useLayoutEffect(() => {
-        const isIndeterminate = selectedTrades.length > 0 && selectedTrades.length < trades.length
-        setChecked(selectedTrades.length === trades.length)
+        const isIndeterminate = selectedTrades.length > 0 && selectedTrades.length < fakeTrades.length
+        setChecked(selectedTrades.length === fakeTrades.length)
         setIndeterminate(isIndeterminate)
         checkbox.current.indeterminate = isIndeterminate
     }, [selectedTrades])
 
     function toggleAll() {
-        setSelectedPeople(checked || indeterminate ? [] : trades)
+        setSelectedTrades(checked || indeterminate ? [] : fakeTrades)
         setChecked(!checked && !indeterminate)
         setIndeterminate(false)
     }
@@ -95,7 +35,7 @@ function TradingIndex() {
             <div className="sm:flex-auto">
             <h1 className="text-base font-semibold leading-6 text-gray-900">Trades</h1>
             <p className="mt-2 text-sm text-gray-700">
-                A list of all the trades in your account
+                A list of all the fakeTrades in your account
             </p>
             </div>
             <div className="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
@@ -203,7 +143,7 @@ function TradingIndex() {
 
 
                     <tbody className="divide-y divide-gray-200 bg-white">
-                    {trades.map((trade) => (
+                    {fakeTrades.map((trade) => (
                         <tr key={trade.id} className={selectedTrades.includes(trade) ? 'bg-gray-50' : undefined}>
 
                             <td className="relative px-7 sm:px-6">
@@ -216,14 +156,13 @@ function TradingIndex() {
                                     value={trade.id}
                                     checked={selectedTrades.includes(trade)}
                                     onChange={(e) =>
-                                        setSelectedPeople(
+                                        setSelectedTrades(
                                         e.target.checked
                                             ? [...selectedTrades, trade]
                                             : selectedTrades.filter((p) => p !== trade)
                                         )
                                     }
                                 />
-
                             </td>
 
                             <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{trade.id}</td>

@@ -23,6 +23,8 @@
     "paths": {
       "@/*": ["./src/*", "./dist/*", ""],
       "routes/*": ["./src/routes/*"],
+      "database/*": ["./src/database/*"],
+      "interface/*": ["./src/interface/*"],
       "config/*": ["./src/config/*"]
     },
   },

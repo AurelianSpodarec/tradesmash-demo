@@ -3,12 +3,12 @@ export const configDashboard = {
         {
             id: 0,
             name: "Dashboard",
-            slug: "/dashboard",
+            url: "/",
         },
         {
             id: 10,
             name: "Trades",
-            slug: "/trades",
+            url: "/trades",
         }
     ]
 }

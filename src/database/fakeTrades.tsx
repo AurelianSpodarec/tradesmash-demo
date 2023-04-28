@@ -1,0 +1,42 @@
+import { ITrade } from "interface/ITrade"
+
+export const fakeTrades:ITrade[] = [
+    {
+        id: 0,
+        date: "30/03/2023",
+        stock: "CTAG",
+        bs: "sell",
+        size: 10000,
+        price: 6,
+        fees: 1000,
+        stop: 0,
+        target: 0,
+        strategy: "swiping",
+        value: 50,
+        risk: 2.4,
+        aop: 43,
+        acp: 47,
+        rrRatio: 0,
+        grossPL: 0,
+        status: "open",
+    },
+    {
+        id: 0,
+        date: "30/03/2023",
+        stock: "CTAG",
+        bs: "sell",
+        size: 10000,
+        price: 6,
+        fees: 1000,
+        stop: 0,
+        target: 0,
+        strategy: "swiping",
+        value: 50,
+        risk: 2.4,
+        aop: 43,
+        acp: 47,
+        rrRatio: 0,
+        grossPL: 0,
+        status: "open",
+    }
+]
