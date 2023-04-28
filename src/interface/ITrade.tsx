@@ -1,8 +1,8 @@
 export interface ITrade {
     id: number;
     date: string;
-    stock: string;
-    bs: "sell" | "buy";
+    symbol: string;
+    buySell: "sell" | "buy";
     size: number;
     price: number;
     fees: number;
@@ -13,7 +13,7 @@ export interface ITrade {
     risk: number;
     aop: number;
     acp: number;
-    rrRatio: number;
-    grossPL: number;
+    riskRewardRatio: number;
+    grossProfitLoss: number;
     status: "open" | "closed" | "increased" | "decreased";
 }
