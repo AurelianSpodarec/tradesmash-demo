@@ -6,11 +6,11 @@ export default defineConfig({
     plugins: [react()],
     resolve: {
       alias: {
-          "@": path.resolve(path.__dirname, "./src/"),
-          routes: `${path.resolve(path.__dirname, "./src/routes/")}`,
-          database: `${path.resolve(path.__dirname, "./src/database/")}`,
-          interface: `${path.resolve(path.__dirname, "./src/interface/")}`,
-          config: `${path.resolve(path.__dirname, "./src/config/")}`,
+          "@": path.resolve(__dirname, "./src/"),
+          routes: `${path.resolve(__dirname, "./src/routes/")}`,
+          database: `${path.resolve(__dirname, "./src/database/")}`,
+          interface: `${path.resolve(__dirname, "./src/interface/")}`,
+          config: `${path.resolve(__dirname, "./src/config/")}`,
       }
   }
 });
