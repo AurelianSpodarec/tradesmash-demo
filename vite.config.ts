@@ -11,6 +11,7 @@ export default defineConfig({
           database: `${path.resolve(__dirname, "./src/database/")}`,
           interface: `${path.resolve(__dirname, "./src/interface/")}`,
           config: `${path.resolve(__dirname, "./src/config/")}`,
+          utils: `${path.resolve(__dirname, "./src/utils/")}`,
       }
   }
 });

@@ -3,6 +3,7 @@ import { useLayoutEffect, useRef, useState } from 'react'
 
 import { fakeTrades } from '@/database/fakeTrades';
 import LayoutDashboard from '@/views/layouts/LayoutDashboard/LayoutDashboard';
+import CellBuySell from './CellBuySell';
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
@@ -168,7 +169,7 @@ function TradingIndex() {
                             <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{trade.id}</td>
                             <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{trade.date}</td>
                             <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{trade.stock}</td>
-                            <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{trade.bs}</td>
+                            <CellBuySell item={trade.bs} />
                             <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{trade.size}</td>
                             <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{trade.price}</td>
                             <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{trade.fees}</td>
