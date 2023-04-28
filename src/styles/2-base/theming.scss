@@ -1,0 +1,44 @@
+// ==========================================================================
+// #Base: Themes
+// ==========================================================================
+//
+//  Table of Content
+//  - Main Site Theme
+//  - Site Theme
+//
+//
+
+
+// Main Site Theme
+// ==========================================================================
+
+:root{
+    --color-bg-base: 255, 255, 255;
+    --color-brand-500: 64, 157, 238;
+    // --brand-color: blue;
+    // --color-text-base: red;
+    // --color-text-muted: red;
+    // --color-background: black;
+    // --color-bg-base: 255, 255, 255;
+}
+
+// Theme
+// ==========================================================================
+.theme-twitter-default {
+    --color-bg-base: 255, 255, 255;
+    --color-text-leading: 0, 0, 0,;
+    --color-text-base: 15, 20, 25;
+    --color-text-muted: 83, 100, 113;
+}
+.theme-twitter-dim {
+    --color-bg-base: 21, 32, 43;
+    --color-text-leading: ;
+    --color-text-base: 247, 249, 249;
+    --color-text-muted: 139, 152, 165;
+}
+.theme-twitter-lights-out {
+    --color-bg-base: 0, 0, 0;
+    --color-text-leading: ;
+    --color-text-base: 231, 233, 234;
+    --color-text-muted: 113, 118, 123;
+}
