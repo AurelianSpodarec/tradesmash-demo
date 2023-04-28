@@ -1,10 +1,11 @@
-import { useLayoutEffect, useRef, useState } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
  
 
 import { fakeTrades } from '@/database/fakeTrades';
 import LayoutDashboard from '@/views/layouts/LayoutDashboard/LayoutDashboard';
 import CellBuySell from './CellBuySell';
 import CellStatus from './CellStatus';
+import { ITrade } from '@/interface/ITrade';
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
@@ -16,24 +17,48 @@ function TradingIndex() {
     const [indeterminate, setIndeterminate] = useState(false)
     const [selectedTrades, setSelectedTrades] = useState([])
 
+    const [fakeTradesData, setFakeTradesData] = useState([])
+
+
     useLayoutEffect(() => {
-        const isIndeterminate = selectedTrades.length > 0 && selectedTrades.length < fakeTrades.length
-        setChecked(selectedTrades.length === fakeTrades.length)
+        const isIndeterminate = selectedTrades.length > 0 && selectedTrades.length < fakeTradesData.length
+        setChecked(selectedTrades.length === fakeTradesData.length)
         setIndeterminate(isIndeterminate)
         checkbox.current.indeterminate = isIndeterminate
     }, [selectedTrades])
 
     function toggleAll() {
-        setSelectedTrades(checked || indeterminate ? [] : fakeTrades)
+        setSelectedTrades(checked || indeterminate ? [] : fakeTradesData)
         setChecked(!checked && !indeterminate)
         setIndeterminate(false)
     }
 
-
     function addTrade() {
-        // Modal popup
-        // push to array
+        const newTrade:ITrade = {
+            id: fakeTradesData.length + 1,
+            date: "24/11/2023",
+            stock: "REAT",
+            bs: "buy",
+            size: 420,
+            price: 6,
+            fees: 1000,
+            stop: 0,
+            target: 0,
+            strategy: "swiping",
+            value: 50,
+            risk: 2.4,
+            aop: 43,
+            acp: 47,
+            rrRatio: 0,
+            grossPL: 0,
+            status: "increased",
+        };
+        setFakeTradesData([newTrade, ...fakeTradesData]);
     }
+
+    useEffect(() => {
+        setFakeTradesData(fakeTrades)
+    }, [])
 
     return (
         <LayoutDashboard>
@@ -41,9 +66,9 @@ function TradingIndex() {
 
         <div className="sm:flex sm:items-center">
             <div className="sm:flex-auto">
-            <h1 className="text-base font-semibold leading-6 text-gray-900">Trades</h1>
+            <h1 className="text-base font-semibold leading-6 text-gray-900">Trades {fakeTradesData.length}</h1>
             <p className="mt-2 text-sm text-gray-700">
-                A list of all the fakeTrades in your account
+                A list of all the fakeTradesData in your account
             </p>
             </div>
             <div className="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
@@ -157,7 +182,7 @@ function TradingIndex() {
 
 
                     <tbody className="divide-y divide-gray-200 bg-white">
-                    {fakeTrades.map((trade) => (
+                    {fakeTradesData.map((trade) => (
                         <tr key={trade.id} className={selectedTrades.includes(trade) ? 'bg-gray-50' : undefined}>
 
                             <td className="relative px-7 sm:px-6">
@@ -183,9 +208,9 @@ function TradingIndex() {
                             <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{trade.date}</td>
                             <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{trade.stock}</td>
                             <CellBuySell item={trade.bs} />
-                            <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{trade.size.toFixed(3)}</td>
+                            <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{trade.size && trade.size.toFixed(3)}</td>
                             <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{trade.price}p</td>
-                            <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">£{trade.fees.toFixed(2)}</td>
+                            <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">£{trade.fees && trade.fees.toFixed(2)}</td>
                             <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{trade.stop}p</td>
                             <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{trade.target}p</td>
                             <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{trade.strategy}</td>
@@ -194,7 +219,7 @@ function TradingIndex() {
                             <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{trade.aop}</td>
                             <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{trade.acp}</td>
                             <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{trade.rrRatio}</td>
-                            <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">£{trade.grossPL.toFixed(2)}</td>
+                            <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">£{trade.grossPL && trade.grossPL.toFixed(2)}</td>
                             <CellStatus item={trade.status} />
                             <td className="whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-3">
                             <a href="#" className="text-skin-brand-600 hover:text-skin-brand-900">

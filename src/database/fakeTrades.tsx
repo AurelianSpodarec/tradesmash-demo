@@ -2,7 +2,7 @@ import { ITrade } from "interface/ITrade"
 
 export const fakeTrades:ITrade[] = [
     {
-        id: 40,
+        id: 4023,
         date: "30/03/2023",
         stock: "CTAG",
         bs: "buy",
@@ -21,7 +21,7 @@ export const fakeTrades:ITrade[] = [
         status: "open",
     },
     {
-        id: 120,
+        id: 12340,
         date: "24/11/2023",
         stock: "REAT",
         bs: "buy",
@@ -40,7 +40,7 @@ export const fakeTrades:ITrade[] = [
         status: "increased",
     },
     {
-        id: 90,
+        id: 9630,
         date: "05/01/2023",
         stock: "CTAG",
         bs: "buy",
@@ -59,7 +59,7 @@ export const fakeTrades:ITrade[] = [
         status: "decreased",
     },
     {
-        id: 80,
+        id: 850,
         date: "31/06/2023",
         stock: "REAT",
         bs: "sell",
@@ -78,7 +78,7 @@ export const fakeTrades:ITrade[] = [
         status: "open",
     },
     {
-        id: 70,
+        id: 701,
         date: "24/04/2023",
         stock: "REAt",
         bs: "buy",
@@ -97,7 +97,7 @@ export const fakeTrades:ITrade[] = [
         status: "increased",
     },
     {
-        id: 60,
+        id: 602,
         date: "30/03/2023",
         stock: "REAT",
         bs: "buy",
@@ -116,7 +116,7 @@ export const fakeTrades:ITrade[] = [
         status: "open",
     },
     {
-        id: 50,
+        id: 503,
         date: "30/03/2023",
         stock: "REAT",
         bs: "sell",
@@ -135,7 +135,7 @@ export const fakeTrades:ITrade[] = [
         status: "open",
     },
     {
-        id: 30,
+        id: 304,
         date: "30/03/2023",
         stock: "CTAG",
         bs: "sell",
@@ -154,7 +154,7 @@ export const fakeTrades:ITrade[] = [
         status: "decreased",
     },
     {
-        id: 40,
+        id: 400,
         date: "30/03/2023",
         stock: "CTAG",
         bs: "buy",
