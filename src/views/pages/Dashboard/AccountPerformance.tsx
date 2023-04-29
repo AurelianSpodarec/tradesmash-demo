@@ -1,5 +1,5 @@
 import React from 'react';
-import { LineChart, Line, Label, Cell, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
+import { LineChart, Line, Label, ResponsiveContainer, Cell, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 
 
 const tradingLogs = [
@@ -99,44 +99,39 @@ function AccountPerformance() {
 //     };
 
   return (
-    <div>
+    <div className="w-full h-full">
       <h3>Account Return £</h3>
-    <BarChart width={800} height={500} data={data} barCategoryGap={26}>
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis 
-            dataKey="date" 
-            strokeWidth={0} 
-            height={80} 
-            tick={{ angle: -70, textAnchor: 'end' }} 
-            interval={0}  
-        />
-        <YAxis 
-            tickFormatter={(value) => `${value / 1000}k`}
-            axisLine={{ strokeWidth: 0 }}
-            strokeDasharray="0"
-        />
-        <Tooltip />
-        <Bar dataKey="accountValue" >
-            {data.map((entry, index) => (
-                <Cell fill={entry.accountValue <= 0 ? 'red' : 'green' }/>
-            ))}
-        </Bar>
-    </BarChart>
 
-
-
-
-
-
-      {/* <LineChart width={800} height={400} data={data} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
-  <CartesianGrid strokeDasharray="3 3" />
-  <XAxis dataKey="date" />
-  <YAxis tickFormatter={(value) => `${value / 1000}k`} />
-  <Tooltip />
-  <Legend />
-  <Line type="monotone" dataKey="accountValue" stroke="#8884d8" activeDot={{ r: 8 }} />
-</LineChart> */}
+        <div className="h-[500px]">
+        <ResponsiveContainer>
+        <BarChart data={data} barCategoryGap={26}>
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis 
+                dataKey="date" 
+                strokeWidth={0} 
+                height={80} 
+                tick={{ angle: -70, textAnchor: 'end' }} 
+                interval={0}  
+            />
+            <YAxis 
+                tickFormatter={(value) => `${value / 1000}k`}
+                axisLine={{ strokeWidth: 0 }}
+                strokeDasharray="0"
+            />
+            <Tooltip />
+            <Bar dataKey="accountValue" >
+                {data.map((entry, index) => (
+                    <Cell fill={entry.accountValue <= 0 ? 'red' : 'green' }/>
+                ))}
+            </Bar>
+        </BarChart>
+        </ResponsiveContainer>
+        </div>
     </div>
+
+
+
+
   )
     // const chartOptions = {
     //     chart: {
