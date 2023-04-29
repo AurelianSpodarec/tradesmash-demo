@@ -1,14 +1,14 @@
 import { useRoutes } from "react-router-dom";
 
-import NotFound from "../views/pages/NotFound/NotFound";
-import Home from "../views/pages/Home";
-
 import DashboardIndex from "../views/pages/Dashboard/DashboardIndex";
 import TradingIndex from "../views/pages/Dashboard/Trading/TradingIndex";
 import NotebookIndex from "@/views/pages/Dashboard/Notebook/NotebookIndex";
 import TradeLogIndex from "@/views/pages/Dashboard/TradeLog/TradeLogIndex";
 import StatsIndex from "@/views/pages/Dashboard/Stats/StatsIndex";
 import StockIndex from "@/views/pages/Dashboard/Stock/StockIndex";
+
+import Home from "@/views/pages/Landing/Home";
+import NotFound from "@/views/pages/Landing/NotFound/NotFound";
 
 function CustomRoutes() {
     let routes = useRoutes([

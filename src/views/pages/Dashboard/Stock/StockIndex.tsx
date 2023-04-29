@@ -1,7 +1,7 @@
 import { fakeStockCompanies } from "@/database/fakeStockCompanies";
-import IStockCompany from "@/interface/IStockCompany";
-import LayoutDashboard from "@/views/layouts/LayoutDashboard/LayoutDashboard";
+import LayoutDashboard from '../_components/LayoutDashboard/LayoutDashboard';
 
+import IStockCompany from "@/interface/IStockCompany";
 
 function StockIndex() {
     return (

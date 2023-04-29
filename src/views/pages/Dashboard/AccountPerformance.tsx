@@ -16,6 +16,7 @@ const tradingLogs = [
         "netPnL": 1000
     }
 ];
+
 const data = [
     { date: '2022-01-01', accountValue: 10000 },
     { date: '2022-01-02', accountValue: 10500 },
@@ -23,14 +24,14 @@ const data = [
     { date: '2022-01-04', accountValue: 10700 },
     { date: '2022-01-05', accountValue: 11000 },
     { date: '2022-01-06', accountValue: 11300 },
-    { date: '2022-01-07', accountValue: -1100 },
-    { date: '2022-01-08', accountValue: -1800 },
-    { date: '2022-01-09', accountValue: 12000 },
-    { date: '2022-01-10', accountValue: 12200 },
-    { date: '2022-01-11', accountValue: 11800 },
-    { date: '2022-01-12', accountValue: 13400 },
-    { date: '2022-01-13', accountValue: 14900 },
-    { date: '2022-01-14', accountValue: 16600 },
+    { date: '2022-01-07', accountValue: -4100 },
+    { date: '2022-01-08', accountValue: -5800 },
+    { date: '2022-01-09', accountValue: -16000 },
+    { date: '2022-01-10', accountValue: 200 },
+    { date: '2022-01-11', accountValue: 1800 },
+    { date: '2022-01-12', accountValue: 3400 },
+    { date: '2022-01-13', accountValue: 7900 },
+    { date: '2022-01-14', accountValue: 14600 },
     { date: '2022-01-15', accountValue: 17600 },
     { date: '2022-01-16', accountValue: 18600 },
     { date: '2022-01-17', accountValue: 19600 },
@@ -87,100 +88,38 @@ function AccountPerformance() {
     });
   });
 
-//   const CustomBar = (props:any) => {
-//         const {years, fill} = props;
-//         //business logic here to update fill color explicitly
-//         if(years === 'Current') {
-//             fill='#NewFillColor';
-//         }
-    
-//         //use explicit fill here, or use the additional css class and make a css selector to update fill there
-//         return <Rectangle {...props} fill={fill} className=`recharts-bar-rectangle ${years}` />
-//     };
 
   return (
-    <div className="w-full h-full">
-      <h3>Account Return £</h3>
+    <div className="w-full h-auto">
+        <h3>Account Return £</h3>
 
         <div className="h-[500px]">
         <ResponsiveContainer>
-        <BarChart data={data} barCategoryGap={26}>
-            <CartesianGrid strokeDasharray="3 3" />
+        <BarChart data={data} barCategoryGap={0}>
+            <CartesianGrid yAxis={false}  strokeDasharray="3 3"/>
             <XAxis 
-                dataKey="date" 
-                strokeWidth={0} 
-                height={80} 
-                tick={{ angle: -70, textAnchor: 'end' }} 
-                interval={0}  
+                 dataKey="date" 
+                 strokeWidth={2} 
+                 height={80} 
+                 tick={{ angle: -70, textAnchor: 'end' }} 
+                 interval={0}  
             />
             <YAxis 
-                tickFormatter={(value) => `${value / 1000}k`}
-                axisLine={{ strokeWidth: 0 }}
+                tickFormatter={(value) => `£${value / 1000}k`}
+                axisLine={false}
                 strokeDasharray="0"
             />
             <Tooltip />
             <Bar dataKey="accountValue" >
                 {data.map((entry, index) => (
-                    <Cell fill={entry.accountValue <= 0 ? 'red' : 'green' }/>
+                    <Cell fill={entry.accountValue <= 0 ? '#c23e74' : '#00867a' }/>
                 ))}
             </Bar>
         </BarChart>
         </ResponsiveContainer>
         </div>
     </div>
-
-
-
-
-  )
-    // const chartOptions = {
-    //     chart: {
-    //         id: "account-performance",
-    //         type: "line",
-    //         height: 350,
-    //         toolbar: {
-    //             show: false
-    //         }
-    //     },
-    //     xaxis: {
-    //         type: "datetime",
-    //         labels: {
-    //             format: "dd MMM yyyy"
-    //         }
-    //     },
-    //     yaxis: {
-    //         labels: {
-    //             formatter: function (value) {
-    //                 return "$" + value.toFixed(2);
-    //             }
-    //         }
-    //     },
-    //     stroke: {
-    //         width: 2
-    //     },
-    //     series: [
-    //         {
-    //             name: "Cumulative Return",
-    //             data: accountPerformanceData
-    //         }
-    //     ]
-    // };
-
-    // return (
-    //     <div>
-    //         <div>
-    //             <h3>Account Performance</h3>
-    //         </div>
-    //         <div>
-    //         <Chart
-    //             options={chartOptions}
-    //             series={chartOptions.series}
-    //             type="line"
-    //             height={350}
-    //         />
-    //         </div>
-    //     </div>
-    // )
+    )
 }
 
 export default AccountPerformance;

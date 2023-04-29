@@ -1,6 +1,6 @@
 import react, {useEffect, useRef, useState} from 'react';
 
-import LayoutDashboard from "@/views/layouts/LayoutDashboard/LayoutDashboard";
+import LayoutDashboard from '../_components/LayoutDashboard/LayoutDashboard';
 
 import { fakeNotes } from '@/database/fakeNotes';
 import NoteContent from './NoteContent';

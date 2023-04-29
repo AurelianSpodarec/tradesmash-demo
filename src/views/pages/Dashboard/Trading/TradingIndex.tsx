@@ -1,11 +1,11 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import LayoutDashboard from '../_components/LayoutDashboard/LayoutDashboard';
  
-
 import { fakeTrades } from '@/database/fakeTrades';
-import LayoutDashboard from '@/views/layouts/LayoutDashboard/LayoutDashboard';
+
 import CellBuySell from './CellBuySell';
 import CellStatus from './CellStatus';
-import { ITrade } from '@/interface/ITrade';
+import { ITrade } from 'interface/ITrade';
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')

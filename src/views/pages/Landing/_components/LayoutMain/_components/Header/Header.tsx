@@ -1,10 +1,9 @@
 import { Link } from "react-router-dom";
-import { configApp } from "../../../../../config/configApp";
+import { configApp } from "config/configApp";
 
 
 function Header() {
     
-
     return (
         <header className="text-gray-600 body-font z-10 relative">
         <div className="container mx-auto flex flex-wrap justify-between p-5 flex-col md:flex-row items-center">

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import LayoutMain from "../../layouts/LayoutMain/LayoutMain";
+import LayoutMain from "../_components/LayoutMain/LayoutMain";
 
 function Home() {
     return (

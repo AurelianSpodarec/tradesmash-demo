@@ -1,4 +1,4 @@
-import LayoutDashboard from "@/views/layouts/LayoutDashboard/LayoutDashboard";
+import LayoutDashboard from '../_components/LayoutDashboard/LayoutDashboard';
 import StatsList from "./_components/StatsList";
 
 function StatsIndex() {

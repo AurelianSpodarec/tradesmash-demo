@@ -7,7 +7,7 @@ function LayoutDashboard({ children}:LayoutDashboardProps) {
 
             <Navigation />
         
-            <div className="lg:pl-72">                
+            <div className="lg:pl-[40px]">                
                 <Header />
                 <main className="py-10">
 

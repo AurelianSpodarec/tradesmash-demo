@@ -1,4 +1,4 @@
-import { configApp } from "../../../../../config/configApp";
+import { configApp } from "config/configApp";
 
 function Footer() {
     const date = new Date()
