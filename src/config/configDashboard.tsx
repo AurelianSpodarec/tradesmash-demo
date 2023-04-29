@@ -17,6 +17,11 @@ export const configDashboard = {
         },
         {
             id: 200,
+            name: "Stocks",
+            url: "/stocks"
+        },
+        {
+            id: 200,
             name: "Daily Stats",
             url: "/stats"
         },

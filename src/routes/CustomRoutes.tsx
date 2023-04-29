@@ -8,6 +8,7 @@ import TradingIndex from "../views/pages/Dashboard/Trading/TradingIndex";
 import NotebookIndex from "@/views/pages/Dashboard/Notebook/NotebookIndex";
 import TradeLogIndex from "@/views/pages/Dashboard/TradeLog/TradeLogIndex";
 import StatsIndex from "@/views/pages/Dashboard/Stats/StatsIndex";
+import StockIndex from "@/views/pages/Dashboard/Stock/StockIndex";
 
 function CustomRoutes() {
     let routes = useRoutes([
@@ -26,6 +27,10 @@ function CustomRoutes() {
         {
             path: "/dashboard/trades",
             element: <TradingIndex />
+        },
+        {
+            path: "/dashboard/stocks",
+            element: <StockIndex />
         },
         {
             path: "/dashboard/stats",

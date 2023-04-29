@@ -21,6 +21,10 @@ function AccountPerformance() {
 function DashboardIndex() {
     return (
         <LayoutDashboard>
+
+            {/* All Profit
+            Profit this Month
+            Profit today */}
            
             <AccountPerformance />
 
