@@ -4,9 +4,7 @@ import CustomRoutes from "../../routes/CustomRoutes";
 function Layout() {
     return (
         <BrowserRouter>
-    
             <CustomRoutes />
-     
         </BrowserRouter>
     )
 }

@@ -1,7 +1,13 @@
+import { useEffect } from "react"
 import Header from "./_components/Header"
 import Navigation from "./_components/Navigation"
 
 function LayoutDashboard({ children}:LayoutDashboardProps) {
+
+    useEffect(() => {
+        document.body.classList.add('overflow-hidden')
+    }, [])
+
     return (
         <div className="relative">
 

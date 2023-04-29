@@ -1,7 +1,13 @@
 import Header from './_components/Header/Header';
 import Footer from './_components/Footer/Footer';
+import { useEffect } from 'react';
 
 function LayoutMain({ children }:LayoutMainProps) {
+
+    useEffect(() => {
+        document.body.classList.remove('overflow-hidden')
+    }, [])
+
     return (
         <div>
 
