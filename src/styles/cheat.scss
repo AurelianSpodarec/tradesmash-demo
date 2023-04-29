@@ -1,3 +1,9 @@
 // ==========================================================================
 // # Cheat - Hot fixes and quick code; needs cleaning up afterwards
 // ==========================================================================
+
+
+// Hides Tiny Editor warning for API 
+.tox-notification {
+    display: none!important;
+}
