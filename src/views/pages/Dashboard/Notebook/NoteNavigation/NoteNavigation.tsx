@@ -12,12 +12,24 @@ function NoteNavigation({ data }:NoteNavigationProps) {
 
             <ScalableHeader>
             <header className="border-b py-4 px-4 bg-white">
-                <h3 className="text-xl font-semibold">August 2023, Tue 16th</h3>
-                {/* <h3 className="text-xl font-semibold">{dateHelper.todayDate()}</h3> */}
+                <div className="mb-4">
+                    <h3 className="text-xl font-semibold">August 2023</h3>
+                    {/* August 2023, Tue 16th */}
+                    {/* <h3 className="text-xl font-semibold">{dateHelper.todayDate()}</h3> */}
+                </div>
+
+                <section>
+                    <div>
+                        Your Results: 5 Notes
+                    </div>
+                    <input placeholder="Search " className="w-full" />
+                </section>
+
             </header>
             </ScalableHeader>
 
             <ScalableContent>
+            
             <section>
 
                 <ol>
