@@ -1,5 +1,5 @@
 import { closeModal } from '@/store/features/modals/modalsSlice';
-import { createNote, getNoteByTradeID } from '@/store/features/notes/notesSlice';
+import { createNote, getNoteByTradeID, updateNote } from '@/store/features/notes/notesSlice';
 import { Editor } from '@tinymce/tinymce-react';
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from "react-redux";
@@ -16,12 +16,11 @@ function Modal() {
     
     const note = getNoteByTradeID(tradeID)
 
-    function getTradeNote() {
 
-    }
+    const [editorValue, setEditorValue] = useState()
 
     function onChange(e:any) {
-        console.log(e)
+        console.log("iriuiiuiiuiu", e)
         setEditorValue(e)
     }
     
@@ -30,8 +29,18 @@ function Modal() {
     }
 
     function saveNote() {
-        dispatch(createNote({ tradeID, content: editorRef }))
+        const content = editorRef.current.getContent();
+        dispatch(updateNote({ 
+            id: note?.id,
+            tradeID, 
+            content: content 
+        }));
+        dispatch(closeModal())
     }
+
+    useEffect(() => {
+        setEditorValue(note?.content)
+    }, [tradeID, isOpen])
 
     return (
         <div className={`
@@ -64,10 +73,10 @@ function Modal() {
 
                     <section className="h-[500px]">    
                     <Editor
-                        onChange={(e) => onChange(e)}
+                        onChange={(e) => onChange(e.target.getContent())}
                         apiKey='your-api-key'
                         onInit={(evt, editor) => editorRef.current = editor}
-                        initialValue={note?.content}
+                        initialValue={editorValue}
                         init={{
                         height: "100%",
                         menubar: false,
