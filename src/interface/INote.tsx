@@ -1,6 +1,6 @@
 export default interface INote {
-    stockID: number;
     id: number;
+    tradeID: number;
     content: string;
 
     updatedAt: number;

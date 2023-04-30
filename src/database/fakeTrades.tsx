@@ -1,6 +1,6 @@
 import { ITrade } from "interface/ITrade"
 
-export const fakeTrades:ITrade[] = [
+const fakeTrades:ITrade[] = [
     {
         id: 4023,
         date: "30/03/2023",
@@ -173,3 +173,11 @@ export const fakeTrades:ITrade[] = [
         status: "increased",
     }
 ]
+
+function fetchTrades() {
+    return fakeTrades;
+}
+
+export {
+    fetchTrades
+}

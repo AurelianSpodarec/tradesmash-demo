@@ -1,7 +1,7 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import LayoutDashboard from '../_components/LayoutDashboard/LayoutDashboard';
  
-import { fakeTrades } from '@/database/fakeTrades';
+// import { fakeTrades } from '@/database/fakeTrades';
 
 import CellBuySell from './CellBuySell';
 import CellStatus from './CellStatus';
@@ -21,6 +21,7 @@ function TradingIndex() {
 
     const [fakeTradesData, setFakeTradesData] = useState([])
 
+    const fakeTrades = []
 
     useLayoutEffect(() => {
         const isIndeterminate = selectedTrades.length > 0 && selectedTrades.length < fakeTradesData.length

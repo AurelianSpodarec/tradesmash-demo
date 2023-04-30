@@ -10,6 +10,7 @@ function NoteContent({ data }:any) {
         setEditorValue(e)
     }
 
+    if(!data) return <>Loading...</>
     return (
         <div className="h-full">
 

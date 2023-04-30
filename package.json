@@ -18,6 +18,9 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.10.0",
     "recharts": "^2.5.0",
+    "react-redux": "^8.0.5",
+    "redux": "^4.2.0",
+    "@reduxjs/toolkit": "^1.9.2",
     "sass": "^1.62.1",
     "setimmediate": "^1.0.5"
   },

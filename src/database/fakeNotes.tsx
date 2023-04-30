@@ -1,4 +1,4 @@
-export const fakeNotes = [
+    const fakeNotes = [
     {
         "stockID": 1,
         "id": 1,
@@ -161,3 +161,11 @@ export const fakeNotes = [
         "createdAt": 1649055200000
     },
 ]
+
+function fetchNotes() {
+    return fakeNotes
+}
+
+export {
+    fetchNotes
+}

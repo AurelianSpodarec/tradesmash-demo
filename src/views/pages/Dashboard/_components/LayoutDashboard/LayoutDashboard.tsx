@@ -1,4 +1,5 @@
 import { useEffect } from "react"
+
 import Header from "./_components/Header"
 import Navigation from "./_components/Navigation"
 
@@ -12,7 +13,6 @@ function LayoutDashboard({ children, container }:LayoutDashboardProps) {
         <div className="relative h-full bg-[#f1f5f9]">
         <div className="relative h-screen overflow-hidden">
         
-
             <div id="context-wrap" className={`flex flex-col h-full overflow-hidden`}> 
                 <Header />
                 
@@ -24,6 +24,7 @@ function LayoutDashboard({ children, container }:LayoutDashboardProps) {
                 </div>            
 
             </div>
+
         </div>
         </div>
     )
