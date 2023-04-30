@@ -6,6 +6,8 @@ import { fakeNotes } from '@/database/fakeNotes';
 import NoteContent from './NoteContent';
 import NoteNavigation from './NoteNavigation/NoteNavigation';
 
+
+
 function NotebookIndex() {
   
     const [notes, setNotes] = useState(fakeNotes)
@@ -30,11 +32,16 @@ function NotebookIndex() {
  
     return (
         <LayoutDashboard>
-        <div className="flex justify-between ">
+        <div className="grid grid-cols-12 h-full">
 
-            
-            <NoteNavigation data={notes} />
-            <NoteContent data={notes} />
+            <div className="col-span-4">
+
+                <NoteNavigation data={notes} />
+             
+            </div>
+            <div className="col-span-8">
+                <NoteContent data={notes} />
+            </div>
 
 
         </div>

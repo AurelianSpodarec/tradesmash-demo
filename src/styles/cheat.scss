@@ -7,3 +7,24 @@
 .tox-notification {
     display: none!important;
 }
+ 
+ 
+
+.sidebar-scrollbar {
+    scrollbar-width: auto;
+    scrollbar-color: #dedede #ffffff;
+}
+
+.sidebar-scrollbar::-webkit-scrollbar {
+    width: 16px;
+}
+
+.sidebar-scrollbar::-webkit-scrollbar-track {
+    background: #ffffff;
+}
+
+.sidebar-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #dedede;
+    border-radius: 10px;
+    border: 3px solid #ffffff;
+}

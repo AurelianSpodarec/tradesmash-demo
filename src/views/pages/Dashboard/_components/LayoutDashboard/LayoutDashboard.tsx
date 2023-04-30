@@ -9,23 +9,22 @@ function LayoutDashboard({ children}:LayoutDashboardProps) {
     }, [])
 
     return (
-        <div className="relative">
-
-            <Navigation />
+        <div className="relative h-full">
+        <div className="relative h-screen overflow-hidden">
         
-            <div className="lg:pl-[40px]">                
+
+            <div id="context-wrap" className={`flex flex-col h-full overflow-hidden`}> 
                 <Header />
-                <main className="py-10">
+                
+                <div className="flex flex-row h-full overflow-hidden relative">
+                    <Navigation />
+                    <main className="h-full w-full">
+                        {children}
+                    </main>      
+                </div>            
 
-                <div className="px-4 sm:px-6 lg:px-8">
-                    <div className="relative h-[576px] rounded-xl">
-                    {children}
-                    </div>
-                </div>
-
-                </main>
             </div>
-
+        </div>
         </div>
     )
 }
