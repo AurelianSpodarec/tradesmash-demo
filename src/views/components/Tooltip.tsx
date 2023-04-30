@@ -68,7 +68,7 @@ function Tooltip(props: any) {
             </div>
             <div
                 id="toolpit-message"
-                className={`absolute whitespace-nowrap z-10 text-xs delay-300 bg-gray-800 text-gray-50 w-auto px-2 py-1.5 rounded h-fit translate-x-full
+                className={`absolute whitespace-nowrap z-10 text-xs delay-300 bg-white border text-gray-900 w-auto px-2 py-1.5 rounded h-fit translate-x-full
                 ${isOpen ? '' : 'hidden'} `}
                 style={{ userSelect: 'none', ...positions[position]  }}
             >
