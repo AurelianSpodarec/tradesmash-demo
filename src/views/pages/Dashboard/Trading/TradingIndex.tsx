@@ -1,107 +1,69 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
-import LayoutDashboard from '../_components/LayoutDashboard/LayoutDashboard';
- 
-// import { fakeTrades } from '@/database/fakeTrades';
+import { useDispatch, useSelector } from 'react-redux';
+import { getNoteByTradeID } from '@/store/features/notes/notesSlice';
+import { closeModal, openModal } from '@/store/features/modals/modalsSlice';
 
+import Modal from '@/views/features/Modal/Modal';
+
+import LayoutDashboard from '../_components/LayoutDashboard/LayoutDashboard';
+import { ScalableContainer, ScalableContent, ScalableHeader } from '../_components/ScalableCell';
+ 
 import CellBuySell from './CellBuySell';
 import CellStatus from './CellStatus';
-import { ITrade } from 'interface/ITrade';
-import { ScalableContainer, ScalableContent, ScalableHeader } from '../_components/ScalableCell';
-import StatBox from '@/views/components/StatBox';
-import { useSelector } from 'react-redux';
-import Input from '@/views/components/Input';
-
-function classNames(...classes) {
-    return classes.filter(Boolean).join(' ')
-}
-
-function tradeFactory({ trades }:ITrade) {
-    const newTrade:ITrade = {
-        id: trades.length + 1,
-        date: `${Math.floor(Math.random() * 31)}/${Math.floor(Math.random() * 12)}/2023`,
-        stock:  Math.random() < 0.5 ? "CTAG" : "REAT",
-        bs: Math.random() < 0.5 ? "buy" : "sell",
-        size: Math.floor(Math.random() * 999),
-        price: Math.floor(Math.random() * 15),
-        fees: Math.floor(Math.random() * 10001),
-        stop: Math.floor(Math.random() * 25),
-        target:Math.floor(Math.random() * 25),
-        strategy: Math.random() < 0.5 ? "cleaning" : "swiping",
-        value: Math.floor(Math.random() * 120),
-        risk: Math.floor(Math.random() * 6).toFixed(1),
-        aop: Math.floor(Math.random() * 60),
-        acp: Math.floor(Math.random() * 71),
-        rrRatio: 0,
-        grossPL: 0,
-        status: Math.random() < 0.5 ? "open" : "increased",
-    };
-}
-
-
-
-function ModalNotes() {
-    const isOpen = true;
-    return (
-        <div className={`
-                fixed top-0 right-0 bottom-0 left-0 z-50 
-                m-auto opacity-0 bg-black/50 
-                p-4 overflow-y-auto
-                ${isOpen ? 'visible opacity-100 animate-open' : 'opacity-0 hidden'} 
-        `}>
-                <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-                <div className="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
-
-                    <div>
-
-                        <header>
-                        <div className="flex justify-between ">
-
-                            <div>
-                                <span className="text-lg font-semibold leading-6 text-gray-900">Add/Edit Task</span>
-                            </div>
-                            <div>
-                                X
-                            </div>
-                            
-                        </div>
-                        </header>
-
-                        <section>
-                            hi
-
-                        <Input name="market" label="Market" type="text" fullWidth={true} />
-
-
-                        </section>
-
-                        <footer>
-                            <div className="mt-5 sm:mt-4 sm:flex sm:flex-row-reverse">
-                                <button type="button" className="inline-flex w-full justify-center rounded-md bg-skin-brand-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-skin-brand-500 sm:ml-3 sm:w-auto">Random Data</button>
-                                <button type="button" className="inline-flex w-full justify-center rounded-md bg-skin-brand-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-skin-brand-500 sm:ml-3 sm:w-auto">Deactivate</button>
-                                <button type="button" className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto">Cancel</button>
-                            </div>
-                        </footer>
-                    </div>
-
-                </div>
-                </div>
-        </div>
-    )
-}
-
-
-
 
 
 
 function TradingIndex() {
     const reduxTrades = useSelector((state:any) => state.trades);
+    const reduxModal = useSelector((state:any) => state.modal);
+
+    const dispatch = useDispatch()
     const trades = reduxTrades.trades
 
     const checkbox = useRef()
     const [checked, setChecked] = useState(false)
     const [indeterminate, setIndeterminate] = useState(false)
     const [selectedTrades, setSelectedTrades] = useState([])
+ 
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+    const [selectedTrade, setSelectedTrade] = useState(0);
+    
+    const bo = getNoteByTradeID(8)
+    
+    function modalOpen(tradeID:number) {
+        dispatch(openModal({
+            selectedTrade, 
+            content: { 
+                tradeID,
+                note: bo
+            }
+        }))
+    }
+
+
+    function modalClose() {
+        dispatch(closeModal())
+    }
+
+    function modalSave() {
+
+    }
+
+
+    function manageNote(tradeID:number) {
+
+        modalOpen(tradeID)
+        // setSelectedTrade(tradeID)
+        // Show modal for notes
+
+        // Does the note exist? If not create it
+        // Else, fetch it
+    }
+
+    function noteSave() {
+
+    }
+
  
 
     useLayoutEffect(() => {
@@ -117,41 +79,10 @@ function TradingIndex() {
         setIndeterminate(false)
     }
 
-    function addFactoryTrade() {
-        const newTrade:ITrade = {
-            id: trades.length + 1,
-            date: `${Math.floor(Math.random() * 31)}/${Math.floor(Math.random() * 12)}/2023`,
-            stock:  Math.random() < 0.5 ? "CTAG" : "REAT",
-            bs: Math.random() < 0.5 ? "buy" : "sell",
-            size: Math.floor(Math.random() * 999),
-            price: Math.floor(Math.random() * 15),
-            fees: Math.floor(Math.random() * 10001),
-            stop: Math.floor(Math.random() * 25),
-            target:Math.floor(Math.random() * 25),
-            strategy: Math.random() < 0.5 ? "cleaning" : "swiping",
-            value: Math.floor(Math.random() * 120),
-            risk: Math.floor(Math.random() * 6).toFixed(1),
-            aop: Math.floor(Math.random() * 60),
-            acp: Math.floor(Math.random() * 71),
-            rrRatio: 0,
-            grossPL: 0,
-            status: Math.random() < 0.5 ? "open" : "increased",
-        };
-    }
-
-
-    function manageNote(tradeID) {
-        // Show modal for notes
-
-        // Does the note exist? If not create it
-        // Else, fetch it
-    }
-
-
     return (
         <LayoutDashboard>
 
-        <ModalNotes />
+        <Modal />
 
         <ScalableContainer>
         <div className="p-8">

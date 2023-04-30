@@ -7,10 +7,13 @@ import store from "@/store/store";
 import App from './views/App'
 import './styles/styles.scss'
 
+import Modal from './views/features/Modal/Modal';
+
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <React.StrictMode>
     <Provider store={store}>
         
+        <Modal />
         <App />
 
     </Provider>

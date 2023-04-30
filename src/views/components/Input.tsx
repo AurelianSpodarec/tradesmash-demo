@@ -29,8 +29,9 @@ const Input: React.FC<InputProps> = (props) => {
     return (
         <div className="relative">
                 
-            {label && <label htmlFor={name}>{label}</label>}
-            
+            {label && <label className="block text-sm font-medium leading-6 text-gray-900" htmlFor={name}>{label}</label>}
+
+            <div className="mb-4">
             <input 
                 // {...props}     
                 id={name}
@@ -43,10 +44,11 @@ const Input: React.FC<InputProps> = (props) => {
                 value={value}
                 onChange={(e) => onChange(e)}
                 className={`
-                    block w-full placeholder:text-[#D4D4D4] appearance-none rounded-[3px] border border-gray-300 px-3 py-3 placeholder-gray-800 text-black shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-md
+                    block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6    
                     ${className} 
                 `}
             />
+            </div>
 
             {iconRight && <div className="absolute z-10 right-3 top-1/2 -translate-y-1/2" dangerouslySetInnerHTML={{ __html: iconRight}}/>}
         </div>
