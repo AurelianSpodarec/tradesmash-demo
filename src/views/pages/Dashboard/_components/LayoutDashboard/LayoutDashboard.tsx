@@ -9,7 +9,7 @@ function LayoutDashboard({ children, container }:LayoutDashboardProps) {
     }, [])
 
     return (
-        <div className="relative h-full">
+        <div className="relative h-full bg-[#f1f5f9]">
         <div className="relative h-screen overflow-hidden">
         
 

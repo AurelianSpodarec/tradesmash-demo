@@ -90,12 +90,16 @@ function AccountPerformance() {
 
 
   return (
-    <div className="h-[400px] w-full">
+    <div className="h-[400px] w-full bg-white relative flex flex-col min-w-0 break-words bg-white rounded-lg mb-6 xl:mb-0 shadow-lg">
+    <div className="h-full">
 
-        <h3>Account Return £</h3>
-    
+        <div className="p-4">
+            <h3 className="mb-2 text-xl font-bold text-gray-900">Account Return £</h3>
+        </div>
+
+        <div className="h-full pr-4">
         <ResponsiveContainer>
-        <BarChart data={data} barCategoryGap={0}>
+        <BarChart data={data} barCategoryGap={0} margin={{ height: "220%" }}>
             <CartesianGrid yAxis={false}  strokeDasharray="3 3"/>
             <XAxis 
                 dataKey="date" 
@@ -117,7 +121,9 @@ function AccountPerformance() {
             </Bar>
         </BarChart>
         </ResponsiveContainer>
+        </div>
     
+    </div>
     </div>
     )
 }

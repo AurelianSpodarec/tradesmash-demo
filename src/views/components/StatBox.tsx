@@ -1,11 +1,22 @@
 function StatBox({ title, value }:StatBoxProps) {
     return (
-        <article className="overflow-hidden rounded-xl border border-gray-200">
-        <div className="p-4">
-            <div>
-                <h3>{title}</h3>
-                <span className="text-2xl font-semibold">£{value}</span>
+        <article className="relative flex flex-col min-w-0 break-words bg-white rounded-lg mb-6 xl:mb-0 shadow-lg">
+        <div className="flex-auto p-4">
+
+            <div className="mb-0 font-sans font-semibold leading-normal text-sm">
+
+                <div className="mb-4 flex flex-col">
+                    <span className="mb-0 font-sans font-semibold leading-normal dark:opacity-60 text-sm">{title}</span>
+                    <span className="text-xl font-bold">£{value}</span>
+                </div>
+
+                <p className="text-sm dark:opacity-60">
+                    <span className="mr-2 font-bold leading-normal text-sm text-emerald-500">+55%</span>
+                    <span>since yesterday</span>
+                </p>
+
             </div>
+
         </div>
         </article>
     )

@@ -65,10 +65,11 @@ function TradingIndex() {
     return (
         <LayoutDashboard>
         <ScalableContainer>
+        <div className="p-8">
 
 
-            <ScalableHeader>
-            <div className="sm:flex sm:items-center bg-white">
+
+            <div className="sm:flex sm:items-center bg-white z-10 relative">
                 <div className="sm:flex-auto">
                     <h1 className="text-base font-semibold leading-6 text-gray-900">Trades {fakeTradesData.length}</h1>
               
@@ -84,21 +85,6 @@ function TradingIndex() {
                 </button>
                 </div>
             </div>
-            <div>
-                {/* box */}
-            <div className="grid grid-cols-6 gap-4 mt-8">
-                <StatBox title="Total Gross P&L" value="£944.69" />
-                <StatBox title="Total Gross P&L" value="£944.69" />
-                <StatBox title="Total Gross P&L" value="£944.69" />
-                <StatBox title="Total Gross P&L" value="£944.69" />
-                <StatBox title="Total Gross P&L" value="£944.69" />
-                <StatBox title="Total Gross P&L" value="£944.69" />
-            </div>
-
-            </div>
-            </ScalableHeader>
-
-
 
             <ScalableContent>
             <div className="mt-8 flow-root">
@@ -251,6 +237,8 @@ function TradingIndex() {
             </div>
             </ScalableContent>
 
+
+        </div>
         </ScalableContainer>
         </LayoutDashboard>
     )

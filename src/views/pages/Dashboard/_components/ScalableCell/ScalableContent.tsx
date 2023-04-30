@@ -1,6 +1,6 @@
-function ScalableContent({children}:any) {
+function ScalableContent({ children, className }:any) {
     return (
-        <div className="h-full">
+        <div className={`h-auto ${className}`}>
             {children}
         </div>
     )

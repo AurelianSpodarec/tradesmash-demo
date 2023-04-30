@@ -5,6 +5,7 @@ import GraphBox from "./GraphBox";
 import TradesSidebar from "./TradesSidebar";
 import TradingIndex from "./Trading/TradingIndex";
 import { ScalableContainer, ScalableContent, ScalableHeader } from './_components/ScalableCell';
+import StatBox from "@/views/components/StatBox";
 
 const data2 = [
     { date: '2022-01-01', accountValue: 10000 },
@@ -104,12 +105,15 @@ const data2 = [
 function DashboardIndex() {
     return (
         <LayoutDashboard>
+        
 
-            <div className="grid grid-cols-12 space-x-2 h-full">
+            <div className="grid grid-cols-10 h-full">
 
-                <div className="col-span-8 h-full w-full">
+
+                <div className="col-span-7 h-full w-full pb-[64px]">
+                {/* <div className="p-6"> */}
                 <ScalableContainer>
-                <ScalableContent>
+                <ScalableContent className="p-6">
                     {/* <div className="relative overflow-auto h-full"> */}
 
                     <AccountPerformance />
@@ -118,34 +122,36 @@ function DashboardIndex() {
                         <h3 className="text-3xl">Return</h3>
 
                         <div className="grid sm:grid-cols-3 md:grid-cols-4 gap-4">
-                            <GraphBox title="Accumulative Return £" value="23,323.53" chart={data2} />
-                            <GraphBox title="Accumulative Return Net £" value="23,323.53" chart={data3} />
-                            <GraphBox title="Account Balance" value="23,323.53" chart="" />
-                            <GraphBox title="Daily Return £" value="23,323.53" chart="" />
+                            <StatBox title="Accumulative Return £" value="23,323.53" chart={data2} />
+                            <StatBox title="Accumulative Return Net £" value="23,323.53" chart={data3} />
+                            <StatBox title="Account Balance" value="23,323.53" chart="" />
+                            <StatBox title="Daily Return £" value="23,323.53" chart="" />
 
-                            <GraphBox title="Return on Winners £" value="23,323.53" chart="" />
-                            <GraphBox title="Return on Losers £" value="-43,123.53" chart="" />
-                            <GraphBox title="Return £ on Long" value="25,323.53" chart="" />
-                            <GraphBox title="Return £ on Short" value="-3,323.53" chart="" />
+                            <StatBox title="Return on Winners £" value="23,323.53" chart="" />
+                            <StatBox title="Return on Losers £" value="-43,123.53" chart="" />
+                            <StatBox title="Return £ on Long" value="25,323.53" chart="" />
+                            <StatBox title="Return £ on Short" value="-3,323.53" chart="" />
 
-                            <GraphBox title="Biggest Profit £" value="5,323.53" chart="" />
-                            <GraphBox title="Biggest Loss £" value="-1,323.53" chart="" />
-                            <GraphBox title="Profit/Loss Ratio" value="1.2:1" />
+                            <StatBox title="Biggest Profit £" value="5,323.53" chart="" />
+                            <StatBox title="Biggest Loss £" value="-1,323.53" chart="" />
+                            <StatBox title="Profit/Loss Ratio" value="1.2:1" />
 
 
 
-                            <GraphBox title="Biggest Profit £" value="5,323.53" chart="" />
-                            <GraphBox title="Biggest Loss £" value="-1,323.53" chart="" />
-                            <GraphBox title="Profit/Loss Ratio" value="1.2:1" />
+                            <StatBox title="Biggest Profit £" value="5,323.53" chart="" />
+                            <StatBox title="Biggest Loss £" value="-1,323.53" chart="" />
+                            <StatBox title="Profit/Loss Ratio" value="1.2:1" />
                         </div>
                     </div> 
                     {/* </div> */}
 
                 </ScalableContent>
                 </ScalableContainer>
+                {/* </div> */}
+                
                 </div>
 
-                <div className="col-span-4">
+                <div className="col-span-3">
                     <TradesSidebar />
                 </div>
             </div>
