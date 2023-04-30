@@ -13,13 +13,16 @@ function NoteContent({ data }:any) {
     return (
         <div className="h-full">
 
-            <div className="flex flex-col">
+            <div className="flex flex-col bg-white p-6">
                 {/* <h3>Note: {dateHelper.formatDate(notes[0].createdAt)}</h3> */}
-                <div className="space-x-4   ">
-                    <span className="text-2xl font-bold">Great day at stock</span>
+                <div className="flex space-x-4">
+                    <div className="flex items-center space-x-2">
+                        <div className="h-4 w-4 bg-blue-300 rounded"></div>
+                        <span className="text-xl font-bold">Great day at stock -</span>
+                    </div>
                     <span className="text-xl font-bold">Net P&L: £2323.94</span>
                 </div>
-                <time>15th August Wed, 2020</time>
+                <time className="text-gray-700">15th August Wed, 2020</time>
                 
             </div>
 

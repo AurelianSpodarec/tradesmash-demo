@@ -11,9 +11,7 @@ function NavList() {
         <ul role="list" className="flex flex-1 flex-col">
     
             {configDashboard.navigation && configDashboard.navigation.map((item => {
-                return (
-                    <NavItem item={item} isActive={pathnameWithoutDashboard === item.url}/>
-                )
+                return <NavItem item={item} isActive={pathnameWithoutDashboard === item.url}/>
             }))}
     
         </ul>
