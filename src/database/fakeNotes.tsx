@@ -1,4 +1,4 @@
-    const fakeNotes = [
+const fakeNotes = [
     {
         "stockID": 1,
         "id": 1,

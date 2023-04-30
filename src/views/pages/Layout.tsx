@@ -15,8 +15,8 @@ function Layout() {
         const trades = fetchTrades()
         const notes = fetchNotes();
 
-        dispatch(setNotes(trades))
-        dispatch(setTrades(notes))
+        dispatch(setTrades(trades))
+        dispatch(setNotes(notes))
     }
 
     useEffect(() => {

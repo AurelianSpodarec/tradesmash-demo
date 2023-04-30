@@ -8,37 +8,118 @@ import CellStatus from './CellStatus';
 import { ITrade } from 'interface/ITrade';
 import { ScalableContainer, ScalableContent, ScalableHeader } from '../_components/ScalableCell';
 import StatBox from '@/views/components/StatBox';
+import { useSelector } from 'react-redux';
+import Input from '@/views/components/Input';
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
 
+function tradeFactory({ trades }:ITrade) {
+    const newTrade:ITrade = {
+        id: trades.length + 1,
+        date: `${Math.floor(Math.random() * 31)}/${Math.floor(Math.random() * 12)}/2023`,
+        stock:  Math.random() < 0.5 ? "CTAG" : "REAT",
+        bs: Math.random() < 0.5 ? "buy" : "sell",
+        size: Math.floor(Math.random() * 999),
+        price: Math.floor(Math.random() * 15),
+        fees: Math.floor(Math.random() * 10001),
+        stop: Math.floor(Math.random() * 25),
+        target:Math.floor(Math.random() * 25),
+        strategy: Math.random() < 0.5 ? "cleaning" : "swiping",
+        value: Math.floor(Math.random() * 120),
+        risk: Math.floor(Math.random() * 6).toFixed(1),
+        aop: Math.floor(Math.random() * 60),
+        acp: Math.floor(Math.random() * 71),
+        rrRatio: 0,
+        grossPL: 0,
+        status: Math.random() < 0.5 ? "open" : "increased",
+    };
+}
+
+
+
+function ModalNotes() {
+    const isOpen = true;
+    return (
+        <div className={`
+                fixed top-0 right-0 bottom-0 left-0 z-50 
+                m-auto opacity-0 bg-black/50 
+                p-4 overflow-y-auto
+                ${isOpen ? 'visible opacity-100 animate-open' : 'opacity-0 hidden'} 
+        `}>
+                <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+                <div className="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+
+                    <div>
+
+                        <header>
+                        <div className="flex justify-between ">
+
+                            <div>
+                                <span className="text-lg font-semibold leading-6 text-gray-900">Add/Edit Task</span>
+                            </div>
+                            <div>
+                                X
+                            </div>
+                            
+                        </div>
+                        </header>
+
+                        <section>
+                            hi
+
+                        <Input name="market" label="Market" type="text" fullWidth={true} />
+
+
+                        </section>
+
+                        <footer>
+                            <div className="mt-5 sm:mt-4 sm:flex sm:flex-row-reverse">
+                                <button type="button" className="inline-flex w-full justify-center rounded-md bg-skin-brand-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-skin-brand-500 sm:ml-3 sm:w-auto">Random Data</button>
+                                <button type="button" className="inline-flex w-full justify-center rounded-md bg-skin-brand-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-skin-brand-500 sm:ml-3 sm:w-auto">Deactivate</button>
+                                <button type="button" className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto">Cancel</button>
+                            </div>
+                        </footer>
+                    </div>
+
+                </div>
+                </div>
+        </div>
+    )
+}
+
+
+
+
+
+
 function TradingIndex() {
+    const reduxTrades = useSelector((state:any) => state.trades);
+    const trades = reduxTrades.trades
+
     const checkbox = useRef()
     const [checked, setChecked] = useState(false)
     const [indeterminate, setIndeterminate] = useState(false)
     const [selectedTrades, setSelectedTrades] = useState([])
-
-    const [fakeTradesData, setFakeTradesData] = useState([])
-
-    const fakeTrades = []
+ 
 
     useLayoutEffect(() => {
-        const isIndeterminate = selectedTrades.length > 0 && selectedTrades.length < fakeTradesData.length
-        setChecked(selectedTrades.length === fakeTradesData.length)
+        const isIndeterminate = selectedTrades.length > 0 && selectedTrades.length < trades.length
+        setChecked(selectedTrades.length === trades.length)
         setIndeterminate(isIndeterminate)
         checkbox.current.indeterminate = isIndeterminate
     }, [selectedTrades])
 
     function toggleAll() {
-        setSelectedTrades(checked || indeterminate ? [] : fakeTradesData)
+        setSelectedTrades(checked || indeterminate ? [] : trades)
         setChecked(!checked && !indeterminate)
         setIndeterminate(false)
     }
 
-    function addTrade() {
+    function addFactoryTrade() {
         const newTrade:ITrade = {
-            id: fakeTradesData.length + 1,
+            id: trades.length + 1,
             date: `${Math.floor(Math.random() * 31)}/${Math.floor(Math.random() * 12)}/2023`,
             stock:  Math.random() < 0.5 ? "CTAG" : "REAT",
             bs: Math.random() < 0.5 ? "buy" : "sell",
@@ -56,23 +137,28 @@ function TradingIndex() {
             grossPL: 0,
             status: Math.random() < 0.5 ? "open" : "increased",
         };
-        setFakeTradesData([newTrade, ...fakeTradesData]);
     }
 
-    useEffect(() => {
-        setFakeTradesData(fakeTrades)
-    }, [])
+
+    function manageNote(tradeID) {
+        // Show modal for notes
+
+        // Does the note exist? If not create it
+        // Else, fetch it
+    }
+
 
     return (
         <LayoutDashboard>
+
+        <ModalNotes />
+
         <ScalableContainer>
         <div className="p-8">
 
-
-
             <div className="sm:flex sm:items-center bg-white z-10 relative">
                 <div className="sm:flex-auto">
-                    <h1 className="text-base font-semibold leading-6 text-gray-900">Trades {fakeTradesData.length}</h1>
+                    <h1 className="text-base font-semibold leading-6 text-gray-900">Trades {trades.length}</h1>
               
                 </div>
 
@@ -122,7 +208,7 @@ function TradingIndex() {
                                 onChange={toggleAll}
                             />
                             </th>
-                            <th scope="col" className="min-w-[12rem] py-3.5 pr-3 text-left text-sm font-semibold text-gray-900">
+                            <th scope="col" className="min-w-[6rem] py-3.5 pr-3 text-left text-sm font-semibold text-gray-900">
                             Trade No.
                             </th>
                             <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
@@ -176,13 +262,16 @@ function TradingIndex() {
                             <th scope="col" className="relative py-3.5 pl-3 pr-4 sm:pr-3">
                             <span className="sr-only">Edit</span>
                             </th>
+                            <th scope="col" className="relative py-3.5 pl-3 pr-4 sm:pr-3">
+                            <span className="sr-only">Add Note</span>
+                            </th>
                         </tr>
                         </thead>
 
 
 
                         <tbody className="divide-y divide-gray-200 bg-white">
-                        {fakeTradesData.map((trade) => (
+                        {trades.map((trade) => (
                             <tr key={trade.id} className={selectedTrades.includes(trade) ? 'bg-gray-50' : undefined}>
 
                                 <td className="relative px-7 sm:px-6">
@@ -222,9 +311,14 @@ function TradingIndex() {
                                 <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">£{trade.grossPL && trade.grossPL.toFixed(2)}</td>
                                 <CellStatus item={trade.status} />
                                 <td className="whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-3">
-                                <a href="#" className="text-skin-brand-600 hover:text-skin-brand-900">
-                                Edit<span className="sr-only">, {trade.id}</span>
-                                </a>
+                                <button type="button" className="text-skin-brand-600 hover:text-skin-brand-900">
+                                    Edit<span className="sr-only">, {trade.id}</span>
+                                </button>
+                                </td>
+                                <td className="whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-3">
+                                <button type="button" onClick={() => manageNote(trade.id)} className="text-skin-brand-600 hover:text-skin-brand-900">
+                                    Add Note<span className="sr-only">, {trade.id}</span>
+                                </button>
                                 </td>
                             </tr>
                         ))}

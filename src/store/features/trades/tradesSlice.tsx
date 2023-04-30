@@ -35,6 +35,10 @@ const tradeSlice = createSlice({
     },
 });
 
+// Total Gross P&L
+// export const getTotalGrossPnL = () => useSelector(( state: { trades:TradeState }) => state.trades 
+
+
 
 // export const pagesActivePage = () => useSelector((state: { pages:PagesState }) => state.pages.pages.find(page => page.id === state.pages.currentPage))
 // export const pagesActiveDOM = () => useSelector((state: { pages:PagesState }) => state.pages.pagesDOM.find(page => page.id === state.pages.currentPage))?.dom
