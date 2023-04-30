@@ -7,7 +7,7 @@ import { ScalableContainer, ScalableHeader, ScalableContent } from '../../_compo
 function NoteNavigation({ data }:NoteNavigationProps) {
 
     return (
-        <aside className="w-full h-full">
+        <aside className="w-full h-full border-r border-r-gray-300">
         <ScalableContainer header={`Heloooooooopomodsmfos mdfodsmfosfdm osdmf osdm osmd`}>
 
             <ScalableHeader>
@@ -19,7 +19,7 @@ function NoteNavigation({ data }:NoteNavigationProps) {
 
             <ScalableContent>
             <section>
-                
+
                 <ol>
                     {data && data.map((item:INote) => <NoteItem key={item.createdAt} item={item} />)}
                 </ol>
