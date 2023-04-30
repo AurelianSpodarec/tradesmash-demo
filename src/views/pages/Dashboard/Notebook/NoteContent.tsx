@@ -4,7 +4,7 @@ import { Editor } from '@tinymce/tinymce-react';
 
 function NoteContent({ data }:any) {
     const [editorValue, setEditorValue] = useState(`<p>This is the initial content of the editor.</p>`)
-    const editorRef = useRef(null);
+    const editorRef:any = useRef(null);
 
     function onChange(e:any) {
         setEditorValue(e)
@@ -13,11 +13,13 @@ function NoteContent({ data }:any) {
     return (
         <div className="h-full">
 
-            <div>
+            <div className="flex flex-col">
                 {/* <h3>Note: {dateHelper.formatDate(notes[0].createdAt)}</h3> */}
-                
-                <span>Net P&L: £2323.94</span>
-                {/* <time>15th August Wed, 2020 - 15:40 - 17:40</time> */}
+                <div className="space-x-4   ">
+                    <span className="text-2xl font-bold">Great day at stock</span>
+                    <span className="text-xl font-bold">Net P&L: £2323.94</span>
+                </div>
+                <time>15th August Wed, 2020</time>
                 
             </div>
 

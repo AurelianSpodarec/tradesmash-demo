@@ -1,16 +1,25 @@
+import Tooltip from "@/views/components/Tooltip";
 import { Link } from "react-router-dom";
 
 function NavItem({ item, isActive }:any) {
     return (
-        <li>
+        <li className="cursor-default fill-gray-400 text-gray-400 hover:fill-gray-200 hover:text-gray-200 transition hover:bg-[#111111]">
+            <Tooltip name={item.name} position="right" dely="200">
             <Link 
                 to={`/dashboard${item.url}`} 
-                className={`${isActive ? "bg-gray-50 text-indigo-600" : ""}  group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold`}>
-                <svg className="h-6 w-6 shrink-0" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"></path>
-                </svg>
-                {/* {item.name} */}
+                className={`
+                    cursor-default ${isActive ? "bg-gray-50 text-indigo-600" : ""}  
+                    group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold
+                `}>
+                    {/* <div className={`${navigationIsActive(page.id) ? "bg-gray-700/50 text-gray-200" : ""} border-2 border-transparent py-2 px-1.5`}> */}
+                    <div>
+                        <div>
+                            {item.icon}
+                        </div>
+                        <span className="sr-only">{item.name}</span> 
+                    </div>
             </Link>
+            </Tooltip>
         </li>
     )
 }

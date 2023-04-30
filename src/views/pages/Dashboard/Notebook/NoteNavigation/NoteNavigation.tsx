@@ -11,15 +11,20 @@ function NoteNavigation({ data }:NoteNavigationProps) {
         <ScalableContainer header={`Heloooooooopomodsmfos mdfodsmfosfdm osdmf osdm osmd`}>
 
             <ScalableHeader>
-            <div>
-                <h3 className="text-xl font-semibold">Today is: {dateHelper.todayDate()}</h3>
-            </div>
+            <header className="border-b py-4 px-4 bg-white">
+                <h3 className="text-xl font-semibold">August 2023, Tue 16th</h3>
+                {/* <h3 className="text-xl font-semibold">{dateHelper.todayDate()}</h3> */}
+            </header>
             </ScalableHeader>
 
             <ScalableContent>
-            <ol>
-                {data && data.map((item:INote) => <NoteItem key={item.createdAt} item={item} />)}
-            </ol>
+            <section>
+                
+                <ol>
+                    {data && data.map((item:INote) => <NoteItem key={item.createdAt} item={item} />)}
+                </ol>
+
+            </section>
             </ScalableContent>
 
         </ScalableContainer>
