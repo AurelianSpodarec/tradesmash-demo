@@ -1,6 +1,6 @@
 function ScalableContent({children}:any) {
     return (
-        <div>
+        <div className="h-full">
             {children}
         </div>
     )

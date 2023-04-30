@@ -1,3 +1,4 @@
+import { ScalableContent } from "./_components/ScalableCell";
 
 const people = [
     { 
@@ -166,13 +167,13 @@ const people = [
 function TradesSidebar() {
     return (
         
-        <div className="sm:px-6 lg:px-8">
                 
-        <div className="mt-8 flow-root">
-            <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-            <div className="inline-block min-w-full py-2 align-middle">
+        <div className="flow-root">
+            <div className="overflow-y-auto">
+            <div className="inline-block min-w-full align-middle">
                 <div className="overflow-hidden shadow ring-1 ring-black ring-opacity-5 sm:rounded-lg">
-                <table className="min-w-full divide-y divide-gray-300">
+                <table className="min-w-full divide-y divide-gray-300 table-fixed">
+                    
                     <thead className="bg-gray-50">
                     <tr>
                         <th scope="col" className="py-3.5 uppercase pl-4 pr-3 text-left text-xs font-semibold text-gray-900 sm:pl-6">
@@ -192,7 +193,8 @@ function TradesSidebar() {
                         </th>
                     </tr>
                     </thead>
-                    <tbody className="divide-y divide-gray-200 bg-white">
+
+                    <tbody className="divide-y divide-gray-200 bg-white overflow-y-auto">
                     {people.map((person) => (
                         <tr key={person.returns}>
                         <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">{person.status}</td>
@@ -203,11 +205,11 @@ function TradesSidebar() {
                         </tr>
                     ))}
                     </tbody>
+
                 </table>
                 </div>
             </div>
             </div>
-        </div>
         </div>
     )
 }

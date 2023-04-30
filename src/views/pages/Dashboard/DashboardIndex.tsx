@@ -4,6 +4,7 @@ import AccountPerformance from "./AccountPerformance";
 import GraphBox from "./GraphBox";
 import TradesSidebar from "./TradesSidebar";
 import TradingIndex from "./Trading/TradingIndex";
+import { ScalableContainer, ScalableContent, ScalableHeader } from './_components/ScalableCell';
 
 const data2 = [
     { date: '2022-01-01', accountValue: 10000 },
@@ -104,63 +105,50 @@ function DashboardIndex() {
     return (
         <LayoutDashboard>
 
-            {/* <div className="grid grid-cols-12 h-full">
+            <div className="grid grid-cols-12 space-x-2 h-full">
+
+                <div className="col-span-8 h-full w-full">
+                <ScalableContainer>
+                <ScalableContent>
+                    {/* <div className="relative overflow-auto h-full"> */}
+
+                    <AccountPerformance />
+                  
+                    <div className="h-full mt-14">
+                        <h3 className="text-3xl">Return</h3>
+
+                        <div className="grid sm:grid-cols-3 md:grid-cols-4 gap-4">
+                            <GraphBox title="Accumulative Return £" value="23,323.53" chart={data2} />
+                            <GraphBox title="Accumulative Return Net £" value="23,323.53" chart={data3} />
+                            <GraphBox title="Account Balance" value="23,323.53" chart="" />
+                            <GraphBox title="Daily Return £" value="23,323.53" chart="" />
+
+                            <GraphBox title="Return on Winners £" value="23,323.53" chart="" />
+                            <GraphBox title="Return on Losers £" value="-43,123.53" chart="" />
+                            <GraphBox title="Return £ on Long" value="25,323.53" chart="" />
+                            <GraphBox title="Return £ on Short" value="-3,323.53" chart="" />
+
+                            <GraphBox title="Biggest Profit £" value="5,323.53" chart="" />
+                            <GraphBox title="Biggest Loss £" value="-1,323.53" chart="" />
+                            <GraphBox title="Profit/Loss Ratio" value="1.2:1" />
+
+
+
+                            <GraphBox title="Biggest Profit £" value="5,323.53" chart="" />
+                            <GraphBox title="Biggest Loss £" value="-1,323.53" chart="" />
+                            <GraphBox title="Profit/Loss Ratio" value="1.2:1" />
+                        </div>
+                    </div> 
+                    {/* </div> */}
+
+                </ScalableContent>
+                </ScalableContainer>
+                </div>
+
                 <div className="col-span-4">
-                    
-                    <AbsoluteContainer header={`Heloooooooopomodsmfos mdfodsmfosfdm osdmf osdm osmd`}>
-                        <AbsoluteHeader>
-                            Hello
-                        </AbsoluteHeader>
-                        <AbsoluteContent>
-                            Content<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-                        </AbsoluteContent>
-                    </AbsoluteContainer>
-
-                </div>
-                <div className="col-span-8">
-                Side
-                </div>
-            </div> */}
-
-
-
-
-
-
-            {/* All Profit
-            Profit this Month
-            Profit today */}
-           
-            {/* <div className="grid grid-cols-12 space-x-4">
-                <div className="col-span-12 lg:col-span-8 space-y-8 w-full">
-               
-                        <AccountPerformance />
-                        <div>
-                            <h3 className="text-3xl">Return</h3>
-
-                            <div className="grid sm:grid-cols-3 md:grid-cols-4 gap-4">
-                                <GraphBox title="Accumulative Return £" value="23,323.53" chart={data2} />
-                                <GraphBox title="Accumulative Return Net £" value="23,323.53" chart={data3} />
-                                <GraphBox title="Account Balance" value="23,323.53" chart="" />
-                                <GraphBox title="Daily Return £" value="23,323.53" chart="" />
-
-                                <GraphBox title="Return on Winners £" value="23,323.53" chart="" />
-                                <GraphBox title="Return on Losers £" value="-43,123.53" chart="" />
-                                <GraphBox title="Return £ on Long" value="25,323.53" chart="" />
-                                <GraphBox title="Return £ on Short" value="-3,323.53" chart="" />
-
-                                <GraphBox title="Biggest Profit £" value="5,323.53" chart="" />
-                                <GraphBox title="Biggest Loss £" value="-1,323.53" chart="" />
-                                <GraphBox title="Profit/Loss Ratio" value="1.2:1" />
-                            </div>
-                        </div> 
-            
-                </div>
-                
-                <aside className="col-span-12 lg:col-span-4 overflow-y-auto">
                     <TradesSidebar />
-                </aside>
-            </div> */}
+                </div>
+            </div>
 
         </LayoutDashboard>
     )

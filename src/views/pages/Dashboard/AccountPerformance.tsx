@@ -90,19 +90,19 @@ function AccountPerformance() {
 
 
   return (
-    <div className="w-full h-auto">
-        <h3>Account Return £</h3>
+    <div className="h-[400px] w-full">
 
-        <div className="h-[500px]">
+        <h3>Account Return £</h3>
+    
         <ResponsiveContainer>
         <BarChart data={data} barCategoryGap={0}>
             <CartesianGrid yAxis={false}  strokeDasharray="3 3"/>
             <XAxis 
-                 dataKey="date" 
-                 strokeWidth={2} 
-                 height={80} 
-                 tick={{ angle: -70, textAnchor: 'end' }} 
-                 interval={0}  
+                dataKey="date" 
+                strokeWidth={2} 
+                height={80} 
+                tick={{ angle: -70, textAnchor: 'end' }} 
+                interval={0}  
             />
             <YAxis 
                 tickFormatter={(value) => `£${value / 1000}k`}
@@ -117,7 +117,7 @@ function AccountPerformance() {
             </Bar>
         </BarChart>
         </ResponsiveContainer>
-        </div>
+    
     </div>
     )
 }

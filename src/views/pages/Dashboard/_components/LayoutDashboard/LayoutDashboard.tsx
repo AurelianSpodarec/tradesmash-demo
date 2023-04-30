@@ -2,7 +2,7 @@ import { useEffect } from "react"
 import Header from "./_components/Header"
 import Navigation from "./_components/Navigation"
 
-function LayoutDashboard({ children}:LayoutDashboardProps) {
+function LayoutDashboard({ children, container }:LayoutDashboardProps) {
 
     useEffect(() => {
         document.body.classList.add('overflow-hidden')
@@ -18,7 +18,7 @@ function LayoutDashboard({ children}:LayoutDashboardProps) {
                 
                 <div className="flex flex-row h-full overflow-hidden relative">
                     <Navigation />
-                    <main className="h-full w-full">
+                    <main className={`h-full w-full`}>
                         {children}
                     </main>      
                 </div>            
@@ -32,5 +32,6 @@ function LayoutDashboard({ children}:LayoutDashboardProps) {
 export default LayoutDashboard
 
 interface LayoutDashboardProps {
-    children: React.ReactNode
+    children: React.ReactNode;
+    container?: string;
 }

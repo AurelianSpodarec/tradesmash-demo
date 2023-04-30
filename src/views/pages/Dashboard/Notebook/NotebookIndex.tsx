@@ -35,13 +35,13 @@ function NotebookIndex() {
     })
  
     return (
-        <LayoutDashboard>
+        <LayoutDashboard container="none">
         <div className="grid grid-cols-12 h-full">
 
             <div className="col-span-4">
                 <NoteNavigation data={notes} />     
             </div>
-            
+
             <div className="col-span-8">
                 <NoteContent data={notes} />
             </div>

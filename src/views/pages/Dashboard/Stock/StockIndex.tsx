@@ -2,21 +2,27 @@ import { fakeStockCompanies } from "@/database/fakeStockCompanies";
 import LayoutDashboard from '../_components/LayoutDashboard/LayoutDashboard';
 
 import IStockCompany from "@/interface/IStockCompany";
+import { ScalableContainer, ScalableContent, ScalableHeader } from "../_components/ScalableCell";
 
 function StockIndex() {
     return (
         <LayoutDashboard>
+        <ScalableContainer>
 
-            <section>
+            {/* <section>
+
+                Search Stock
                 Filter: Stock Exchange
                 Filter: Stock Ticker
-            </section>
+            </section> */}
 
  
-            <section className="px-4 sm:px-6 lg:px-8">
-            <div className="sm:flex sm:items-center">
+            <section className="">
+            
+            <ScalableHeader>
+            <div className="sm:flex sm:items-center bg-white">
                 <div className="sm:flex-auto">
-                <h1 className="text-base font-semibold leading-6 text-gray-900">Users</h1>
+                <h1 className="text-2xl font-semibold leading-6 text-gray-900">Stocks {fakeStockCompanies.length}</h1>
                 <p className="mt-2 text-sm text-gray-700">
                     A list of all the users in your account including their name, title, email and role.
                 </p>
@@ -26,13 +32,16 @@ function StockIndex() {
                     type="button"
                     className="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 >
-                    Add user
+                    Add Stock
                 </button>
                 </div>
             </div>
+            </ScalableHeader>
+
+            <ScalableContent>
             <div className="mt-8 flow-root">
-                <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                <div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+                <div className="overflow-x-auto">
+                <div className="inline-block min-w-full align-middle">
                     <table className="min-w-full divide-y divide-gray-300">
                     <thead>
                         <tr>
@@ -75,8 +84,10 @@ function StockIndex() {
                 </div>
                 </div>
             </div>
+            </ScalableContent>
             </section>
 
+        </ScalableContainer>
         </LayoutDashboard>
     )
 }
