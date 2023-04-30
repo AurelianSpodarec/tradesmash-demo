@@ -7,10 +7,13 @@ import NoteContent from './NoteContent';
 import NoteNavigation from './NoteNavigation/NoteNavigation';
 
 function NotebookIndex() {
-    
     const reduxNotes = useSelector((state:any) => state.notes);
 
     const notes = reduxNotes.notes
+
+    const [activeNote, setActiveNote] = useState(0);
+
+    // getNo
 
     return (
         <LayoutDashboard container="none">

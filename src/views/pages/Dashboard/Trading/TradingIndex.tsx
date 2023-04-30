@@ -45,26 +45,9 @@ function TradingIndex() {
         dispatch(closeModal())
     }
 
-    function modalSave() {
-
-    }
-
-
     function manageNote(tradeID:number) {
-
         modalOpen(tradeID)
-        // setSelectedTrade(tradeID)
-        // Show modal for notes
-
-        // Does the note exist? If not create it
-        // Else, fetch it
     }
-
-    function noteSave() {
-
-    }
-
- 
 
     useLayoutEffect(() => {
         const isIndeterminate = selectedTrades.length > 0 && selectedTrades.length < trades.length
@@ -248,7 +231,7 @@ function TradingIndex() {
                                 </td>
                                 <td className="whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-3">
                                 <button type="button" onClick={() => manageNote(trade.id)} className="text-skin-brand-600 hover:text-skin-brand-900">
-                                    Add Note<span className="sr-only">, {trade.id}</span>
+                                    Add Note <span className="sr-only">, {trade.id}</span>
                                 </button>
                                 </td>
                             </tr>

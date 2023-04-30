@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 // TODO: Use Portal
 function Modal() {
-    
+    const reduxNotes = useSelector((state:any) => state.notes);
     const reduxModal = useSelector((state:any) => state.modal);
     const isOpen = reduxModal.isOpen
     const tradeID = reduxModal.content.tradeID
@@ -15,7 +15,7 @@ function Modal() {
     const editorRef:any = useRef(null);
     
     const note = getNoteByTradeID(tradeID)
-
+    const isEmptyNote = note === undefined;
 
     const [editorValue, setEditorValue] = useState()
 
@@ -30,6 +30,13 @@ function Modal() {
 
     function saveNote() {
         const content = editorRef.current.getContent();
+        if(isEmptyNote) {
+            dispatch(createNote({
+                id: reduxNotes.length + 1,
+                tradeID, 
+                content: content
+            }))
+        }
         dispatch(updateNote({ 
             id: note?.id,
             tradeID, 
@@ -39,7 +46,11 @@ function Modal() {
     }
 
     useEffect(() => {
-        setEditorValue(note?.content)
+        if(isEmptyNote) {
+            setEditorValue("")
+        } else {
+            setEditorValue(note?.content)
+        }
     }, [tradeID, isOpen])
 
     return (
@@ -56,11 +67,18 @@ function Modal() {
 
                     <header className="flex justify-between mb-2">
                         <div>
-                            <span className="text-lg font-semibold leading-6 text-gray-900">Add/Edit Note for Trade #{tradeID}</span>
+                            <span className="text-lg font-semibold leading-6 text-gray-900">{isEmptyNote ? "Add" : "Edit"} Note for Trade #{tradeID}</span>
                             <div className="space-x-4">
-                                <span>Created On: {note?.createdAt}</span>
-                                <span>-</span>
-                                <span>Last Updated: {note?.updatedAt}</span>
+                                {note?.createdAt &&
+                                    <>
+                                    <span>Created On: {note?.createdAt}</span>
+                                    <span>-</span>
+                                    </>
+                                }
+
+                                {note?.updatedAt  &&
+                                    <span>Last Updated: {note?.updatedAt}</span>
+                                }
                             </div>
                         </div>
                         <div>
