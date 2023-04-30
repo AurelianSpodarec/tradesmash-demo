@@ -2,37 +2,27 @@ import INote from "@/interface/INote";
 import NoteItem from "./NoteItem";
 import dateHelper from "@/utils/dateHelper";
 
-
-function Over({children}:any) {
-    return (
-        <div className="
-        flex flex-col select-none relative overflow-hidden h-full w-full transition-all duration-300 ease-in-out 
-        w-0 
-        
-    ">
-        <div className="flex flex-col flex-1 overflow-hidden">
-        <div className="flex flex-col h-full w-full overflow-y-auto absolute sidebar-scrollbar">
-           000 {children}
-        </div>
-        </div>
-        </div>
-    )
-  }
+import { ScalableContainer, ScalableHeader, ScalableContent } from '../../_components/ScalableCell';
 
 function NoteNavigation({ data }:NoteNavigationProps) {
 
     return (
-        <aside className="w-[250px] h-full">
+        <aside className="w-full h-full">
+        <ScalableContainer header={`Heloooooooopomodsmfos mdfodsmfosfdm osdmf osdm osmd`}>
 
+            <ScalableHeader>
             <div>
                 <h3 className="text-xl font-semibold">Today is: {dateHelper.todayDate()}</h3>
             </div>
+            </ScalableHeader>
 
-            <Over>
+            <ScalableContent>
             <ol>
                 {data && data.map((item:INote) => <NoteItem key={item.createdAt} item={item} />)}
             </ol>
-            </Over>
+            </ScalableContent>
+
+        </ScalableContainer>
         </aside>
     )
 }

@@ -96,58 +96,31 @@ const data2 = [
   ];
 
 
-function AbsoluteHeader ({children}:any) {
-    return (
-        <div className="sticky top-0 py-4 bg-green-700 text-white">
-            {children}
-        </div>
-    )
-}
 
-function AbsoluteContent({children}:any) {
-    return (
-        <div>
-            {children}
-        </div>
-    )
-}
 
-function AbsoluteContainer({header, children}:any) {
-    return (
-        <div className="relative overflow-hidden h-full w-full h-full">
-            {/* {header} */}
-            <div className="flex flex-col h-full w-full overflow-y-auto absolute">
 
-                {children}
-               
-            </div>
-        </div>
-    )
-}
 
 function DashboardIndex() {
     return (
         <LayoutDashboard>
 
-                <div className="grid grid-cols-12 h-full">
-                    <div className="col-span-4">
-                        {/* <div className="sticky py-4 bg-green-700 text-white">
-                        Hello
-                        </div> */}
-                        <AbsoluteContainer header={`Heloooooooopomodsmfos mdfodsmfosfdm osdmf osdm osmd`}>
-                            <AbsoluteHeader>
-                                Hello
-                            </AbsoluteHeader>
-                            <AbsoluteContent>
-                                Content<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-                            </AbsoluteContent>
-                        </AbsoluteContainer>
+            {/* <div className="grid grid-cols-12 h-full">
+                <div className="col-span-4">
+                    
+                    <AbsoluteContainer header={`Heloooooooopomodsmfos mdfodsmfosfdm osdmf osdm osmd`}>
+                        <AbsoluteHeader>
+                            Hello
+                        </AbsoluteHeader>
+                        <AbsoluteContent>
+                            Content<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+                        </AbsoluteContent>
+                    </AbsoluteContainer>
 
-                    </div>
-                    <div className="col-span-8">
-                    Side
-                    </div>
                 </div>
+                <div className="col-span-8">
+                Side
+                </div>
+            </div> */}
 
 
 
