@@ -10,6 +10,7 @@ import { ScalableContainer, ScalableContent, ScalableHeader } from '../_componen
  
 import CellBuySell from './CellBuySell';
 import CellStatus from './CellStatus';
+import { addNewTrade } from '@/store/features/trades/tradesSlice';
 
 
 
@@ -29,6 +30,37 @@ function TradingIndex() {
     const [selectedTrade, setSelectedTrade] = useState(0);
     
     const bo = getNoteByTradeID(8)
+
+
+    function addTrade(numTrades:number) {
+        const newTrades: ITrade[] = [];
+
+        for (let i = 0; i < numTrades; i++) {
+            const newTrade:ITrade = {
+                id: trades.length + 1 + i,
+                date: `${Math.floor(Math.random() * 31)}-${Math.floor(Math.random() * 12)}-2023`,
+                stock:  Math.random() < 0.5 ? "CTAG" : "REAT",
+                bs: Math.random() < 0.5 ? "buy" : "sell",
+                size: Math.floor(Math.random() * 999),
+                price: Math.floor(Math.random() * 15),
+                fees: Math.floor(Math.random() * 10001),
+                stop: Math.floor(Math.random() * 25),
+                target:Math.floor(Math.random() * 25),
+                strategy: Math.random() < 0.5 ? "scalp" : "swing",
+                value: Math.floor(Math.random() * 120),
+                risk: Math.floor(Math.random() * 6).toFixed(1),
+                aop: Math.floor(Math.random() * 60),
+                acp: Math.floor(Math.random() * 71),
+                rrRatio: 0,
+                grossPL: Math.floor(Math.random() * 11000) - 1000,
+                status: Math.random() < 0.5 ? "open" : "increased",
+            };
+            newTrades.push(newTrade);
+        }
+        // dispatch(addNewTrade(newTrade))
+        dispatch(addNewTrade(newTrades));
+    }
+
     
     function modalOpen(tradeID:number) {
         dispatch(openModal({
@@ -39,7 +71,6 @@ function TradingIndex() {
             }
         }))
     }
-
 
     function modalClose() {
         dispatch(closeModal())
@@ -76,13 +107,20 @@ function TradingIndex() {
               
                 </div>
 
-                <div className="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
+                <div className="mt-4 sm:ml-16 sm:mt-0 flex space-x-2">
                 <button
-                    onClick={() => addTrade()}
+                    onClick={() => addTrade(1)}
                     type="button"
                     className="block rounded-md bg-skin-brand-600 px-3 py-1.5 text-center text-sm font-semibold leading-6 text-white shadow-sm hover:bg-skin-brand-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-skin-brand-600"
                 >
                     Add Trade
+                </button>
+                <button
+                    onClick={() => addTrade(5)}
+                    type="button"
+                    className="block rounded-md bg-skin-brand-600 px-3 py-1.5 text-center text-sm font-semibold leading-6 text-white shadow-sm hover:bg-skin-brand-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-skin-brand-600"
+                >
+                    Add 5 more Trades
                 </button>
                 </div>
             </div>

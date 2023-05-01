@@ -31,6 +31,14 @@ const tradeSlice = createSlice({
     reducers: {
         setTrades: (state, action) => {
             state.trades = action.payload
+        },
+        addNewTrade: (state, action) => {
+            const newTrade = action.payload.reverse();
+            if (Array.isArray(newTrade)) {
+                state.trades = [...newTrade, ...state.trades];
+            } else {
+                state.trades.unshift(newTrade);
+            }
         }
     },
 });
@@ -91,25 +99,5 @@ export const getTotalSwingGrossPL = () => useSelector((state) => {
                              .reduce((total, trade) => total + trade.grossPL, 0);
 });
 
-// function getProfitLossRatio(trades) {
-//     let totalProfit = 0;
-//     let totalLoss = 0;
-  
-//     for (const trade of trades) {
-//       if (trade.grossPL > 0) {
-//         totalProfit += trade.grossPL;
-//       } else {
-//         totalLoss += trade.grossPL;
-//       }
-//     }
-  
-//     const profitLossRatio = -totalProfit / totalLoss;
-    
-//     return profitLossRatio;
-//   }
-// export const pagesActivePage = () => useSelector((state: { pages:PagesState }) => state.pages.pages.find(page => page.id === state.pages.currentPage))
-// export const pagesActiveDOM = () => useSelector((state: { pages:PagesState }) => state.pages.pagesDOM.find(page => page.id === state.pages.currentPage))?.dom
-// export const pagesHomePage = () => useSelector((state: { pages:PagesState }) => state.pages.pages.find(page => page.isHome))
-
-export const { setTrades } = tradeSlice.actions;
+export const { setTrades, addNewTrade } = tradeSlice.actions;
 export default tradeSlice.reducer;

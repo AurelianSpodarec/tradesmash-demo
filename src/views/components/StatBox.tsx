@@ -1,7 +1,7 @@
 function StatBox({ title, value }:StatBoxProps) {
 
 
-    const formattedMoney = value.toLocaleString('en-GB', { style: 'currency', currency: 'GBP' });
+    const formattedMoney = value && value.toLocaleString('en-GB', { style: 'currency', currency: 'GBP' });
 
     return (
         <article className="relative flex flex-col min-w-0 break-words bg-white rounded-lg mb-6 xl:mb-0 shadow-lg">

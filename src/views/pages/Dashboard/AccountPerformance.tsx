@@ -18,14 +18,14 @@ function AccountPerformance() {
     const trades = reduxTrades.trades
     const totalGrossPnL = getTotalTradesGrossPnL()
  
+    const formattedGrossPnL = totalGrossPnL && totalGrossPnL.toLocaleString('en-GB', { style: 'currency', currency: 'GBP' });
 
-    console.log("totla ross", totalGrossPnL)
   return (
     <div className="h-[400px] w-full bg-white relative flex flex-col min-w-0 break-words bg-white rounded-lg mb-6 xl:mb-0 shadow-lg">
     <div className="h-full">
 
         <div className="p-4">
-            <h3 className="mb-2 text-xl font-bold text-gray-900">Total Gross P&L £{totalGrossPnL}</h3>
+            <h3 className="mb-2 text-xl font-bold text-gray-900">Total Gross P&L {formattedGrossPnL}</h3>
         </div>
 
         <div className="h-full pr-4">

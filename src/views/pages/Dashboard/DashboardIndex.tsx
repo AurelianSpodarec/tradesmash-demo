@@ -131,21 +131,12 @@ function DashboardIndex() {
                         <h3 className="text-3xl">Return</h3>
 
                         <div className="grid sm:grid-cols-3 md:grid-cols-4 gap-4">
-                        <StatBox title="Total Gross P&L £" value={totalGrossPnL} />
-                            {/* 
-                            <StatBox title="Accumulative Return Net £" value="23,323.53" chart={data3} />
-                            <StatBox title="Account Balance" value="23,323.53" chart="" />
-                            <StatBox title="Daily Return £" value="23,323.53" chart="" />
-
-                            <StatBox title="Return on Winners £" value="23,323.53" chart="" />
-                            <StatBox title="Return on Losers £" value="-43,123.53" chart="" />
-                            */}
+                            <StatBox title="Total Gross P&L £" value={totalGrossPnL} />
                             <StatBox title="Total Return £ on Swing" value={totalSwinGrossPL} />
                             <StatBox title="Total Return £ on Scalp" value={totalScalpGrossPL} />
-
-                            <StatBox title="Biggest Profit £" value={biggestProfit} />
-                            <StatBox title="Biggest Loss £" value={biggestLoss} />
                             <StatBox title="Profit/Loss Ratio" value={profitLossRatio} />
+                            <StatBox title="Biggest Loss £" value={biggestLoss} />
+                            <StatBox title="Biggest Profit £" value={biggestProfit} />
                         </div>
                     </div> 
                     {/* </div> */}
