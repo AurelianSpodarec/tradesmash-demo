@@ -3,12 +3,18 @@ import { Editor } from '@tinymce/tinymce-react';
 
 
 function NoteContent({ data }:any) {
-    const [editorValue, setEditorValue] = useState(`<p>This is the initial content of the editor.</p>`)
+    const [editorValue, setEditorValue] = useState("")
     const editorRef:any = useRef(null);
 
     function onChange(e:any) {
         setEditorValue(e)
     }
+
+    useEffect(() => {
+        if(data) {
+            setEditorValue(data.content)
+        }
+    }, [])
 
     if(!data) return <>Loading...</>
     return (

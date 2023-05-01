@@ -20,7 +20,7 @@ function NoteNavigation({ data }:NoteNavigationProps) {
 
                 <section>
                     <div>
-                        Your Results: 5 Notes
+                        Your Results: {data && data.length} Notes
                     </div>
                     <input placeholder="Search " className="w-full" />
                 </section>

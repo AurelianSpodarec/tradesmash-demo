@@ -47,7 +47,7 @@ function Modal() {
 
     useEffect(() => {
         if(isEmptyNote) {
-            setEditorValue("")
+            setEditorValue(undefined)
         } else {
             setEditorValue(note?.content)
         }
