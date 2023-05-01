@@ -1,3 +1,3 @@
 export const configApp = {
-    name: "Trade Smash"
+    name: "Trade Notes"
 }

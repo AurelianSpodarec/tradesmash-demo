@@ -11,7 +11,6 @@ function NavItem({ item, isActive }:any) {
                     cursor-default ${isActive ? "bg-gray-300/30 text-skin-brand-500" : ""}  
                     group flex gap-x-3 p-2 text-sm leading-6 font-semibold
                 `}>
-                    {/* <div className={`${navigationIsActive(page.id) ? "bg-gray-700/50 text-gray-200" : ""} border-2 border-transparent py-2 px-1.5`}> */}
                     <div>
                         <div>
                             {item.icon}

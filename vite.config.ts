@@ -12,6 +12,7 @@ export default defineConfig({
           interface: `${path.resolve(__dirname, "./src/interface/")}`,
           config: `${path.resolve(__dirname, "./src/config/")}`,
           utils: `${path.resolve(__dirname, "./src/utils/")}`,
+          components: `${path.resolve(__dirname, "./src/views/components/")}`,
       }
   },
 });

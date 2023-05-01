@@ -1,6 +1,6 @@
 import INote from "@/interface/INote";
 import NoteItem from "./NoteItem";
-import { ScalableContainer, ScalableHeader, ScalableContent } from '../../_components/ScalableCell';
+import { ScalableContainer, ScalableHeader, ScalableContent } from '../../../components/ScalableCell';
 import { useDispatch } from "react-redux";
 import { getActiveNotebook, setActiveNote } from "@/store/features/notebook/notebookSlice";
 

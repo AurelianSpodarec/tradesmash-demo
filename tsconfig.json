@@ -24,6 +24,7 @@
       "@/*": ["./src/*", "./dist/*", ""],
       "routes/*": ["./src/routes/*"],
       "database/*": ["./src/database/*"],
+      "components/*": ["./src/views/components/*"],
       "interface/*": ["./src/interface/*"],
       "config/*": ["./src/config/*"],
       "utils/*": ["./src/utils/*"],

@@ -3,12 +3,12 @@ import { configApp } from "@/config/configApp";
 import { Link, useLocation } from "react-router-dom";
 
 const namesMap:any = {
-    "/dashboard/": "Overview",
-    "/dashboard/trades": "Trades",
-    "/dashboard/tradelog": "Trades Log",
-    "/dashboard/stocks": "Stock",
-    "/dashboard/stats": "Stats",
-    "/dashboard/notebook": "Notebook",
+    "/": "Overview",
+    "/trades": "Trades",
+    "/tradelog": "Trades Log",
+    "/stocks": "Stock",
+    "/stats": "Stats",
+    "/notebook": "Notebook",
 }
 
 function Header() {
@@ -18,7 +18,7 @@ function Header() {
     return (
         <div className="z-40 flex h-16 shrink-0 items-center gap-x-4 border-b border-gray-200 bg-white shadow-sm sm:gap-x-6">
 
-            <Link to="/dashboard" className="flex w-[50px] p-1 shrink-0 items-center"> 
+            <Link to="/" className="flex w-[50px] p-1 shrink-0 items-center"> 
                 <img src="https://i.ibb.co/MMzrXqX/image.png" className="w-full" />
                  {/* <span className="ml-3 text-xl font-bold">{configApp.name}</span> */}
             </Link>

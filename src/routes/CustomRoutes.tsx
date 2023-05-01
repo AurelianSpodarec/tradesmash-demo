@@ -1,13 +1,12 @@
 import { useRoutes } from "react-router-dom";
 
 import NotFound from "@/views/pages/NotFound/NotFound";
-import HomeIndex from "../views/pages/Home/HomeIndex";
-import NotebookIndex from "@/views/pages/Notebook/NotebookIndex";
-import StatsIndex from "@/views/pages/Stats/StatsIndex";
+import HomeIndex from "@/views/pages/Home/HomeIndex";
+
+import TradesIndex from "@/views/pages/Trades/TradesIndex";
 import StockIndex from "@/views/pages/Stock/StockIndex";
-import TradesIndex from "../views/pages/Trades/TradesIndex";
-
-
+import StatsIndex from "@/views/pages/Stats/StatsIndex";
+import NotebookIndex from "@/views/pages/Notebook/NotebookIndex";
 
 function CustomRoutes() {
     let routes = useRoutes([
@@ -23,18 +22,18 @@ function CustomRoutes() {
             path: "/trades",
             element: <TradesIndex />
         },
-        // {
-        //     path: "/stocks",
-        //     element: <StockIndex />
-        // },
-        // {
-        //     path: "/stats",
-        //     element: <StatsIndex />
-        // },
-        // {
-        //     path: "/notebook",
-        //     element: <NotebookIndex />
-        // }
+        {
+            path: "/stocks",
+            element: <StockIndex />
+        },
+        {
+            path: "/stats",
+            element: <StatsIndex />
+        },
+        {
+            path: "/notebook",
+            element: <NotebookIndex />
+        }
     ]);
 
     return routes;

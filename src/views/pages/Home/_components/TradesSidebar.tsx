@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { ScalableContent } from "../../_components/ScalableCell";
+import { ScalableContent } from "../../../components/ScalableCell";
 
 const people = [
     { 
