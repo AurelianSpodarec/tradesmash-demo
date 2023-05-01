@@ -1,5 +1,3 @@
-import LayoutDashboard from "../_components/LayoutDashboard/LayoutDashboard";
-
 import AccountPerformance from "./_components/AccountPerformance";
 import TradesSidebar from "./_components/TradesSidebar";
 import { ScalableContainer, ScalableContent } from '../_components/ScalableCell';
@@ -25,7 +23,7 @@ function HomeIndex() {
     const totalScalpGrossPL = getTotalScalpGrossPL()
 
     return (
-        <LayoutDashboard>
+        <div>
         
 
             <div className="grid grid-cols-10 h-full">
@@ -65,7 +63,7 @@ function HomeIndex() {
                 </div>
             </div>
 
-        </LayoutDashboard>
+        </div>
     )
 }
 

@@ -1,12 +1,8 @@
-import { fakeStockCompanies } from "@/database/fakeStockCompanies";
-import LayoutDashboard from '../_components/LayoutDashboard/LayoutDashboard';
-
-import IStockCompany from "@/interface/IStockCompany";
 import { ScalableContainer, ScalableContent, ScalableHeader } from "../_components/ScalableCell";
 
 function StockIndex() {
     return (
-        <LayoutDashboard>
+        <div>
 
         <ScalableContainer>
         <div className="p-8">
@@ -24,7 +20,7 @@ function StockIndex() {
             <ScalableHeader>
             <div className="sm:flex sm:items-center bg-white z-10 relative p-4">
                 <div className="sm:flex-auto">
-                <h1 className="text-2xl font-bold text-gray-900">Stocks {fakeStockCompanies.length}</h1>
+                {/* <h1 className="text-2xl font-bold text-gray-900">Stocks {fakeStockCompanies.length}</h1> */}
                 <p className="mt-2 text-sm text-gray-700">
                     A list of all the stocks that you have invested in
                 </p>
@@ -69,7 +65,7 @@ function StockIndex() {
                         </tr>
                     </thead>
                     <tbody className="bg-white">
-                        {
+                        {/* {
                     fakeStockCompanies.map((stockCompany:IStockCompany, stockCompanyIdx) => (
                         <tr key={stockCompany.symbol} className={stockCompanyIdx % 2 === 0 ? undefined : 'bg-gray-50'}>
 
@@ -81,7 +77,7 @@ function StockIndex() {
                             <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{stockCompany.country}</td>
 
                         </tr>
-                        ))}
+                        ))} */}
                     </tbody>
                     </table>
                 </div>
@@ -93,7 +89,7 @@ function StockIndex() {
         </div>
         </ScalableContainer>
 
-        </LayoutDashboard>
+        </div>
     )
 }
 

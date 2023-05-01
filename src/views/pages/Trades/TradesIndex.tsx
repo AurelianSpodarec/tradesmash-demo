@@ -1,12 +1,9 @@
-// @ts-nocheck
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { getNoteByTradeID } from '@/store/features/notes/notesSlice';
 import { closeModal, openModal } from '@/store/features/modals/modalsSlice';
 
 import Modal from '@/views/features/Modal/Modal';
-
-import LayoutDashboard from '../_components/LayoutDashboard/LayoutDashboard';
 import { ScalableContainer, ScalableContent, ScalableHeader } from '../_components/ScalableCell';
  
 import CellBuySell from './CellBuySell';
@@ -98,7 +95,7 @@ function TradesIndex() {
  
 
     return (
-        <LayoutDashboard>
+        <div>
 
         <Modal />
 
@@ -296,7 +293,7 @@ function TradesIndex() {
 
         </div>
         </ScalableContainer>
-        </LayoutDashboard>
+        </div>
     )
 }
 

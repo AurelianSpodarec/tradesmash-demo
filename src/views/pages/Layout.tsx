@@ -1,32 +1,31 @@
-// @ts-nocheck
-import react, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-
 import { BrowserRouter } from "react-router-dom";
-import CustomRoutes from "../../routes/CustomRoutes";
-import { fetchTrades } from "@/database/fakeTrades";
-import { fetchNotes } from "@/database/fakeNotes";
-import { setNotes } from '@/store/features/notes/notesSlice';
-import { setTrades } from '@/store/features/trades/tradesSlice';
+import CustomRoutes from "routes/CustomRoutes";
+import Header from "./_components/Header";
+import Navigation from "./_components/Navigation";
+
 
 function Layout() {
-    const dispatch = useDispatch() 
-
-    function fetchProjectData() {
-        const trades = fetchTrades()
-        const notes = fetchNotes();
-
-        dispatch(setTrades(trades))
-        dispatch(setNotes(notes))
-    }
-
-    useEffect(() => {
-        fetchProjectData();
-    }, []);
-
+ 
     return (
         <BrowserRouter>
-            <CustomRoutes />
+            <div className="relative h-full bg-[#f1f5f9]">
+            <div className="relative h-screen overflow-hidden">
+
+                <div id="context-wrap" className={`flex flex-col h-full overflow-hidden`}> 
+                    <Header />
+                    
+                    <div className="flex flex-row h-full overflow-hidden relative">
+                        <Navigation />
+
+                        <main className={`h-full w-full`}>
+                            <CustomRoutes />
+                        </main>      
+                    </div>            
+
+                </div>
+
+            </div>
+            </div>
         </BrowserRouter>
     )
 }

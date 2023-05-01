@@ -23,18 +23,18 @@ function CustomRoutes() {
             path: "/trades",
             element: <TradesIndex />
         },
-        {
-            path: "/stocks",
-            element: <StockIndex />
-        },
-        {
-            path: "/stats",
-            element: <StatsIndex />
-        },
-        {
-            path: "/notebook",
-            element: <NotebookIndex />
-        }
+        // {
+        //     path: "/stocks",
+        //     element: <StockIndex />
+        // },
+        // {
+        //     path: "/stats",
+        //     element: <StatsIndex />
+        // },
+        // {
+        //     path: "/notebook",
+        //     element: <NotebookIndex />
+        // }
     ]);
 
     return routes;

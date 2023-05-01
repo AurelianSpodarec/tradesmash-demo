@@ -1,10 +1,7 @@
-// @ts-nocheck
 import react, {useEffect, useRef, useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import LayoutDashboard from '../_components/LayoutDashboard/LayoutDashboard';
-
-import NoteContent from './NoteContent';
+import NoteContent from './NoteContent/NoteContent';
 import NoteNavigation from './NoteNavigation/NoteNavigation';
 import { getNoteByTradeID } from '@/store/features/notes/notesSlice';
 import { getActiveNotebook, setActiveNote } from '@/store/features/notebook/notebookSlice';
@@ -16,7 +13,7 @@ function NotebookIndex() {
      const notes = reduxNotes.notes
 
     return (
-        <LayoutDashboard container="none">
+        <div>
         <div className="grid grid-cols-12 h-full">
 
             <div className="col-span-4">
@@ -29,7 +26,7 @@ function NotebookIndex() {
             </div>
 
         </div>
-        </LayoutDashboard>
+        </div>
     )
 }
 
