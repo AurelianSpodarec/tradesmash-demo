@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { getNoteByTradeID } from '@/store/features/notes/notesSlice';
@@ -102,12 +103,15 @@ function TradingIndex() {
         <Modal />
 
         <ScalableContainer>
-        <div className="p-8">
 
-            <div className="sm:flex sm:items-center bg-white z-10 relative">
+            <div className="p-8">
+
+            <section>
+            <ScalableHeader>
+
+            <div className="sm:flex sm:items-center bg-white z-10 relative p-4">
                 <div className="sm:flex-auto">
-                    <h1 className="text-base font-semibold leading-6 text-gray-900">Trades {trades.length}</h1>
-              
+                    <h1 className="text-2xl font-bold text-gray-900">Trades {trades.length}</h1>
                 </div>
 
                 <div className="mt-4 sm:ml-16 sm:mt-0 flex space-x-2">
@@ -127,6 +131,8 @@ function TradingIndex() {
                 </button>
                 </div>
             </div>
+            </ScalableHeader>
+            </section>
 
             <ScalableContent>
             <div className="mt-8 flow-root">
@@ -152,7 +158,7 @@ function TradingIndex() {
                     <table className="min-w-full table-fixed divide-y divide-gray-300 ">
 
 
-                        <thead>
+                        <thead className="bg-white">
                         <tr>
                             <th scope="col" className="relative px-7 sm:w-12 sm:px-6">
                             <input

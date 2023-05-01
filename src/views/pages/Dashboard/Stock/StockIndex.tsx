@@ -7,7 +7,9 @@ import { ScalableContainer, ScalableContent, ScalableHeader } from "../_componen
 function StockIndex() {
     return (
         <LayoutDashboard>
+
         <ScalableContainer>
+        <div className="p-8">
 
             {/* <section>
 
@@ -20,17 +22,18 @@ function StockIndex() {
             <section className="">
             
             <ScalableHeader>
-            <div className="sm:flex sm:items-center bg-white">
+            <div className="sm:flex sm:items-center bg-white z-10 relative p-4">
                 <div className="sm:flex-auto">
-                <h1 className="text-2xl font-semibold leading-6 text-gray-900">Stocks {fakeStockCompanies.length}</h1>
+                <h1 className="text-2xl font-bold text-gray-900">Stocks {fakeStockCompanies.length}</h1>
                 <p className="mt-2 text-sm text-gray-700">
-                    A list of all the users in your account including their name, title, email and role.
+                    A list of all the stocks that you have invested in
                 </p>
                 </div>
                 <div className="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
                 <button
                     type="button"
-                    className="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                    disabled
+                    className="block cursor-not-allowed rounded-md bg-skin-brand-600 px-3 disabled py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-skin-brand-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 >
                     Add Stock
                 </button>
@@ -43,7 +46,7 @@ function StockIndex() {
                 <div className="overflow-x-auto">
                 <div className="inline-block min-w-full align-middle">
                     <table className="min-w-full divide-y divide-gray-300">
-                    <thead>
+                    <thead className="bg-white">
                         <tr>
                         <th scope="col" className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-3">
                             Symbol
@@ -87,7 +90,9 @@ function StockIndex() {
             </ScalableContent>
             </section>
 
+        </div>
         </ScalableContainer>
+
         </LayoutDashboard>
     )
 }

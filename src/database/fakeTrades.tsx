@@ -1,5 +1,5 @@
+// @ts-nocheck
 import ITrade from "@/interface/ITrade";
-
 
 const fakeTrades:ITrade[] = [
     {

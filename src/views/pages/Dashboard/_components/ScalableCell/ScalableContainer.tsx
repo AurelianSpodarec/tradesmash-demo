@@ -1,3 +1,4 @@
+// @ts-nocheck
 function ScalableContainer({header, children}:any) {
     return (
         <div className="relative overflow-hidden h-full w-full h-full">

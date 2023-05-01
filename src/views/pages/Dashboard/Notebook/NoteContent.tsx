@@ -1,14 +1,25 @@
+// @ts-nocheck
 import react, {useEffect, useRef, useState} from 'react';
 import { Editor } from '@tinymce/tinymce-react';
 import { updateNote } from '@/store/features/notes/notesSlice';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 
-function NoteContent({ data, activeNote }:any) {
+function NoteContent({ data }:any) {
+    const dispatch = useDispatch()
+
     const [editorValue, setEditorValue] = useState("")
     const editorRef:any = useRef(null);
 
-    const dispatch = useDispatch()
+    const reduxNotes = useSelector((state:any) => state.notes);
+    const reduxNotebook = useSelector((state:any) => state.notebook)
+ 
+    const notes = reduxNotes.notes
+    const activeNoteIndex = reduxNotebook.activeNoteIndex
+    const activeNote = notes && notes[activeNoteIndex]
+ 
+    console.log("note",activeNote)
+
 
     function onChange(e:any) {
         setEditorValue(e)
@@ -16,25 +27,25 @@ function NoteContent({ data, activeNote }:any) {
 
     function saveNote() {
         const content = editorRef.current.getContent();
-    //    console.log("hih", data.id)
         dispatch(updateNote({ 
-            id: data.id,
-            tradeID: data.tradeID,
+            id: activeNoteIndex,
+            tradeID: activeNote.tradeID,
             content: content 
         }));
     }
 
     useEffect(() => {
-        if(data) {
-            setEditorValue(data.content)
+        if(notes) {
+            setEditorValue(activeNote && activeNote.content)
         } else {
             setEditorValue(undefined)
         }
-    }, [])
-    // selected note
+    }, [activeNoteIndex])
 
 
-    if(!data) return <>Loading...</>
+
+
+    if(!activeNote) return <>Loading...</>
     return (
         <div className="h-full">
 

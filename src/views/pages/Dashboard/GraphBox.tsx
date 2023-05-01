@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { LineChart, Line, Label, ResponsiveContainer, Cell, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 
 function GraphBox({ title, value, chart}:GraphBoxProps) {

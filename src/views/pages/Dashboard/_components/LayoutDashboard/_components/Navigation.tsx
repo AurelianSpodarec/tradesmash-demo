@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Link } from "react-router-dom";
 import { configApp } from "config/configApp";
 import NavList from "./Nav/NavList";

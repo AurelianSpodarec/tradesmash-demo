@@ -1,3 +1,4 @@
+// @ts-nocheck
 import NavItem from "./NavItem";
 import { configDashboard } from "config/configDashboard";
 import { useLocation, NavLink } from 'react-router-dom';

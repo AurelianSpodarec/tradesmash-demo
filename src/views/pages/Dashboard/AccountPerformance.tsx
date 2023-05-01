@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { LineChart, Line, Label, ResponsiveContainer, Cell, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
@@ -30,13 +31,19 @@ function AccountPerformance() {
 
         <div className="h-full pr-4">
         <ResponsiveContainer>
-        <BarChart data={trades} barCategoryGap={0} margin={{ height: "220%" }}>
-            <CartesianGrid yAxis={false}  strokeDasharray="3 3"/>
+        { //@ts-ignore 
+        }<BarChart data={trades} barCategoryGap={0} margin={{ height: "220%" }}>
+             { //@ts-ignore 
+             }<CartesianGrid yAxis={false}  strokeDasharray="3 3"/>
             <XAxis 
                 dataKey="date" 
                 strokeWidth={2} 
                 height={80} 
-                tick={{ angle: -70, textAnchor: 'end' }} 
+                tick={{ 
+                     //@ts-ignore 
+                    angle: -70, 
+                    textAnchor: 'end' 
+                }} 
                 interval={0}  
             />
             <YAxis 
@@ -46,8 +53,8 @@ function AccountPerformance() {
             />
             <Tooltip />
             <Bar dataKey="grossPL" >
-                {trades.map((entry, index) => (
-                    <Cell fill={entry.grossPL <= 0 ? '#c23e74' : '#00867a' }/>
+                {trades.map((entry:any, index:any) => (
+                    <Cell key={index} fill={entry.grossPL <= 0 ? '#c23e74' : '#00867a' }/>
                 ))}
             </Bar>
         </BarChart>

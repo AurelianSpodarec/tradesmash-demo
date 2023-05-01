@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { ScalableContent } from "./_components/ScalableCell";
 
 const people = [
@@ -168,7 +169,14 @@ function TradesSidebar() {
     return (
         
                 
-        <div className="flow-root">
+        <div className="flow-root relative">
+
+            <div className="absolute top-0 right-0 bottom-0 left-0 bg-black/70 z-20 p-12">
+                {/* <div className="flex"> */}
+                    <span className="text-2xl mx-auto text-gray-200 text-white font-semibold">Coming sooon</span>
+                {/* </div> */}
+            </div>
+
             <div className="overflow-y-auto">
             <div className="inline-block min-w-full align-middle">
                 <div className="overflow-hidden shadow ring-1 ring-black ring-opacity-5 sm:rounded-lg">

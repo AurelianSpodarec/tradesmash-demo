@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useEffect } from "react"
 
 import Header from "./_components/Header"

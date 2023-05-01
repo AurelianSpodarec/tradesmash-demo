@@ -1,10 +1,19 @@
 import INote from "@/interface/INote";
 import NoteItem from "./NoteItem";
-import dateHelper from "@/utils/dateHelper";
-
 import { ScalableContainer, ScalableHeader, ScalableContent } from '../../_components/ScalableCell';
+import { useDispatch, useSelector } from "react-redux";
+import { setActiveNote } from "@/store/features/notebook/notebookSlice";
 
 function NoteNavigation({ data }:NoteNavigationProps) {
+
+    const dispatch = useDispatch()
+    const reduxNotebook = useSelector((state:any) => state.notebook)
+    const activeNoteIndex = reduxNotebook.activeNoteIndex
+    
+    function setNoteIndex(id:any) {
+        console.log("fire", id)
+        dispatch(setActiveNote(id))
+    }
 
     return (
         <aside className="w-full h-full border-r border-r-gray-300">
@@ -33,7 +42,7 @@ function NoteNavigation({ data }:NoteNavigationProps) {
             <section>
 
                 <ol>
-                    {data && data.map((item:INote) => <NoteItem key={item.createdAt} item={item} />)}
+                    {data && data.map((item:INote) => <NoteItem onClick={() => setNoteIndex(item.id)} key={item.createdAt} item={item} isActive={item.id === activeNoteIndex} />)}
                 </ol>
 
             </section>

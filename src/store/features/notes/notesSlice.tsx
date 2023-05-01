@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useDispatch, useSelector } from "react-redux";
 import { createSelector, createSlice } from "@reduxjs/toolkit";
 

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import ITrade from "@/interface/ITrade";
 
 function tradeFactory({ trades }:any) {

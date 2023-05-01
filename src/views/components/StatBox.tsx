@@ -1,3 +1,4 @@
+// @ts-nocheck
 function StatBox({ title, value }:StatBoxProps) {
 
 

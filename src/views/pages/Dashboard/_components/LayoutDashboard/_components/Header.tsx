@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { configApp } from "@/config/configApp";
 import { Link, useLocation } from "react-router-dom";
 

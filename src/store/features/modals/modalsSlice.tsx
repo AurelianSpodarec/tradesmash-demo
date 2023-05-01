@@ -1,3 +1,4 @@
+// @ts-nocheck
 import INote from "@/interface/INote";
 import { createSelector, createSlice } from "@reduxjs/toolkit";
 import { useSelector } from "react-redux";

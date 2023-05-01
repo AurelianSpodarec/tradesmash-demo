@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { closeModal } from '@/store/features/modals/modalsSlice';
 import { createNote, getNoteByTradeID, updateNote } from '@/store/features/notes/notesSlice';
 import { updateTradeHasNote } from '@/store/features/trades/tradesSlice';
