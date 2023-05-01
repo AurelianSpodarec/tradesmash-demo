@@ -14,12 +14,15 @@ function NotebookIndex() {
     const reduxNotes = useSelector((state:any) => state.notes);
     const reduxNotebook = useSelector((state:any) => state.notebook)
  
+    const [isLoading, setIsLoading] = useState(true)
     const notes = reduxNotes.notes
 
     useEffect(() => {
         // grgab first item from notes and set it 
-        dispatch(setActiveNote(notes[0].id))
-    }, [])
+        if(isLoading) {
+            dispatch(setActiveNote(notes[0].id))
+        }
+    }, [isLoading])
 
     // if(!activeNote) <>Loading...</>
     return (

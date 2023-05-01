@@ -3,6 +3,7 @@ import react, {useEffect, useRef, useState} from 'react';
 import { Editor } from '@tinymce/tinymce-react';
 import { updateNote } from '@/store/features/notes/notesSlice';
 import { useDispatch, useSelector } from 'react-redux';
+import dateHelper from '@/utils/dateHelper';
 
 
 function NoteContent({ data }:any) {
@@ -18,7 +19,7 @@ function NoteContent({ data }:any) {
     const activeNoteIndex = reduxNotebook.activeNoteIndex
     const activeNote = notes && notes[activeNoteIndex]
  
-    console.log("note",activeNote)
+    // console.log("note",activeNote)
 
 
     function onChange(e:any) {
@@ -42,6 +43,7 @@ function NoteContent({ data }:any) {
         }
     }, [activeNoteIndex])
 
+ 
 
 
 
@@ -55,14 +57,18 @@ function NoteContent({ data }:any) {
                     <div className="flex space-x-4">
                         <div className="flex items-center space-x-2">
                             <div className="h-4 w-4 bg-blue-300 rounded"></div>
-                            <span className="text-xl font-bold">Great day at stock -</span>
+                            <span className="text-xl font-bold">Trade #{activeNote.tradeID}</span>
                         </div>
-                        <span className="text-xl font-bold">Net P&L: £2323.94</span>
+                        {/* <span className="text-xl font-bold">Net P&L: £2323.94</span> */}
                     </div>
-                    <time className="text-gray-700">15th August Wed, 2020</time>
+                    {/* <time className="text-gray-700">15th August Wed, 2020</time> */}
+                    <div className="flex space-x-4 mt-2">
+                        <span><span className="font-semibold">Created At:</span> {dateHelper.formatDate(activeNote.createdAt)}</span>
+                        <span><span className="font-semibold">Updated At:</span> {dateHelper.formatDate(activeNote.updatedAt)}</span>
+                    </div>
                 </div>
 
-                <button type="button" onClick={() => saveNote()}>
+                <button type="button" onClick={() => saveNote()} className="block rounded-md bg-skin-brand-600 px-3 py-1.5 text-center text-sm font-semibold leading-6 text-white shadow-sm hover:bg-skin-brand-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-skin-brand-600">
                     Save Note
                 </button>
                 

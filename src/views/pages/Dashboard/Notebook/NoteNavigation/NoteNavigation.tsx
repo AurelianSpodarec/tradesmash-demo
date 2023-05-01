@@ -10,6 +10,8 @@ function NoteNavigation({ data }:NoteNavigationProps) {
     const reduxNotebook = useSelector((state:any) => state.notebook)
     const activeNoteIndex = reduxNotebook.activeNoteIndex
     
+
+    
     function setNoteIndex(id:any) {
         console.log("fire", id)
         dispatch(setActiveNote(id))
@@ -22,7 +24,7 @@ function NoteNavigation({ data }:NoteNavigationProps) {
             <ScalableHeader>
             <header className="border-b py-4 px-4 bg-white">
                 <div className="mb-4">
-                    <h3 className="text-xl font-semibold">August 2023</h3>
+                    <h3 className="text-xl font-semibold">May 2023</h3>
                     {/* August 2023, Tue 16th */}
                     {/* <h3 className="text-xl font-semibold">{dateHelper.todayDate()}</h3> */}
                 </div>
