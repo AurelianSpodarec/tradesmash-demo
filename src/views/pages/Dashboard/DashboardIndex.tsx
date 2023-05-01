@@ -6,6 +6,7 @@ import TradesSidebar from "./TradesSidebar";
 import TradingIndex from "./Trading/TradingIndex";
 import { ScalableContainer, ScalableContent, ScalableHeader } from './_components/ScalableCell';
 import StatBox from "@/views/components/StatBox";
+import { getBiggestLoss, getBiggestProfit, getProfitLossRatio, getTotalScalpGrossPL, getTotalSwingGrossPL, getTotalTradesGrossPnL } from "@/store/features/trades/tradesSlice";
 
 const data2 = [
     { date: '2022-01-01', accountValue: 10000 },
@@ -103,6 +104,14 @@ const data2 = [
 
 
 function DashboardIndex() {
+
+    const totalGrossPnL = getTotalTradesGrossPnL()
+    const profitLossRatio = getProfitLossRatio()
+    const biggestLoss = getBiggestLoss()
+    const biggestProfit = getBiggestProfit()
+    const totalSwinGrossPL = getTotalSwingGrossPL()
+    const totalScalpGrossPL = getTotalScalpGrossPL()
+
     return (
         <LayoutDashboard>
         
@@ -122,25 +131,21 @@ function DashboardIndex() {
                         <h3 className="text-3xl">Return</h3>
 
                         <div className="grid sm:grid-cols-3 md:grid-cols-4 gap-4">
-                            <StatBox title="Accumulative Return £" value="23,323.53" chart={data2} />
+                        <StatBox title="Total Gross P&L £" value={totalGrossPnL} />
+                            {/* 
                             <StatBox title="Accumulative Return Net £" value="23,323.53" chart={data3} />
                             <StatBox title="Account Balance" value="23,323.53" chart="" />
                             <StatBox title="Daily Return £" value="23,323.53" chart="" />
 
                             <StatBox title="Return on Winners £" value="23,323.53" chart="" />
                             <StatBox title="Return on Losers £" value="-43,123.53" chart="" />
-                            <StatBox title="Return £ on Long" value="25,323.53" chart="" />
-                            <StatBox title="Return £ on Short" value="-3,323.53" chart="" />
+                            */}
+                            <StatBox title="Total Return £ on Swing" value={totalSwinGrossPL} />
+                            <StatBox title="Total Return £ on Scalp" value={totalScalpGrossPL} />
 
-                            <StatBox title="Biggest Profit £" value="5,323.53" chart="" />
-                            <StatBox title="Biggest Loss £" value="-1,323.53" chart="" />
-                            <StatBox title="Profit/Loss Ratio" value="1.2:1" />
-
-
-
-                            <StatBox title="Biggest Profit £" value="5,323.53" chart="" />
-                            <StatBox title="Biggest Loss £" value="-1,323.53" chart="" />
-                            <StatBox title="Profit/Loss Ratio" value="1.2:1" />
+                            <StatBox title="Biggest Profit £" value={biggestProfit} />
+                            <StatBox title="Biggest Loss £" value={biggestLoss} />
+                            <StatBox title="Profit/Loss Ratio" value={profitLossRatio} />
                         </div>
                     </div> 
                     {/* </div> */}
