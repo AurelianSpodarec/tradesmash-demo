@@ -1,10 +1,11 @@
-import { ITrade } from "interface/ITrade"
+import ITrade from "@/interface/ITrade";
+
 
 const fakeTrades:ITrade[] = [
     {
         id: 9,
         date: "01-05-2023",
-        stock: "CTAG",
+        symbol: "CTAG",
         bs: "buy",
         size: 600,
         price: 6,
@@ -19,11 +20,12 @@ const fakeTrades:ITrade[] = [
         rrRatio: 0,
         grossPL: 1259.70,
         status: "open",
+        hasNote: true
     },
     {
         id: 8,
         date: "30-04-2023",
-        stock: "REAT",
+        symbol: "REAT",
         bs: "buy",
         size: 420,
         price: 6,
@@ -38,11 +40,12 @@ const fakeTrades:ITrade[] = [
         rrRatio: 0,
         grossPL: -350.25,
         status: "increased",
+        hasNote: true,
     },
     {
         id: 7,
         date: "29-04-2023",
-        stock: "CTAG",
+        symbol: "CTAG",
         bs: "buy",
         size: 100,
         price: 6,
@@ -57,11 +60,12 @@ const fakeTrades:ITrade[] = [
         rrRatio: 0,
         grossPL: 980.59,
         status: "decreased",
+        hasNote: false,
     },
     {
         id: 6,
         date: "28-04-2023",
-        stock: "REAT",
+        symbol: "REAT",
         bs: "sell",
         size: 690,
         price: 6,
@@ -76,11 +80,12 @@ const fakeTrades:ITrade[] = [
         rrRatio: 0,
         grossPL: 2100.42,
         status: "open",
+        hasNote: true,
     },
     {
         id: 5,
         date: "27-04-2023",
-        stock: "REAt",
+        symbol: "REAt",
         bs: "buy",
         size: 100,
         price: 6,
@@ -95,11 +100,12 @@ const fakeTrades:ITrade[] = [
         rrRatio: 0,
         grossPL: -750.00,
         status: "increased",
+        hasNote: false
     },
     {
         id: 4,
         date: "26-04-2023",
-        stock: "REAT",
+        symbol: "REAT",
         bs: "buy",
         size: 100,
         price: 6,
@@ -114,11 +120,12 @@ const fakeTrades:ITrade[] = [
         rrRatio: 0,
         grossPL: 2500.00,
         status: "open",
+        hasNote: false
     },
     {
         id: 3,
         date: "25-04-2023",
-        stock: "REAT",
+        symbol: "REAT",
         bs: "sell",
         size: 100,
         price: 6,
@@ -133,11 +140,12 @@ const fakeTrades:ITrade[] = [
         rrRatio: 0,
         grossPL: 2780.43,
         status: "open",
+        hasNote: false
     },
     {
         id: 2,
         date: "24-04-2023",
-        stock: "CTAG",
+        symbol: "CTAG",
         bs: "sell",
         size: 100,
         price: 6,
@@ -152,11 +160,12 @@ const fakeTrades:ITrade[] = [
         rrRatio: 0,
         grossPL: 3257.58,
         status: "decreased",
+        hasNote: false
     },
     {
         id: 1,
         date: "23-04-2023",
-        stock: "CTAG",
+        symbol: "CTAG",
         bs: "buy",
         size: 100,
         price: 6,
@@ -171,6 +180,7 @@ const fakeTrades:ITrade[] = [
         rrRatio: 0,
         grossPL: 3780.34,
         status: "increased",
+        hasNote: false
     }
 ]
 

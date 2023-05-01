@@ -1,35 +1,59 @@
 import react, {useEffect, useRef, useState} from 'react';
 import { Editor } from '@tinymce/tinymce-react';
+import { updateNote } from '@/store/features/notes/notesSlice';
+import { useDispatch } from 'react-redux';
 
 
-function NoteContent({ data }:any) {
+function NoteContent({ data, activeNote }:any) {
     const [editorValue, setEditorValue] = useState("")
     const editorRef:any = useRef(null);
+
+    const dispatch = useDispatch()
 
     function onChange(e:any) {
         setEditorValue(e)
     }
 
+    function saveNote() {
+        const content = editorRef.current.getContent();
+    //    console.log("hih", data.id)
+        dispatch(updateNote({ 
+            id: data.id,
+            tradeID: data.tradeID,
+            content: content 
+        }));
+    }
+
     useEffect(() => {
         if(data) {
             setEditorValue(data.content)
+        } else {
+            setEditorValue(undefined)
         }
     }, [])
+    // selected note
+
 
     if(!data) return <>Loading...</>
     return (
         <div className="h-full">
 
-            <div className="flex flex-col bg-white p-6 border-b border-b-gray-300">
+            <div className=" bg-white p-6 border-b border-b-gray-300 flex justify-between items-start w-full">
                 {/* <h3>Note: {dateHelper.formatDate(notes[0].createdAt)}</h3> */}
-                <div className="flex space-x-4">
-                    <div className="flex items-center space-x-2">
-                        <div className="h-4 w-4 bg-blue-300 rounded"></div>
-                        <span className="text-xl font-bold">Great day at stock -</span>
+                <div className="flex flex-col">
+                    <div className="flex space-x-4">
+                        <div className="flex items-center space-x-2">
+                            <div className="h-4 w-4 bg-blue-300 rounded"></div>
+                            <span className="text-xl font-bold">Great day at stock -</span>
+                        </div>
+                        <span className="text-xl font-bold">Net P&L: £2323.94</span>
                     </div>
-                    <span className="text-xl font-bold">Net P&L: £2323.94</span>
+                    <time className="text-gray-700">15th August Wed, 2020</time>
                 </div>
-                <time className="text-gray-700">15th August Wed, 2020</time>
+
+                <button type="button" onClick={() => saveNote()}>
+                    Save Note
+                </button>
                 
             </div>
 

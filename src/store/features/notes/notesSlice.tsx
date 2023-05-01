@@ -1,6 +1,8 @@
-import INote from "@/interface/INote";
+import { useDispatch, useSelector } from "react-redux";
 import { createSelector, createSlice } from "@reduxjs/toolkit";
-import { useSelector } from "react-redux";
+
+import INote from "@/interface/INote";
+import { updateTradeHasNote } from "../trades/tradesSlice";
 
 interface NotesState {
     currentNote: number;
@@ -28,8 +30,7 @@ const notesSlice = createSlice({
                 updatedAt: Date.now(),
                 createdAt: Date.now()
             };
-            state.notes.push(newNote);
-            // state.currentNote = newNote.id;
+            state.notes.push(newNote);           
         },
         updateNote: (state, action) => {
             const { id, tradeID, content } = action.payload;

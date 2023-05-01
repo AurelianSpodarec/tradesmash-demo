@@ -2,7 +2,7 @@ export default interface ITrade {
     id: number;
     date: string;
     symbol: string;
-    buySell: "sell" | "buy";
+    bs: "sell" | "buy";
     size: number;
     price: number;
     fees: number;

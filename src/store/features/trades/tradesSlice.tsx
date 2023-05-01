@@ -39,7 +39,14 @@ const tradeSlice = createSlice({
             } else {
                 state.trades.unshift(newTrade);
             }
-        }
+        },
+        updateTradeHasNote: (state, action) => {
+            const { tradeID, hasNote } = action.payload;
+            const tradeToUpdate = state.trades.find((trade) => trade.id === tradeID);
+            if (tradeToUpdate) {
+              tradeToUpdate.hasNote = hasNote;
+            }
+        },
     },
 });
 
@@ -47,6 +54,13 @@ const tradeSlice = createSlice({
 // export const getTotalGrossPnL = () => useSelector(( state: { trades:TradeState }) => state.trades 
 
 // export const getTotalTradesGrossPnL = () => useSelector(( state: { trades: TradeState }) =>  state.trades.trades.reduce((acc, trade) => acc + trade.grossPL, 0)
+
+// check if trade has note by searching the notes state seeing if tradeID has the id of trade, if yes return true/false
+
+export const hasTradeNotes = (tradeID: number) => useSelector((state: { notes:any }) => state.notes.notes.find((note:any) => note.tradeID === tradeID));
+  
+
+
 export const getTotalTradesGrossPnL = () => useSelector((state: { trades: TradeState }) => state.trades.trades.reduce((acc, trade) => acc + trade.grossPL, 0));
 
 export const getBiggestProfit = () => useSelector((state: { trades: TradeState }) => {
@@ -99,5 +113,5 @@ export const getTotalSwingGrossPL = () => useSelector((state) => {
                              .reduce((total, trade) => total + trade.grossPL, 0);
 });
 
-export const { setTrades, addNewTrade } = tradeSlice.actions;
+export const { setTrades, addNewTrade, updateTradeHasNote } = tradeSlice.actions;
 export default tradeSlice.reducer;

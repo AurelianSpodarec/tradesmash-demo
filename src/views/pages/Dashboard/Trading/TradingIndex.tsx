@@ -10,7 +10,8 @@ import { ScalableContainer, ScalableContent, ScalableHeader } from '../_componen
  
 import CellBuySell from './CellBuySell';
 import CellStatus from './CellStatus';
-import { addNewTrade } from '@/store/features/trades/tradesSlice';
+import { addNewTrade, hasTradeNotes } from '@/store/features/trades/tradesSlice';
+import ITrade from '@/interface/ITrade';
 
 
 
@@ -29,7 +30,7 @@ function TradingIndex() {
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [selectedTrade, setSelectedTrade] = useState(0);
     
-    const bo = getNoteByTradeID(8)
+    const bo = getNoteByTradeID(selectedTrade)
 
 
     function addTrade(numTrades:number) {
@@ -38,8 +39,9 @@ function TradingIndex() {
         for (let i = 0; i < numTrades; i++) {
             const newTrade:ITrade = {
                 id: trades.length + 1 + i,
-                date: `${Math.floor(Math.random() * 31)}-${Math.floor(Math.random() * 12)}-2023`,
-                stock:  Math.random() < 0.5 ? "CTAG" : "REAT",
+                date:  new Date(new Date().getTime() + Math.floor(Math.random() * 7) * 24 * 60 * 60 * 1000)
+                .toLocaleDateString("en-GB"),
+                symbol:  Math.random() < 0.5 ? "CTAG" : "REAT",
                 bs: Math.random() < 0.5 ? "buy" : "sell",
                 size: Math.floor(Math.random() * 999),
                 price: Math.floor(Math.random() * 15),
@@ -52,7 +54,7 @@ function TradingIndex() {
                 aop: Math.floor(Math.random() * 60),
                 acp: Math.floor(Math.random() * 71),
                 rrRatio: 0,
-                grossPL: Math.floor(Math.random() * 11000) - 1000,
+                grossPL: Math.floor(Math.random() * 11000) - 2500,
                 status: Math.random() < 0.5 ? "open" : "increased",
             };
             newTrades.push(newTrade);
@@ -92,6 +94,7 @@ function TradingIndex() {
         setChecked(!checked && !indeterminate)
         setIndeterminate(false)
     }
+ 
 
     return (
         <LayoutDashboard>
@@ -167,7 +170,7 @@ function TradingIndex() {
                             Date
                             </th>
                             <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
-                            Stock
+                            Symbol
                             </th>
                             <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
                             B/S
@@ -211,9 +214,9 @@ function TradingIndex() {
                             <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
                             Status
                             </th>
-                            <th scope="col" className="relative py-3.5 pl-3 pr-4 sm:pr-3">
+                            {/* <th scope="col" className="relative py-3.5 pl-3 pr-4 sm:pr-3">
                             <span className="sr-only">Edit</span>
-                            </th>
+                            </th> */}
                             <th scope="col" className="relative py-3.5 pl-3 pr-4 sm:pr-3">
                             <span className="sr-only">Add Note</span>
                             </th>
@@ -223,7 +226,7 @@ function TradingIndex() {
 
 
                         <tbody className="divide-y divide-gray-200 bg-white">
-                        {trades.map((trade) => (
+                        {trades.map((trade:ITrade) => (
                             <tr key={trade.id} className={selectedTrades.includes(trade) ? 'bg-gray-50' : undefined}>
 
                                 <td className="relative px-7 sm:px-6">
@@ -247,7 +250,7 @@ function TradingIndex() {
 
                                 <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">#{trade.id}</td>
                                 <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{trade.date}</td>
-                                <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{trade.stock}</td>
+                                <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{trade.symbol}</td>
                                 <CellBuySell item={trade.bs} />
                                 <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{trade.size && trade.size.toFixed(3)}</td>
                                 <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{trade.price}p</td>
@@ -262,14 +265,14 @@ function TradingIndex() {
                                 <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{trade.rrRatio}</td>
                                 <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">£{trade.grossPL && trade.grossPL.toFixed(2)}</td>
                                 <CellStatus item={trade.status} />
-                                <td className="whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-3">
+                                {/* <td className="whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-3">
                                 <button type="button" className="text-skin-brand-600 hover:text-skin-brand-900">
                                     Edit<span className="sr-only">, {trade.id}</span>
                                 </button>
-                                </td>
+                                </td> */}
                                 <td className="whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-3">
                                 <button type="button" onClick={() => manageNote(trade.id)} className="text-skin-brand-600 hover:text-skin-brand-900">
-                                    Add Note <span className="sr-only">, {trade.id}</span>
+                                    {trade.hasNote ? "Edit" : "Add"} Note <span className="sr-only">, {trade.id}</span>
                                 </button>
                                 </td>
                             </tr>

@@ -1,5 +1,6 @@
 import { closeModal } from '@/store/features/modals/modalsSlice';
 import { createNote, getNoteByTradeID, updateNote } from '@/store/features/notes/notesSlice';
+import { updateTradeHasNote } from '@/store/features/trades/tradesSlice';
 import { Editor } from '@tinymce/tinymce-react';
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from "react-redux";
@@ -36,6 +37,7 @@ function Modal() {
                 tradeID, 
                 content: content
             }))
+            dispatch(updateTradeHasNote(tradeID, true));
         }
         dispatch(updateNote({ 
             id: note?.id,
@@ -43,6 +45,7 @@ function Modal() {
             content: content 
         }));
         dispatch(closeModal())
+      
     }
 
     useEffect(() => {

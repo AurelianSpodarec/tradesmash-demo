@@ -31,7 +31,7 @@ function NotebookIndex() {
 
             <div className="col-span-8">
                 {/* Single Active note */}
-                <NoteContent data={activeNote} />
+                <NoteContent data={activeNote} activeNote={activeNote} />
             </div>
 
         </div>
