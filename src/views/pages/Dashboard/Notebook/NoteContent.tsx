@@ -4,6 +4,7 @@ import { Editor } from '@tinymce/tinymce-react';
 import { updateNote } from '@/store/features/notes/notesSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import dateHelper from '@/utils/dateHelper';
+import { getActiveNotebook } from '@/store/features/notebook/notebookSlice';
 
 
 function NoteContent({ data }:any) {
@@ -17,10 +18,9 @@ function NoteContent({ data }:any) {
  
     const notes = reduxNotes.notes
     const activeNoteIndex = reduxNotebook.activeNoteIndex
-    const activeNote = notes && notes[activeNoteIndex]
+    const activeNote = getActiveNotebook()
  
-    // console.log("note",activeNote)
-
+    // console.log("act", a)
 
     function onChange(e:any) {
         setEditorValue(e)
@@ -29,25 +29,23 @@ function NoteContent({ data }:any) {
     function saveNote() {
         const content = editorRef.current.getContent();
         dispatch(updateNote({ 
-            id: activeNoteIndex,
+            id: activeNote.id,
             tradeID: activeNote.tradeID,
             content: content 
         }));
     }
 
     useEffect(() => {
-        if(notes) {
+        // setEditorValue(activeNote && activeNote.content)
+        if(activeNote) {
             setEditorValue(activeNote && activeNote.content)
         } else {
             setEditorValue(undefined)
         }
-    }, [activeNoteIndex])
-
- 
+    }, [activeNote])
 
 
-
-    if(!activeNote) return <>Loading...</>
+    if(activeNote === undefined) return <>Loading...</>
     return (
         <div className="h-full">
 

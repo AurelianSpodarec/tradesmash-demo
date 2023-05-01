@@ -58,7 +58,6 @@ const notesSlice = createSlice({
 
 export const getNoteByTradeID = (tradeID:any) => useSelector((state: { notes:NotesState }) => state.notes.notes.find(note => note.tradeID === tradeID))
 
-
 // export const pagesActivePage = () => useSelector((state: { pages:PagesState }) => state.pages.pages.find(page => page.id === state.pages.currentPage))
 // export const pagesActiveDOM = () => useSelector((state: { pages:PagesState }) => state.pages.pagesDOM.find(page => page.id === state.pages.currentPage))?.dom
 // export const pagesHomePage = () => useSelector((state: { pages:PagesState }) => state.pages.pages.find(page => page.isHome))
