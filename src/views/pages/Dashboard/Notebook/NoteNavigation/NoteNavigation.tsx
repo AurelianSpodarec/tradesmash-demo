@@ -11,6 +11,7 @@ function NoteNavigation({ data }:NoteNavigationProps) {
     
     const activeNote = getActiveNotebook()
 
+    console.log("pwpwpwpwppwp", activeNote)
     function setNoteIndex(id:any) {
         console.log("fire", id)
         dispatch(setActiveNote(id))
@@ -32,7 +33,7 @@ function NoteNavigation({ data }:NoteNavigationProps) {
                     <div>
                         Your Results: {data && data.length} Notes
                     </div>
-                    <input placeholder="Search " className="w-full" />
+                    {/* <input placeholder="Search " className="w-full" /> */}
                 </section>
 
             </header>
@@ -43,7 +44,7 @@ function NoteNavigation({ data }:NoteNavigationProps) {
             <section>
 
                 <ol>
-                    {data && data.map((item:INote) => <NoteItem onClick={() => setNoteIndex(item.id)} key={item.createdAt} item={item} isActive={item.id === activeNote.id} />)}
+                    {data && data.map((item:INote) => <NoteItem onClick={() => setNoteIndex(item.id)} key={item.createdAt} item={item} isActive={activeNote} />)}
                 </ol>
 
             </section>

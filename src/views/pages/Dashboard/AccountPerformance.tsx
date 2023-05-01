@@ -22,7 +22,7 @@ function AccountPerformance() {
     const formattedGrossPnL = totalGrossPnL && totalGrossPnL.toLocaleString('en-GB', { style: 'currency', currency: 'GBP' });
 
   return (
-    <div className="h-[460px] pb-[70px] w-full bg-white relative flex flex-col min-w-0 break-words bg-white rounded-lg mb-6 xl:mb-0 shadow-lg">
+    <div className="h-[550px] pb-[120px] w-full bg-white relative flex flex-col min-w-0 break-words bg-white rounded-lg mb-6 xl:mb-0 shadow-lg">
     <div className="h-full">
 
         <div className="p-4">

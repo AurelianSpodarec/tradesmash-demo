@@ -32,7 +32,7 @@ function DashboardIndex() {
 
                     <AccountPerformance />
                   
-                    <div className="h-full mt-24">
+                    <div className="h-full mt-8">
                         <h3 className="mb-4 text-3xl font-bold text-gray-900">Return</h3>
 
                         <div className="grid sm:grid-cols-3 md:grid-cols-4 gap-4">

@@ -17,17 +17,17 @@ function Modal() {
     const editorRef:any = useRef(null);
     
     const note = getNoteByTradeID(tradeID)
-    const isEmptyNote = note === undefined;
+    const isEmptyNote = note === undefined || "";
 
     const [editorValue, setEditorValue] = useState()
 
     function onChange(e:any) {
-        console.log("iriuiiuiiuiu", e)
         setEditorValue(e)
     }
     
     function modalClose() {
         dispatch(closeModal())
+        setEditorValue(null)
     }
 
     function saveNote() {
@@ -39,20 +39,20 @@ function Modal() {
                 content: content
             }))
             dispatch(updateTradeHasNote(tradeID, true));
+        } else {
+            dispatch(updateNote({ 
+                id: note?.id,
+                tradeID, 
+                content: content 
+            }));
         }
-        dispatch(updateNote({ 
-            id: note?.id,
-            tradeID, 
-            content: content 
-        }));
+
         dispatch(closeModal())
-      
+        setEditorValue("")
     }
 
     useEffect(() => {
-        if(isEmptyNote) {
-            setEditorValue(undefined)
-        } else {
+        if(!isEmptyNote) {
             setEditorValue(note?.content)
         }
     }, [tradeID, isOpen])
