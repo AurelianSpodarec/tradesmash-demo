@@ -8,7 +8,7 @@ function NoteNavigation({ data }:NoteNavigationProps) {
 
     const dispatch = useDispatch()
     const reduxNotebook = useSelector((state:any) => state.notebook)
-    const activeNoteIndex = reduxNotebook.activeNoteIndex
+    
     
     const activeNote = getActiveNotebook()
 
