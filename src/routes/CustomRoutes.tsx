@@ -1,14 +1,14 @@
 import { useRoutes } from "react-router-dom";
 
-import DashboardIndex from "../views/pages/Dashboard/DashboardIndex";
-import TradingIndex from "../views/pages/Dashboard/Trading/TradingIndex";
-import NotebookIndex from "@/views/pages/Dashboard/Notebook/NotebookIndex";
-import TradeLogIndex from "@/views/pages/Dashboard/TradeLog/TradeLogIndex";
-import StatsIndex from "@/views/pages/Dashboard/Stats/StatsIndex";
-import StockIndex from "@/views/pages/Dashboard/Stock/StockIndex";
+import HomeIndex from "../views/pages/Home/HomeIndex";
 
-import Home from "@/views/pages/Landing/Home";
-import NotFound from "@/views/pages/Landing/NotFound/NotFound";
+import TradingIndex from "../views/pages/Trading/TradingIndex";
+import NotebookIndex from "@/views/pages/Notebook/NotebookIndex";
+import TradeLogIndex from "@/views/pages/TradeLog/TradeLogIndex";
+import StatsIndex from "@/views/pages/Stats/StatsIndex";
+import StockIndex from "@/views/pages/Stock/StockIndex";
+
+import NotFound from "@/views/pages/NotFound/NotFound";
 
 function CustomRoutes() {
     let routes = useRoutes([
@@ -17,31 +17,27 @@ function CustomRoutes() {
             element: <NotFound />
         },
         {
-            path: "/",
-            element: <Home />
+            path: "",
+            element: <HomeIndex />
         },
         {
-            path: "/dashboard",
-            element: <DashboardIndex />
-        },
-        {
-            path: "/dashboard/trades",
+            path: "/trades",
             element: <TradingIndex />
         },
         {
-            path: "/dashboard/stocks",
+            path: "/stocks",
             element: <StockIndex />
         },
         {
-            path: "/dashboard/stats",
+            path: "/stats",
             element: <StatsIndex />
         },
         {
-            path: "/dashboard/tradelog",
+            path: "/tradelog",
             element: <TradeLogIndex />
         },
         {
-            path: "/dashboard/notebook",
+            path: "/notebook",
             element: <NotebookIndex />
         }
     ]);

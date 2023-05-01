@@ -22,9 +22,6 @@ function Layout() {
 
     useEffect(() => {
         fetchProjectData();
-        // if(projectID !== null && shouldShow) {
-        //     setisLoading(false)
-        // }
     }, []);
 
     return (

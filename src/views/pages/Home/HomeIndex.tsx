@@ -1,14 +1,21 @@
-// @ts-nocheck
-import LayoutDashboard from "./_components/LayoutDashboard/LayoutDashboard";
+import LayoutDashboard from "../_components/LayoutDashboard/LayoutDashboard";
 
-import AccountPerformance from "./AccountPerformance";
-import TradesSidebar from "./TradesSidebar";
-import { ScalableContainer, ScalableContent } from './_components/ScalableCell';
+import AccountPerformance from "./_components/AccountPerformance";
+import TradesSidebar from "./_components/TradesSidebar";
+import { ScalableContainer, ScalableContent } from '../_components/ScalableCell';
 import StatBox from "@/views/components/StatBox";
-import { getBiggestLoss, getBiggestProfit, getProfitLossRatio, getTotalScalpGrossPL, getTotalSwingGrossPL, getTotalTradesGrossPnL } from "@/store/features/trades/tradesSlice";
+
+import { 
+    getBiggestLoss, 
+    getBiggestProfit,
+    getProfitLossRatio,
+    getTotalScalpGrossPL,
+    getTotalSwingGrossPL,
+    getTotalTradesGrossPnL 
+} from "@/store/features/trades/tradesSlice";
 
 
-function DashboardIndex() {
+function HomeIndex() {
 
     const totalGrossPnL = getTotalTradesGrossPnL()
     const profitLossRatio = getProfitLossRatio()
@@ -62,4 +69,4 @@ function DashboardIndex() {
     )
 }
 
-export default DashboardIndex;
+export default HomeIndex;
