@@ -16,7 +16,7 @@ import ITrade from '@/interface/ITrade';
 
 
 
-function TradingIndex() {
+function TradesIndex() {
     const reduxTrades = useSelector((state:any) => state.trades);
     const reduxModal = useSelector((state:any) => state.modal);
 
@@ -301,6 +301,6 @@ function TradingIndex() {
 }
 
 
-export default TradingIndex;
+export default TradesIndex;
 
 
