@@ -1,9 +1,8 @@
-// @ts-nocheck
+import INavigationItem from "@/interface/INavigationItem";
 import NavItem from "./NavItem";
-import { configDashboard } from "config/configDashboard";
-import { useLocation, NavLink } from 'react-router-dom';
+import { useLocation, } from 'react-router-dom';
 
-function NavList() {
+function NavList({ data }:NavListProps) {
     const location = useLocation();
     const pathnameWithoutDashboard = location.pathname.replace(/^\/dashboard(\/|$)/, '/');
 
@@ -11,7 +10,7 @@ function NavList() {
         <nav className="flex flex-1 flex-col">
         <ul role="list" className="flex flex-1 flex-col">
     
-            {configDashboard.navigation && configDashboard.navigation.map((item => {
+            {data && data.map((item => {
                 return <NavItem item={item} isActive={pathnameWithoutDashboard === item.url}/>
             }))}
     
@@ -21,3 +20,7 @@ function NavList() {
 }
 
 export default NavList;
+
+interface NavListProps {
+    data: INavigationItem[];
+}
