@@ -1,0 +1,21 @@
+[
+    {
+        "id": 0,
+        "username": 0,
+        "email": "johndoe@example.com",
+        "firstName": "John",
+        "secondName": "Doe",
+        "dateOfBirth": "1990-01-01",
+        "address": {
+            "street": "123 Main St",
+            "city": "Anytown",
+            "state": "CA",
+            "zip": "12345",
+            "country": "USA"
+        },
+        "phone": "+1-555-555-5555",
+        "avatar": "https://example.com/avatar.jpg",
+        "updatedAt": "2022-05-02T10:15:00Z",
+        "createdAt": "2022-05-01T14:30:00Z"
+    }
+]
