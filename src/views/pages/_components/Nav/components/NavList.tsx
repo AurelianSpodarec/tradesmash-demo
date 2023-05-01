@@ -8,7 +8,7 @@ function NavList({ data }:NavListProps) {
 
     return (
         <nav className="flex flex-1 flex-col">
-        <ul role="list" className="flex flex-1 flex-col">
+        <ul role="list" className="flex flex-1 flex-col p-1">
     
             {data && data.map((item => {
                 return <NavItem item={item} isActive={pathnameWithoutDashboard === item.url}/>

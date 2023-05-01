@@ -16,11 +16,11 @@ function Header() {
     const currentName = namesMap[location.pathname]
 
     return (
-        <div className="z-40 flex h-16 shrink-0 items-center gap-x-4 border-b border-gray-200 bg-white shadow-sm sm:gap-x-6">
+        <div className="z-40 flex h-12 shrink-0 items-center gap-x-4 border-b border-gray-200 bg-white shadow-sm sm:gap-x-6">
 
             <Link to="/" className="flex w-[50px] p-1 shrink-0 items-center"> 
                 <img src="https://i.ibb.co/MMzrXqX/image.png" className="w-full" />
-                 {/* <span className="ml-3 text-xl font-bold">{configApp.name}</span> */}
+                 <span className="ml-3 text-xl font-bold sr-only">{configApp.name}</span>
             </Link>
             
             {/* Mobile button */}
@@ -32,8 +32,6 @@ function Header() {
             </button> 
 
 
-            <div className="h-6 w-px bg-gray-200 lg:hidden" aria-hidden="true"></div>
-
             <div className="flex flex-1 gap-x-6 items-center self-stretch lg:gap-x-8">
 
                 <div className="relative flex flex-1">
@@ -42,10 +40,8 @@ function Header() {
           
                 <div className="flex items-center gap-x-4 lg:gap-x-6">
 
-                    <div className="hidden lg:block lg:h-6 lg:w-px lg:bg-gray-200" aria-hidden="true"></div>
-
                     
-                    <div x-data="Components.menu({ open: false })" x-init="init()" className="relative">
+                    <div className="relative">
                     <button type="button" className="flex items-center p-1.5" id="user-menu-button" x-ref="button" aria-expanded="false" aria-haspopup="true" x-bind:aria-expanded="open.toString()">
                         <div className="mr-2">
                             <span className="sr-only">Open user menu</span>
@@ -60,6 +56,8 @@ function Header() {
                         <img className="h-10 w-10 rounded-full bg-gray-50" src="https://media.licdn.com/dms/image/C4E03AQFVCKi33RhRnw/profile-displayphoto-shrink_100_100/0/1656494147901?e=1687996800&v=beta&t=j1xxtYBcK4YmuFifzkigLRykqF22l9y1yqwZoGLOdUw" alt="" />
                     </button>        
                     </div>
+
+
                 </div>
 
 

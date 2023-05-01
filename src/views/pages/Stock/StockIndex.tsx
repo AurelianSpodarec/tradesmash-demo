@@ -1,10 +1,10 @@
+import PageContent from "../_components/PageContent";
+
 function StockIndex() {
     return (
-        <div>
-
+        <PageContent>
             Stock Index
-
-        </div>
+        </PageContent>
     )
 }
 

@@ -1,9 +1,11 @@
+import PageContent from "../_components/PageContent";
+
 function HomeIndex() {
 
     return (
-        <div>
-            
-        </div>
+        <PageContent>
+            Home Index
+        </PageContent>
     )
 }
 

@@ -1,18 +1,19 @@
+import INavigationItem from "@/interface/INavigationItem";
 import Tooltip from "@/views/components/Tooltip";
 import { Link } from "react-router-dom";
 
-function NavItem({ item, isActive }:any) {
+function NavItem({ item, isActive }:NavItemProps) {
     return (
         <li className="cursor-default fill-gray-700 text-gray-500 hover:fill-gray-300 hover:text-gray-400 transition">
             <Tooltip name={item.name} position="right" dely="200">
             <Link 
                 to={`${item.url}`} 
                 className={`
-                    cursor-default ${isActive ? "bg-gray-300/30 text-skin-brand-500" : ""}  
-                    group flex gap-x-3 p-2 text-sm leading-6 font-semibold
+                    cursor-default rounded-lg ${isActive ? "bg-[#3e4c59] text-gray-200" : ""}  
+                    group flex p-2
                 `}>
                     <div>
-                        <div>
+                        <div className="h-6 text-center">
                             {item.icon}
                         </div>
                         <span className="sr-only">{item.name}</span> 
@@ -24,3 +25,8 @@ function NavItem({ item, isActive }:any) {
 }
 
 export default NavItem;
+
+interface NavItemProps {
+    item: INavigationItem;
+    isActive: boolean;
+}
