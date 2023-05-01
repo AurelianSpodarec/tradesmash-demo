@@ -1,13 +1,12 @@
 import INote from "@/interface/INote";
 import NoteItem from "./NoteItem";
 import { ScalableContainer, ScalableHeader, ScalableContent } from '../../_components/ScalableCell';
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { getActiveNotebook, setActiveNote } from "@/store/features/notebook/notebookSlice";
 
 function NoteNavigation({ data }:NoteNavigationProps) {
 
     const dispatch = useDispatch()
-    const reduxNotebook = useSelector((state:any) => state.notebook)
     
     
     const activeNote = getActiveNotebook()
