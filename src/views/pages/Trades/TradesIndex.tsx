@@ -31,10 +31,12 @@ function TradesIndex() {
 
             <h1 className="text-2xl font-bold">Trades</h1>
 
-            <section className="pt-8">
+            {/* <section className="pt-8"> */}
 
                 <Card>
-                <table aria-describedby="trades_table">
+                <div className="overflow-x-auto">
+                <div className="relative">
+                <table aria-describedby="trades_table" className="min-w-full table-fixed divide-y divide-gray-300">
                     <thead>
                         <tr>
                             <TableTH name="Trade #" />
@@ -67,9 +69,11 @@ function TradesIndex() {
                         </tr>
                     </tbody>
                 </table>
+                </div>
+                </div>
                 </Card>
 
-            </section>
+            {/* </section> */}
 
         </Container>
     )

@@ -18,7 +18,7 @@ function Layout() {
                 <div className="flex flex-row h-full overflow-hidden relative">
                     <Navigation />
 
-                    <main className="h-full w-full">
+                    <main className="pl-[50px] h-full w-full">
                         <CustomRoutes />
                     </main>      
                 </div>            
