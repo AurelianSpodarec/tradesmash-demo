@@ -100,6 +100,10 @@ function DayItem({ dayName, dayNumber, hasNote, isActive }:any) {
     )
 }
 
+
+// If one note exists on the day, no navigation sould show, and instead it should show "add another note"
+
+
 function NoteNavigation({ data }:NoteNavigationProps) {
 
     const dispatch = useDispatch()

@@ -3,6 +3,7 @@ import CustomRoutes from "routes/CustomRoutes";
 
 import Header from "./_components/Header/Header";
 import Navigation from "./_components/Nav/Navigation";
+import MadeBy from "../atoms/MadeBy";
 
 
 function Layout() {
@@ -10,6 +11,8 @@ function Layout() {
     return (
         <BrowserRouter>
         <div className="relative h-full ">
+
+            <MadeBy />
 
             <div id="context-wrap" className={`flex flex-col h-full`}> 
                 <Header />
