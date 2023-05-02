@@ -1,5 +1,7 @@
 export {}
 
+// TODO: Connect to redux and on start seed the database/redux store
+
 // import ITrade from "@/interface/ITrade";
 
 // function tradeFactory({ trades }:any) {
