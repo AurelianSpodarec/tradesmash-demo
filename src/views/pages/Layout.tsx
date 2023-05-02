@@ -9,13 +9,12 @@ function Layout() {
  
     return (
         <BrowserRouter>
-        <div className="relative h-full bg-[#f1f5f9]">
-        <div className="relative h-screen overflow-hidden">
+        <div className="relative h-full ">
 
-            <div id="context-wrap" className={`flex flex-col h-full overflow-hidden`}> 
+            <div id="context-wrap" className={`flex flex-col h-full`}> 
                 <Header />
                 
-                <div className="flex flex-row h-full overflow-hidden relative">
+                <div className="flex flex-row h-full relative">
                     <Navigation />
 
                     <main className="pl-[50px] h-full w-full">
@@ -25,7 +24,6 @@ function Layout() {
 
             </div>
 
-        </div>
         </div>
         </BrowserRouter>
     )
