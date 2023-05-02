@@ -8,22 +8,16 @@ import NoteContentHeader from './_components/NoteContentHeader';
 
 
 function NoteContent({ data }:any) {
-    const dispatch = useDispatch()
-
-   
-
     const reduxNotes = useSelector((state:any) => state.notes);
     const reduxNotebook = useSelector((state:any) => state.notebook)
  
     const notes = reduxNotes.notes
     const activeNoteIndex = reduxNotebook.activeNoteIndex
     const activeNote = getActiveNotebook()
- 
-   
-
+    
     if(activeNote === undefined) return <>Loading...</>
     return (
-        <div className="h-full">
+        <div className="flex flex-col h-full">
             <NoteContentHeader />
             <NoteContentEditor />
         </div>

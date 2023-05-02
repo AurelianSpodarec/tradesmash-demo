@@ -16,7 +16,7 @@ function Header() {
     const currentName = namesMap[location.pathname]
 
     return (
-        <div className="z-40 flex h-12 shrink-0 items-center gap-x-4 border-b border-gray-200 bg-white shadow-sm sm:gap-x-6">
+        <header className="sticky top-0 z-40 flex h-12 shrink-0 items-center gap-x-4 border-b border-gray-200 bg-white shadow-sm sm:gap-x-6">
 
             <Link to="/" className="flex w-[50px] p-1 shrink-0 items-center"> 
                 <img src="https://i.ibb.co/MMzrXqX/image.png" className="w-full" />
@@ -62,7 +62,7 @@ function Header() {
 
 
             </div>
-        </div>
+        </header>
     )
 }
 
