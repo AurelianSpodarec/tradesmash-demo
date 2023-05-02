@@ -4,7 +4,7 @@ function CardMetric({ title, value, className }:CardMetricProps) {
     return (
         <Card className={className}>
         <div className="flex flex-col">
-            <span className="text-sm mb-2">{title}</span>
+            <span className="text-sm mb-1">{title}</span>
             <span className="text-2xl font-semibold">{value}</span>
         </div>
         </Card>
