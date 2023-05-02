@@ -12,52 +12,17 @@ import {
     getTotalSwingGrossPL, 
     getTotalTradesGrossPnL 
 } from "@/store/features/trades/tradeSliceSelectors";
-
-
-import { LineChart, Line, Label, ResponsiveContainer, Cell, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 import { useSelector } from "react-redux";
-import ITrade from "@/interface/ITrade";
-function ChartPerformance() {
+import ChartPerformance from "./_components/ChartPerfomance";
+
+
+
+
+
+function HomeIndex() {    
     const reduxTrades = useSelector((state:any) => state.trades)
     const trades = reduxTrades.trades
 
-    return (
-        <div className="h-full">
-            <div className="mb-8">
-                <h1 className="text-lg font-semibold">Gross Profit and Loss</h1>
-            </div>  
-            <ResponsiveContainer>
-            <BarChart data={trades} barCategoryGap={0}>
-                <CartesianGrid yAxis={false}  strokeDasharray="3 3"/>
-                <XAxis 
-                    dataKey="date" 
-                    strokeWidth={2} 
-                    height={80} 
-                    tick={{ 
-                        angle: -70, 
-                        textAnchor: 'end' 
-                    }} 
-                    interval={0}  
-                />
-                <YAxis 
-                    tickFormatter={(value) => `£${value / 1000}k`}
-                    axisLine={false}
-                    strokeDasharray="0"
-                />
-                <Tooltip />
-                <Bar dataKey="grossProfitAndLoss" >
-                    {trades.map((entry:ITrade, index:any) => (
-                        <Cell key={index} fill={entry.grossProfitAndLoss <= 0 ? '#c23e74' : '#00867a' }/>
-                    ))}
-                </Bar>
-            </BarChart>
-            </ResponsiveContainer>
-        </div>
-    )
-}
-
-
-function HomeIndex() {
     const totalGrossPnL = getTotalTradesGrossPnL()
     const biggestProfit = getBiggestProfit()    
     const biggestLoss = getBiggestLoss()
@@ -73,7 +38,7 @@ function HomeIndex() {
             <section className="mb-4">
 
                 <Card className="h-[500px]">
-                    <ChartPerformance />
+                    <ChartPerformance data={trades} />
                 </Card>
 
             </section>
