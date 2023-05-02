@@ -148,51 +148,6 @@ import React, { useState, useEffect } from 'react';
 
 
 
-
-
-function CalendarHorizontal() {
-    const [activeDay, setActiveDay] = useState(new Date());
-   
-   
-    const today = new Date();
-    const previousWeek = [];
-
-   
-for (let i = 0; i < 7; i++) {
-    const currentDate = new Date(today);
-    currentDate.setDate(today.getDate() - i);
-  
-    const dayName = new Intl.DateTimeFormat('en-US', { weekday: 'short' }).format(currentDate);
-    const dayNumber = new Intl.DateTimeFormat('en-US', { day: 'numeric' }).format(currentDate);
-    const formattedDate = new Intl.DateTimeFormat('en-US', { dateStyle: 'medium' }).format(currentDate);
-    const isActive = currentDate.toDateString() === today.toDateString();
-
-    const dayInfo = {
-      dayName,
-      dayNumber,
-      formattedDate,
-      date: currentDate,
-      isActive
-    };
-  
-    previousWeek.unshift(dayInfo);
-  }
-
-      console.log(previousWeek)
-    // console.log("active day", activeDay)
-    // console.log("seveon days", plusSeven)
-    // console.log("prev seven days", minusSeven)
-    return (
-        <ul className="flex justify-between items-center">
-            {previousWeek && previousWeek.map((day) => {
-                return (
-                    <DayItem dayName={day.dayName} dayNumber={day.dayNumber} hasNote={false} isActive={day.isActive} />
-                )
-            })}
-        </ul>
-    )
-}
-
   
 function DayItem({ dayName, dayNumber, hasNote, isActive }:any) {
     return (
@@ -207,6 +162,75 @@ function DayItem({ dayName, dayNumber, hasNote, isActive }:any) {
         </li>
     )
 }
+
+
+function CalendarHorizontal() {
+    const [activeDay, setActiveDay] = useState(new Date());
+    const [previousWeek, setPreviousWeek] = useState([]);
+    const [activeWeek, setActiveWeek] = useState(0)
+    const today = new Date();
+   
+    function setWeek() {
+        const week = []
+        for (let i = 0; i < 7; i++) {
+            const currentDate = new Date(today);
+            currentDate.setDate(today.getDate() - i + activeWeek);
+        
+            const dayName = new Intl.DateTimeFormat('en-GB', { weekday: 'short' }).format(currentDate);
+            const dayNumber = new Intl.DateTimeFormat('en-GB', { day: 'numeric' }).format(currentDate);
+            const formattedDate = new Intl.DateTimeFormat('en-GB', { dateStyle: 'medium' }).format(currentDate);
+            const isActive = currentDate.toDateString() === today.toDateString();
+
+            const dayInfo = {
+                dayName,
+                dayNumber,
+                formattedDate,
+                date: currentDate,
+                isActive
+            };
+            week.unshift(dayInfo);
+        }
+        
+        setPreviousWeek(week)
+    }
+
+
+    function navigateNextWeek() {
+        setActiveWeek(activeWeek => activeWeek + 7)
+    }
+
+    function navigatePreviousWeek() {
+        setActiveWeek(activeWeek => activeWeek - 7)
+    }
+
+    useEffect(() => {
+        setWeek()
+    }, [activeWeek])
+
+    return (
+        <div className="border border-b-gray-300 px-8 pt-8 pb-4">
+            <div className="flex justify-between items-center mb-8">
+                <span className="font-semibold text-lg">May 2023</span>
+                <div>
+                    <span>Today</span>
+                    <button type="button" onClick={() => navigatePreviousWeek()}>Prev Week</button>
+                    <button type="button" onClick={() => navigateNextWeek()}>Next Week</button>
+                </div>
+            </div>
+
+            <ol className="flex justify-between items-center">
+                {previousWeek && previousWeek.map((day) => {
+                    return (
+                        <DayItem dayName={day.dayName} dayNumber={day.dayNumber} hasNote={false} isActive={day.isActive} />
+                    )
+                })}
+            </ol>
+
+        </div>
+    )
+}
+
+
 
 
 // If one note exists on the day, no navigation sould show, and instead it should show "add another note"
@@ -225,33 +249,9 @@ function NoteNavigation({ data }:NoteNavigationProps) {
     return (
         <div className="w-full bg-white h-full border-r border-r-gray-300">
 
-            <div className="border border-b-gray-300 px-8 pt-8 pb-4">
-
-                <div className="flex justify-between items-center mb-8">
-                    <span className="font-semibold text-lg">May 2023</span>
-                    <div>
-                        <span>Today</span>
-                        <span>Left</span>
-                        <span>Right</span>
-                    </div>
-                </div>
-
-                <div>
-                    
-                        {/* <DayItem dayName="Mon" dayNumber="9" hasNote={false} isActive={false} />
-                        <DayItem dayName="Tue" dayNumber="10" hasNote={false} isActive={false} />
-                        <DayItem dayName="Wed" dayNumber="11" hasNote={true} isActive={false} />
-                        <DayItem dayName="Thur" dayNumber="12" hasNote={false} isActive={false} />
-                        <DayItem dayName="Fri" dayNumber="13" hasNote={false} isActive={false} />
-                        <DayItem dayName="Sat" dayNumber="14" hasNote={true} isActive={false} />
-                        <DayItem dayName="Sun" dayNumber="15" hasNote={false} isActive={true} /> */}
-                        <CalendarHorizontal />
-                    
-                </div>
-
-
-            </div>
-
+            <CalendarHorizontal />
+           
+           <div>
             <ol>
                 {data && data.map((item:INote) => (
                     <NoteItem 
@@ -262,6 +262,7 @@ function NoteNavigation({ data }:NoteNavigationProps) {
                     />
                 ))}
             </ol>
+            </div>
         </div>
     )
 }
