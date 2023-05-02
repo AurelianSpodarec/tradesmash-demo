@@ -53,7 +53,7 @@ function Header() {
                             </span>
                         </div>
 
-                        <img className="h-10 w-10 rounded-full bg-gray-50" src="https://media.licdn.com/dms/image/C4E03AQFVCKi33RhRnw/profile-displayphoto-shrink_100_100/0/1656494147901?e=1687996800&v=beta&t=j1xxtYBcK4YmuFifzkigLRykqF22l9y1yqwZoGLOdUw" alt="" />
+                        <img className="h-10 w-10 rounded-full bg-gray-50" src="https://marketplace.canva.com/EAFEits4-uw/1/0/1600w/canva-boy-cartoon-gamer-animated-twitch-profile-photo-oEqs2yqaL8s.jpg" alt="" />
                     </button>        
                     </div>
 

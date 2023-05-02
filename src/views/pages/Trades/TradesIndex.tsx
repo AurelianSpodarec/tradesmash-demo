@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import Container from '../_components/Container';
-import Card from '@/views/components/Card';
+import Card from '@/views/atoms/Card';
 import PageHeader from '@/views/components/PageHeader';
 import ITrade from '@/interface/ITrade';
 
@@ -100,7 +100,7 @@ function TradesIndex() {
                             <TableTH name="Score" />
                             <TableTH name="Notes" />
 
-                            
+
                             <TableTH name="Updated At" />
                             <TableTH name="Created At" />
                         </tr>
