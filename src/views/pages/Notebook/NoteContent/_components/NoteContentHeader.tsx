@@ -7,6 +7,7 @@ function NoteContentHeader() {
                     <div className="flex items-center space-x-2">
                         <div className="h-4 w-4 bg-blue-300 rounded"></div>
                         <span className="text-xl font-bold">Trade #11</span>
+                        Confidence: 1-10
                     </div>
                     {/* <span className="text-xl font-bold">Net P&L: £2323.94</span> */}
                 </div>

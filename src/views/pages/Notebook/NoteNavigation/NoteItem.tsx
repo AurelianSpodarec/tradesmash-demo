@@ -8,6 +8,9 @@ function NoteItem({ item, isActive, onClick }:any) {
         <div className="flex flex-col">
             <span>{dateFormatter.formatDate(item.createdAt)}</span>
             <span className="font-semibold">Trade #{item.tradeID}</span>
+
+            Note excerpt
+            Confidence level
         </div>
         </button>
         </li>
