@@ -25,6 +25,7 @@
       "routes/*": ["./src/routes/*"],
       "database/*": ["./src/database/*"],
       "components/*": ["./src/views/components/*"],
+      "services/*": ["./src/views/services/*"],
       "interface/*": ["./src/interface/*"],
       "config/*": ["./src/config/*"],
       "utils/*": ["./src/utils/*"],

@@ -28,7 +28,7 @@ function ChartPerformance({ data }:any) {
                 <Tooltip />
                 <Bar dataKey="grossProfitAndLoss" >
                     {data.map((entry:ITrade, index:any) => (
-                        <Cell key={index} fill={entry && entry.grossProfitAndLoss || 0 <= 0 ? '#c23e74' : '#00867a' }/>
+                        <Cell key={index} fill={entry && entry.grossProfitAndLoss <= 0 ? '#c23e74' : '#00867a' }/>
                     ))}
                 </Bar>
             </BarChart>

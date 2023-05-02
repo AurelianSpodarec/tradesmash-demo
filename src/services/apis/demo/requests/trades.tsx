@@ -1,4 +1,4 @@
-import fakeTrades from './../../../../migrations/fakeTrades.json';
+import fakeTrades from './../../../../database/migrations/fakeTrades.json';
 
 export function getTrades() {
     const data = fakeTrades;

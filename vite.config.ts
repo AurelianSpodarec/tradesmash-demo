@@ -10,6 +10,7 @@ export default defineConfig({
           routes: `${path.resolve(__dirname, "./src/routes/")}`,
           database: `${path.resolve(__dirname, "./src/database/")}`,
           interface: `${path.resolve(__dirname, "./src/interface/")}`,
+          services: `${path.resolve(__dirname, "./src/services/")}`,
           config: `${path.resolve(__dirname, "./src/config/")}`,
           utils: `${path.resolve(__dirname, "./src/utils/")}`,
           components: `${path.resolve(__dirname, "./src/views/components/")}`,

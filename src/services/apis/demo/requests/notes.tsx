@@ -1,4 +1,4 @@
-import fakeNotes from './../../../../migrations/fakeNotes.json';
+import fakeNotes from './../../../../database/migrations/fakeNotes.json';
 
 export function getNotes() {
     const data = fakeNotes;

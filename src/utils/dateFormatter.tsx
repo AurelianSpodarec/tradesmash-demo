@@ -1,4 +1,4 @@
-const dateHelper = {
+const dateFormatter = {
     formatDate(timestamp: number) {
         // const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
         // const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -35,4 +35,4 @@ const dateHelper = {
     }
 }
 
-export default dateHelper;
+export default dateFormatter;

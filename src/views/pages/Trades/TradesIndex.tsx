@@ -43,28 +43,6 @@ function TradesIndex() {
                 <table aria-describedby="trades_table" className="min-w-full table-fixed divide-y divide-gray-300">
                     <thead>
                         <tr>
-                            {/* <TableTH name="Trade #" />
-                            <TableTH name="Status" />
-                            <TableTH name="Date" />
-                            <TableTH name="Symbol" />
-                            <TableTH name="B/S" />
-                            
-                            <TableTH name="Open date" />
-                            <TableTH name="Open price" />
-                            <TableTH name="Unit" />
-                            <TableTH name="Close date" />
-
-                            <TableTH name="Fees" />
-                            <TableTH name="Stop" />
-                            <TableTH name="Target" />
-
-                            <TableTH name="Strategy" />
-                            <TableTH name="Value" />
-                            <TableTH name="Risk %" />
-                            <TableTH name="AOP" />                                
-                            <TableTH name="ACP" />
-                            <TableTH name="R/R Ratio" />
-                            <TableTH name="Gross P&L" /> */}
                             <TableTH name="Trade No." />
                             <TableTH name="Date" />
                             <TableTH name="Status" />

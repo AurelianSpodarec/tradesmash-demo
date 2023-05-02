@@ -1,7 +1,4 @@
-
-import { updateNote } from '@/store/features/notes/notesSlice';
 import { useDispatch, useSelector } from 'react-redux';
-import dateHelper from '@/utils/dateHelper';
 import { getActiveNotebook } from '@/store/features/notebook/notebookSlice';
 import NoteContentEditor from './_components/NoteContentEditor';
 import NoteContentHeader from './_components/NoteContentHeader';

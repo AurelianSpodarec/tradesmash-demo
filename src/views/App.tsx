@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import Layout from "./pages/Layout"
-import { getTrades } from '@/database/services/apis/demo/requests/trades';
+import { getTrades } from '@/services/apis/demo/requests/trades';
 import { useDispatch } from 'react-redux';
 import { setTrades } from '@/store/features/trades/tradesSlice';
-import { getNotes } from '@/database/services/apis/demo/requests/notes';
+import { getNotes } from '@/services/apis/demo/requests/notes';
 import { setNotes } from '@/store/features/notes/notesSlice';
 
 function App() {
