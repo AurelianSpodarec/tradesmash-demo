@@ -1,57 +1,31 @@
 import INote from "@/interface/INote";
 import NoteItem from "./NoteItem";
-import { ScalableContainer, ScalableHeader, ScalableContent } from '../../../components/ScalableCell';
 import { useDispatch } from "react-redux";
 import { getActiveNotebook, setActiveNote } from "@/store/features/notebook/notebookSlice";
 
 function NoteNavigation({ data }:NoteNavigationProps) {
 
     const dispatch = useDispatch()
-    
-    
     const activeNote = getActiveNotebook()
 
-    console.log("pwpwpwpwppwp", activeNote)
     function setNoteIndex(id:any) {
         console.log("fire", id)
         dispatch(setActiveNote(id))
     }
 
     return (
-        <aside className="w-full h-full border-r border-r-gray-300">
-        <ScalableContainer header={`Heloooooooopomodsmfos mdfodsmfosfdm osdmf osdm osmd`}>
-
-            <ScalableHeader>
-            <header className="border-b py-4 px-4 bg-white">
-                <div className="mb-4">
-                    <h3 className="text-xl font-semibold">May 2023</h3>
-                    {/* August 2023, Tue 16th */}
-                    {/* <h3 className="text-xl font-semibold">{dateHelper.todayDate()}</h3> */}
-                </div>
-
-                <section>
-                    <div>
-                        Your Results: {data && data.length} Notes
-                    </div>
-                    {/* <input placeholder="Search " className="w-full" /> */}
-                </section>
-
-            </header>
-            </ScalableHeader>
-
-            <ScalableContent>
-            
-            <section>
-
-                <ol>
-                    {data && data.map((item:INote) => <NoteItem onClick={() => setNoteIndex(item.id)} key={item.createdAt} item={item} isActive={activeNote} />)}
-                </ol>
-
-            </section>
-            </ScalableContent>
-
-        </ScalableContainer>
-        </aside>
+        <div className="w-full bg-white h-full border-r border-r-gray-300">
+            <ol>
+                {data && data.map((item:INote) => (
+                    <NoteItem 
+                        onClick={() => setNoteIndex(item.id)} 
+                        key={item.createdAt} 
+                        item={item} 
+                        isActive={activeNote} 
+                    />
+                ))}
+            </ol>
+        </div>
     )
 }
 

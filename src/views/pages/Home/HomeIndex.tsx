@@ -16,9 +16,6 @@ import { useSelector } from "react-redux";
 import ChartPerformance from "./_components/ChartPerfomance";
 
 
-
-
-
 function HomeIndex() {    
     const reduxTrades = useSelector((state:any) => state.trades)
     const trades = reduxTrades.trades

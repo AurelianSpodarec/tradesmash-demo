@@ -1,6 +1,6 @@
-import react, {useEffect, useRef, useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Container from '../_components/Container';
+import NoteNavigation from './NoteNavigation/NoteNavigation';
+import NoteContent from './NoteContent/NoteContent';
 
 function NotebookIndex() {
     const reduxNotes = useSelector((state:any) => state.notes);
@@ -8,9 +8,18 @@ function NotebookIndex() {
     const notes = reduxNotes.notes
 
     return (
-        <Container>
-            Notebook
-        </Container>
+        <div className="h-full">
+            <div className="grid grid-cols-11 h-full">
+
+                <aside className="col-span-4">
+                    <NoteNavigation data={notes} />
+                </aside>
+                <section className="col-span-7">
+                    <NoteContent />
+                </section>
+
+            </div>
+        </div>
     )
 }
 

@@ -1,5 +1,4 @@
-import { LineChart, Line, Label, ResponsiveContainer, Cell, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
-import { useSelector } from "react-redux";
+import { ResponsiveContainer, Cell, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
 import ITrade from "@/interface/ITrade";
 
 function ChartPerformance({ data }:any) {
@@ -29,7 +28,7 @@ function ChartPerformance({ data }:any) {
                 <Tooltip />
                 <Bar dataKey="grossProfitAndLoss" >
                     {data.map((entry:ITrade, index:any) => (
-                        <Cell key={index} fill={entry.grossProfitAndLoss <= 0 ? '#c23e74' : '#00867a' }/>
+                        <Cell key={index} fill={entry && entry.grossProfitAndLoss || 0 <= 0 ? '#c23e74' : '#00867a' }/>
                     ))}
                 </Bar>
             </BarChart>
