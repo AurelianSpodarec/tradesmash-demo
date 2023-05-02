@@ -1,16 +1,20 @@
 import Card from "@/views/components/Card";
-import PageContent from "../_components/PageContent";
+import Container from "../_components/Container";
+
+// function PageTitle() {
+//     return (
+
+//     )
+// }
 
 function HomeIndex() {
 
     return (
-        <PageContent>
+        <Container>
            
-            <Card>
-                <h1 className="text-2xl font-bold">Dashboard</h1>
-            </Card>
-        
-        </PageContent>
+            <h1 className="text-2xl font-bold">Dashboard</h1>
+           
+        </Container>
     )
 }
 

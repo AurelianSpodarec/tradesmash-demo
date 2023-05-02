@@ -11,7 +11,7 @@ function NavList({ data }:NavListProps) {
         <ul role="list" className="flex flex-1 flex-col p-1">
     
             {data && data.map((item => {
-                return <NavItem item={item} isActive={pathnameWithoutDashboard === item.url}/>
+                return <NavItem key={item.url} item={item} isActive={pathnameWithoutDashboard === item.url}/>
             }))}
     
         </ul>

@@ -1,6 +1,6 @@
 import React from "react";
 
-function PageContent({ children }:PageContentProps) {
+function Container({ children }:ContainerProps) {
     return (
         <div className="p-8">
             {children}
@@ -8,8 +8,8 @@ function PageContent({ children }:PageContentProps) {
     )
 }
 
-export default PageContent;
+export default Container;
 
-interface PageContentProps {
+interface ContainerProps {
     children: React.ReactNode
 }
