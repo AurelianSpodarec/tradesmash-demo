@@ -31,7 +31,7 @@ function CustomRoutes() {
             element: <StatsIndex />
         },
         {
-            path: "/notebook",
+            path: "/journal",
             element: <NotebookIndex />
         }
     ]);
