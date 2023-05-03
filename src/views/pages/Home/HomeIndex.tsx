@@ -25,7 +25,7 @@ function HomeIndex() {
     const biggestLoss = getBiggestLoss()
     const totalScalpGrossPL = getTotalScalpGrossPL()
     const totalSwingGrossPL = getTotalSwingGrossPL()
-    const profitLossRatio = getProfitLossRatio();
+    const profitRiskRatio = getProfitLossRatio();
 
     return (
         <Container>
@@ -48,7 +48,7 @@ function HomeIndex() {
                     <CardMetric title="Biggest Loss £" value={biggestLoss} />
                     <CardMetric title="Total Return £ on Scalp" value={totalScalpGrossPL} />
                     <CardMetric title="Total Return £ on Swing" value={totalSwingGrossPL} />
-                    <CardMetric title="Profit/Loss Ratio" value={profitLossRatio} />
+                    <CardMetric title="Profit/Loss Ratio" value={profitRiskRatio} type="profitRiskRatio" />
                 </div>
 
             </section>

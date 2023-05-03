@@ -68,6 +68,7 @@ console.log(today)
                     {previousWeek && previousWeek.map((day) => {
                         return (
                             <NoteCalendarDay 
+                                key={day.formattedDate}
                                 onClick={() => onDayClick(day)}
                                 dayName={day.dayName} 
                                 dayNumber={day.dayNumber} 
