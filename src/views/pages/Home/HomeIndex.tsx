@@ -13,7 +13,7 @@ import {
     getTotalTradesGrossPnL 
 } from "@/store/features/trades/tradeSliceSelectors";
 import { useSelector } from "react-redux";
-import ChartPerformance from "./_components/ChartPerfomance";
+import ChartPerformance from "../Analytics/ChartPerfomance";
 
 
 function HomeIndex() {    
