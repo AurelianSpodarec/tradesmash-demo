@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Editor } from '@tinymce/tinymce-react';
 
-function NoteContentEditor() {
+function JournalContentEditor() {
     const [editorValue, setEditorValue] = useState("")
     const editorRef:any = useRef(null);
     
@@ -33,4 +33,4 @@ function NoteContentEditor() {
     )
 }
 
-export default NoteContentEditor;
+export default JournalContentEditor;

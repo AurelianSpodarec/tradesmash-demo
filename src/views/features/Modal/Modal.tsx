@@ -1,6 +1,6 @@
 // @ts-nocheck
 import { closeModal } from '@/store/features/modals/modalsSlice';
-import { createNote, getNoteByTradeID, updateNote } from '@/store/features/notes/notesSlice';
+import { createNote, getNoteByTradeID, updateNote } from '@/store/features/journal/journalSlice';
 import { updateTradeHasNote } from '@/store/features/trades/tradesSlice';
 import { Editor } from '@tinymce/tinymce-react';
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 // TODO: Use Portal
 function Modal() {
-    const reduxNotes = useSelector((state:any) => state.notes);
+    const reduxJournal = useSelector((state:any) => state.notes);
     const reduxModal = useSelector((state:any) => state.modal);
     const isOpen = reduxModal.isOpen
     const tradeID = reduxModal.content.tradeID
@@ -34,7 +34,7 @@ function Modal() {
         const content = editorRef.current.getContent();
         if(isEmptyNote) {
             dispatch(createNote({
-                id: reduxNotes.length + 1,
+                id: reduxJournal.length + 1,
                 tradeID, 
                 content: content
             }))

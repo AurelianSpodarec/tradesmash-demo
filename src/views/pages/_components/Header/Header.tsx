@@ -8,7 +8,7 @@ const namesMap:any = {
     "/tradelog": "Trades Log",
     "/stocks": "Stock",
     "/stats": "Stats",
-    "/notebook": "Notebook",
+    "/notebook": "Journal",
 }
 
 function Header() {

@@ -1,4 +1,4 @@
-function NoteCalendarDay({ onClick, dayName, dayNumber, hasNote, currentDay, isActive }:any) {
+function JournalCalendarDay({ onClick, dayName, dayNumber, hasNote, currentDay, isActive }:any) {
 
     return (
         <li onClick={onClick} className={`flex flex-col ${currentDay ? "font-bold" : ""}`}>
@@ -14,4 +14,4 @@ function NoteCalendarDay({ onClick, dayName, dayNumber, hasNote, currentDay, isA
     )
 }
 
-export default NoteCalendarDay;
+export default JournalCalendarDay;

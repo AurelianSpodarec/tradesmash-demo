@@ -4,7 +4,7 @@ import { getTrades } from '@/services/apis/demo/requests/trades';
 import { useDispatch } from 'react-redux';
 import { setTrades } from '@/store/features/trades/tradesSlice';
 import { getNotes } from '@/services/apis/demo/requests/notes';
-import { setNotes } from '@/store/features/notes/notesSlice';
+import { setNotes } from '@/store/features/journal/journalSlice';
 
 function App() {
     const dispatch = useDispatch()

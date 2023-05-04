@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import { TradeState } from "./ITradesState";
 import currencyFormatter from "@/utils/currencyFormatter";
+import ITrade from "@/interface/ITrade";
 
 export const hasTradeNotes = (tradeID: number) => useSelector((state: { notes:any }) => state.notes.notes.find((note:any) => note.tradeID === tradeID));
 
@@ -65,3 +66,18 @@ export const getProfitLossRatio = () => useSelector((state: { trades: TradeState
 
     return `1:${formattedRatio}`;
 });
+
+
+export const getTradesByDate = (date?:string) => useSelector((state: { trades: any, journal:any}) => {
+    const trades = state.trades.trades;
+    const filterByDate = state.journal.filterByDate;
+
+    if(!date) {
+        // Retrun all by default 
+        return trades.filter((trade:ITrade) => trade.date === filterByDate);
+    } else {
+        // Return all by Date
+        return trades.find((trade:ITrade) => trade.date === date)
+    }
+
+})

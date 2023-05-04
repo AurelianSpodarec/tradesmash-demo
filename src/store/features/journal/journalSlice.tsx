@@ -6,17 +6,19 @@ import INote from "@/interface/INote";
 import { updateTradeHasNote } from "../trades/tradesSlice";
 
 interface NotesState {
-    currentNote: number;
+    currentActiveNote: number;
     notes: INote[];
+    filterByDate: string;
 }
 
 const initialState: NotesState = {
-    currentNote: 0,
+    currentActiveNote: 0,
     notes: [],
+    filterByDate: "2023-04-26", //get getll trades from that date
 };
 
-const notesSlice = createSlice({
-    name: "notes",
+const journalSlice = createSlice({
+    name: "journal",
     initialState,
     reducers: {
         setNotes: (state, action) => {
@@ -53,8 +55,12 @@ const notesSlice = createSlice({
 });
 
 
-export const getNoteByTradeID = (tradeID:any) => useSelector((state: { notes:NotesState }) => state.notes.notes.find(note => note.tradeID === tradeID))
+export const getNoteByTradeID = (tradeID:any) => useSelector((state: { journal:NotesState }) => state.journal.notes.find(note => note.tradeID === tradeID))
+export const getActiveJournal = () => useSelector((state: { notes: any, journal: { activeNote: number, activeNoteTrade: number } }) => {
+    const activeNoteIndex = state.journal.activeNoteIndex;
+    return state.notes.notes.find(note => note.id === activeNoteIndex);
+});
 
 
-export const { setNotes, createNote, updateNote, deleteNote } = notesSlice.actions;
-export default notesSlice.reducer;
+export const { setNotes, createNote, updateNote, deleteNote } = journalSlice.actions;
+export default journalSlice.reducer;

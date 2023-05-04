@@ -1,7 +1,7 @@
-function NoteContentHeader() {
+function JournalContentHeader() {
     return (
         <div className=" bg-white p-6 border-b border-b-gray-300 flex justify-between items-start w-full">
-                {/* <h3>Note: {dateHelper.formatDate(notes[0].createdAt)}</h3> */}
+                {/* <h3>Journal: {dateHelper.formatDate(notes[0].createdAt)}</h3> */}
             <div className="flex flex-col">
                 <div className="flex space-x-4">
                     <div className="flex items-center space-x-2">
@@ -13,17 +13,17 @@ function NoteContentHeader() {
                 </div>
                 {/* <time className="text-gray-700">15th August Wed, 2020</time> */}
                 <div className="flex space-x-4 mt-2">
-                    {/* <span><span className="font-semibold">Created At:</span> {dateHelper.formatDate(activeNote.createdAt)}</span> */}
-                    {/* <span><span className="font-semibold">Updated At:</span> {dateHelper.formatDate(activeNote.updatedAt)}</span> */}
+                    {/* <span><span className="font-semibold">Created At:</span> {dateHelper.formatDate(activeJournal.createdAt)}</span> */}
+                    {/* <span><span className="font-semibold">Updated At:</span> {dateHelper.formatDate(activeJournal.updatedAt)}</span> */}
                 </div>
             </div>
 
             <button type="button" className="block rounded-md bg-skin-brand-600 px-3 py-1.5 text-center text-sm font-semibold leading-6 text-white shadow-sm hover:bg-skin-brand-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-skin-brand-600">
-                Save Note
+                Save
             </button>
             
         </div>
     )
 }
 
-export default NoteContentHeader;
+export default JournalContentHeader;
