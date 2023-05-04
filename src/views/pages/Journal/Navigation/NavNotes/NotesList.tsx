@@ -23,7 +23,7 @@ function NoteList() {
 
 
     console.log("ppp", tradesByDate)
-    if(tradesByDate.length === 0) return <>No Notes on that day</>
+    if(tradesByDate.length === 0) return <>No Notes on that day - Add Note</>
     return (
         <div>
         <ol>

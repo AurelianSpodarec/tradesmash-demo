@@ -96,15 +96,15 @@ function JournalCalendar({ data }:any) {
             <ol className="flex justify-between items-center">
                 {previousWeek && previousWeek.map((day) => {
                     return (
+                        <>
+                        {console.log("day")}
                         <JournalCalendarDay 
                             key={day.formattedDate}
+                            item={day}
                             onClick={() => onDayClick(day)}
-                            dayName={day.dayName} 
-                            dayNumber={day.dayNumber} 
-                            hasNote={day.hasNote} 
-                            currentDay={day.currentDay} 
-                            isActive={selectedDate === day.dateISO}
+                            isActive={selectedDate}
                         />
+                        </>
                     )
                 })}
             </ol>
