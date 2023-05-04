@@ -4,6 +4,7 @@ import { createSelector, createSlice } from "@reduxjs/toolkit";
 
 import INote from "@/interface/INote";
 import { updateTradeHasNote } from "../trades/tradesSlice";
+import dateFormatter from "@/utils/dateFormatter";
 
 interface NotesState {
     activeNote: INote;
@@ -16,13 +17,17 @@ const initialState: NotesState = {
     activeNote: {},
     activeNoteIndex: 0,
     notes: [],
-    filterByDate: "2023-04-26", //get getll trades from that date
+    filterByDate: "", // 2023-04-26 get getll trades from that date
 };
 
 const journalSlice = createSlice({
     name: "journal",
     initialState,
     reducers: {
+        setSelectedDate: (state, action) => {
+            const date = dateFormatter.formatDateISO(action.payload)
+            state.filterByDate = date
+        },
         setActiveNote: (state, action) => {
             state.activeNote = action.payload
             state.activeNoteIndex = action.payload.id
@@ -68,5 +73,5 @@ export const getActiveJournal = () => useSelector((state: { notes: any, journal:
 });
 
 
-export const { setNotes, createNote, setActiveNote, updateNote, deleteNote } = journalSlice.actions;
+export const { setSelectedDate, setNotes, createNote, setActiveNote, updateNote, deleteNote } = journalSlice.actions;
 export default journalSlice.reducer;

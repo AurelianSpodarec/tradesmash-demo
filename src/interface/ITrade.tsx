@@ -32,7 +32,7 @@ export default interface ITrade {
     consecutiveLosses: number | null;
     winningPercentage: number | null;
     performanceScore: number | null;
-    notes: [];
+    notes: boolean;
     updatedAt: number; // in seconds
     createdAt: number; // in seconds
 

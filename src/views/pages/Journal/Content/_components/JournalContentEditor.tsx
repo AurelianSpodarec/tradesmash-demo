@@ -6,7 +6,7 @@ function JournalContentEditor({ data }:any) {
     const editorRef:any = useRef(null);
     
     const content = data && data.content;
-    console.log("editorrrr", content)
+    // console.log("editorrrr", content)
     function onChange(e:any) {
         setEditorValue(e)
     }

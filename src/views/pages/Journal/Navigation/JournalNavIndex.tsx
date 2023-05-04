@@ -20,7 +20,7 @@ function JournalNavIndex({ data }:JournalNavIndexProps) {
     return (
         <div className="w-full bg-white h-full border-r border-r-gray-300">
             <NoteCalendar data={trades} />
-            <NoteList data={trades} />
+            <NoteList />
         </div>
     )
 }
