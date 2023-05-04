@@ -10,19 +10,14 @@ function NoteList() {
     const dispatch = useDispatch()
     const reduxJournal = useSelector((state:any) => state.journal);
     const selectedDate = reduxJournal.selectedDate
-    // const activeNote = reduxJournal && reduxJournal.activeNote
     const tradesByDate = getTradesByDate(selectedDate) // later this should be based on what the user clicks/sets
-    
-    // setSelectedDate
 
-    // console.log("woooof", reduxJournal.filterByDate)
     function setActiveJournal(note:INote) {
-        console.log("fire", note)
+        console.log("fire", note.tradeNumber === reduxJournal.activeNoteIndex)
         dispatch(setActiveNote(note))
     }
 
 
-    console.log("ppp", tradesByDate)
     if(tradesByDate.length === 0) return <>No Notes on that day - Add Note</>
     return (
         <div>
@@ -32,7 +27,7 @@ function NoteList() {
                     onClick={() => setActiveJournal(item)} 
                     key={item.id} 
                     item={item} 
-                    // isActive={activeNote} 
+                    isActive={item.tradeNumber === reduxJournal.activeNoteIndex} 
                 />
             ))}
         </ol>
