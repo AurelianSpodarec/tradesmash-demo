@@ -13,7 +13,6 @@ function JournalContentEditor({ data }:any) {
 
     useEffect(() => {
         setEditorValue(content)
-        // console.log("hi", data)
     }, [data])
 
     return (
