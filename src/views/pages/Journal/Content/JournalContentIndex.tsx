@@ -1,8 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import JournalContentEditor from './_components/JournalContentEditor';
 import JournalContentHeader from './_components/JournalContentHeader';
-import { getNoteByTradeID } from '@/store/features/journal/journalSlice';
-
+import { getNoteByTradeID } from '@/store/features/journal/journalSliceSelectors';
 
 function JournalContent() {
     const reduxJournal = useSelector((state:any) => state.journal);

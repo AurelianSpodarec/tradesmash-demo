@@ -1,10 +1,10 @@
-import react, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from "react-redux";
+
+import { setActiveNote } from "@/store/features/journal/journalSlice";
+import { getTradesByDate } from "@/store/features/trades/tradeSliceSelectors";
 
 import INote from "@/interface/INote";
 import NoteItem from "./Notes/NoteItem";
-import { useDispatch, useSelector } from "react-redux";
-import { getTradesByDate } from "@/store/features/trades/tradeSliceSelectors";
-import { setActiveNote } from "@/store/features/journal/journalSlice";
 
 function NoteList() {
     const dispatch = useDispatch()

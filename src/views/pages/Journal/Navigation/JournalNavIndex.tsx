@@ -1,8 +1,6 @@
 import INote from "@/interface/INote";
-import { useDispatch } from "react-redux";
 import NoteCalendar from "./NavHeader/JournalCalendar";
 import NoteList from "./NavNotes/NotesList";
-import { getTradesByDate } from "@/store/features/trades/tradeSliceSelectors";
 import { getTrades } from "@/services/apis/demo/requests/trades";
 
 

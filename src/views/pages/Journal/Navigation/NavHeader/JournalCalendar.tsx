@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import JournalCalendarDay from './_components/JournalCalendarDay';
-import { getTradesByDate } from '@/store/features/trades/tradeSliceSelectors';
+
 import dateFormatter from '@/utils/dateFormatter';
 import { useDispatch, useSelector } from 'react-redux';
 import { setSelectedDate } from '@/store/features/journal/journalSlice';
