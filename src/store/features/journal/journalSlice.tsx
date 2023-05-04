@@ -36,10 +36,10 @@ const journalSlice = createSlice({
             state.notes = action.payload
         },
         createNote: (state, action) => {
-            const { tradeID, content } = action.payload;
+            const { id, content } = action.payload;
             const newNote: INote = {
                 id: state.notes.length + 1,
-                tradeID,
+                id,
                 content,
                 updatedAt: Date.now(),
                 createdAt: Date.now()
@@ -47,12 +47,12 @@ const journalSlice = createSlice({
             state.notes.push(newNote);           
         },
         updateNote: (state, action) => {
-            const { id, tradeID, content } = action.payload;
+            const { id, content } = action.payload;
             const index = state.notes.findIndex(note => note.id === id);
             if (index !== -1) {
                 state.notes[index] = {
                     ...state.notes[index],
-                    tradeID: tradeID !== undefined ? tradeID : state.notes[index].tradeID,
+                    id: id !== undefined ? id : state.notes[index].id,
                     content: content !== undefined ? content : state.notes[index].content,
                     updatedAt: Date.now(),
                 };
@@ -66,7 +66,8 @@ const journalSlice = createSlice({
 });
 
 
-export const getNoteByTradeID = (tradeID:any) => useSelector((state: { journal:NotesState }) => state.journal.notes.find(note => note.tradeID === tradeID))
+export const getNoteByTradeID = (id:any) => useSelector((state: { journal:NotesState }) => state.journal.notes.find(note => note.tradeID === id))
+
 export const getActiveJournal = () => useSelector((state: { notes: any, journal: { activeNote: number, activeNoteTrade: number } }) => {
     const activeNoteIndex = state.journal.activeNoteIndex;
     return state.notes.notes.find(note => note.id === activeNoteIndex);

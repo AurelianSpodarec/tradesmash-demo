@@ -11,12 +11,12 @@ function Modal() {
     const reduxJournal = useSelector((state:any) => state.notes);
     const reduxModal = useSelector((state:any) => state.modal);
     const isOpen = reduxModal.isOpen
-    const tradeID = reduxModal.content.tradeID
+    const id = reduxModal.content.id
 
     const dispatch = useDispatch()
     const editorRef:any = useRef(null);
     
-    const note = getNoteByTradeID(tradeID)
+    const note = getNoteByTradeID(id)
     const isEmptyNote = note === undefined || "";
 
     const [editorValue, setEditorValue] = useState()
@@ -35,14 +35,14 @@ function Modal() {
         if(isEmptyNote) {
             dispatch(createNote({
                 id: reduxJournal.length + 1,
-                tradeID, 
+                id, 
                 content: content
             }))
-            dispatch(updateTradeHasNote(tradeID, true));
+            dispatch(updateTradeHasNote(id, true));
         } else {
             dispatch(updateNote({ 
                 id: note?.id,
-                tradeID, 
+                id, 
                 content: content 
             }));
         }
@@ -55,7 +55,7 @@ function Modal() {
         if(!isEmptyNote) {
             setEditorValue(note?.content)
         }
-    }, [tradeID, isOpen])
+    }, [id, isOpen])
 
     return (
         <div className={`
@@ -71,7 +71,7 @@ function Modal() {
 
                     <header className="flex justify-between mb-2">
                         <div>
-                            <span className="text-lg font-semibold leading-6 text-gray-900">{isEmptyNote ? "Add" : "Edit"} Note for Trade #{tradeID}</span>
+                            <span className="text-lg font-semibold leading-6 text-gray-900">{isEmptyNote ? "Add" : "Edit"} Note for Trade #{id}</span>
                             <div className="space-x-4">
                                 {note?.createdAt &&
                                     <>

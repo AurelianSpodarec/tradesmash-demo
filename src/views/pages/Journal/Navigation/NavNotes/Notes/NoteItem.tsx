@@ -8,7 +8,7 @@ function NoteItem({ item, onClick, isActive }:any) {
         <button type="button" className="w-full h-full px-4 py-8 text-left  border-b-2 border-dashed border-gray-200">
         <div className="flex flex-col">
             <span>{dateFormatter.formatDate(item.date)}</span>
-            <span className="font-semibold">Trade #{item.tradeNumber}</span>
+            <span className="font-semibold">Trade #{item.id}</span>
 
             {/* Note excerpt */}
             {/* Confidence level */}

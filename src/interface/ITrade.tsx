@@ -1,6 +1,6 @@
 export default interface ITrade {
     id: number
-    tradeNumber: number;
+    id: number;
     status: "open" | "closed";
     date: string; // format: "YYYY-MM-DD"
     symbol: string;

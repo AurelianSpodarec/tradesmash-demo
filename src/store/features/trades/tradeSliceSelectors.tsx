@@ -3,7 +3,7 @@ import { TradeState } from "./ITradesState";
 import currencyFormatter from "@/utils/currencyFormatter";
 import ITrade from "@/interface/ITrade";
 
-export const hasTradeNotes = (tradeID: number) => useSelector((state: { notes:any }) => state.notes.notes.find((note:any) => note.tradeID === tradeID));
+export const hasTradeNotes = (id: number) => useSelector((state: { notes:any }) => state.notes.notes.find((note:any) => note.id === id));
 
 export const getTotalTradesGrossPnL = () => {
     return useSelector((state: { trades: TradeState }) => {

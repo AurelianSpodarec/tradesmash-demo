@@ -22,9 +22,9 @@ const tradeSlice = createSlice({
             }
         },
         updateTradeNote: (state, action) => {
-            const { tradeID, notes } = action.payload;
+            const { id, notes } = action.payload;
 
-            const tradeToUpdate = state.trades.find((trade) => trade.id === tradeID);
+            const tradeToUpdate = state.trades.find((trade) => trade.id === id);
             if (tradeToUpdate) {
               tradeToUpdate.notes = notes;
             }

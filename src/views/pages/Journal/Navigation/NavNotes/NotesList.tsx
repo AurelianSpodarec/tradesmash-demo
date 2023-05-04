@@ -13,7 +13,8 @@ function NoteList() {
     const tradesByDate = getTradesByDate(selectedDate) // later this should be based on what the user clicks/sets
 
     function setActiveJournal(note:INote) {
-        console.log("fire", note.tradeNumber === reduxJournal.activeNoteIndex)
+        // console.log("fire", note.id === reduxJournal.activeNoteIndex)
+        console.log(note)
         dispatch(setActiveNote(note))
     }
 
@@ -27,7 +28,7 @@ function NoteList() {
                     onClick={() => setActiveJournal(item)} 
                     key={item.id} 
                     item={item} 
-                    isActive={item.tradeNumber === reduxJournal.activeNoteIndex} 
+                    isActive={item.id === reduxJournal.activeNoteIndex} 
                 />
             ))}
         </ol>

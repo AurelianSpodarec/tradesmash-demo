@@ -10,6 +10,7 @@ function JournalContent() {
 
     const note = getNoteByTradeID(activeNote.id)
     console.log("note", note)
+    console.log("note active", activeNote)
     // find note by trade id
  
     // const notes = reduxJournal.notes
