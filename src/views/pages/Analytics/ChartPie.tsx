@@ -46,7 +46,7 @@ function ChartPie() {
     ];
 
     return (
-        <ResponsiveContainer>
+        <ResponsiveContainer aspect={2}>
         <PieChart>
             <Pie
                 data={pieData}
