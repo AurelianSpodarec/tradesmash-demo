@@ -7,6 +7,7 @@ import TradesIndex from "@/views/pages/Trades/TradesIndex";
 import StockIndex from "@/views/pages/Stock/StockIndex";
 import StatsIndex from "@/views/pages/Stats/StatsIndex";
 import JournalIndex from "@/views/pages/Journal/JournalIndex";
+import CalendarIndex from "@/views/pages/Calendar/CalendarIndex";
 
 function CustomRoutes() {
     let routes = useRoutes([
@@ -33,6 +34,10 @@ function CustomRoutes() {
         {
             path: "/journal",
             element: <JournalIndex />
+        },
+        {
+            path: "/calendar",
+            element: <CalendarIndex />
         }
     ]);
 

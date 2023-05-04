@@ -3,10 +3,10 @@
         "id": 0,
         "tradeNumber": 15,
         "status": "open",
-        "date": "2023-05-02",
+        "date": "2023-05-04",
         "symbol": "AAPL",
         "buySell": "buy",
-        "openDate": "2023-05-01",
+        "openDate": "2023-05-04",
         "openPrice": 128.5,
         "units": 100,
         "closeDate": null,
@@ -33,7 +33,7 @@
         "consecutiveLosses": null,
         "winningPercentage": null,
         "performanceScore": null,   
-        "notes": [1,2,3],
+        "notes": true,
         "updatedAt": 1648992000000,
         "createdAt": 1648892000000
     },
@@ -71,7 +71,7 @@
         "consecutiveLosses": null,
         "winningPercentage": null,
         "performanceScore": null,   
-        "notes": [1,2,3],
+        "notes": false,
         "updatedAt": 1648992000000,
         "createdAt": 1648892000000
     },
@@ -109,7 +109,7 @@
         "consecutiveLosses": null,
         "winningPercentage": null,
         "performanceScore": null,
-        "notes": [1,2],
+        "notes": false,
         "updatedAt": 1648992000000,
         "createdAt": 1648892000000
     },
@@ -147,7 +147,7 @@
         "consecutiveLosses": null,
         "winningPercentage": null,
         "performanceScore": null,
-        "notes": [1,2,3,4],
+        "notes": false,
         "updatedAt": 1648992000000,
         "createdAt": 1648892000000
     },
@@ -185,7 +185,7 @@
         "consecutiveLosses": null,
         "winningPercentage": null,
         "performanceScore": null,
-        "notes": [1,2,3,4,5],
+        "notes": true,
         "updatedAt": 1648992000000,
         "createdAt": 1648892000000
     },   
@@ -223,7 +223,7 @@
         "consecutiveLosses": null,
         "winningPercentage": null,
         "performanceScore": null,
-        "notes": [1,2],
+        "notes": true,
         "updatedAt": 1648992000000,
         "createdAt": 1648892000000
     }

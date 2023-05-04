@@ -30,6 +30,8 @@ function TradesIndex() {
 
     console.log(trades)
 
+
+    // TODO: Add calendar view, trades view etc...
     return (
         <Container>
 

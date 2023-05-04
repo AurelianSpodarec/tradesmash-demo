@@ -74,10 +74,15 @@ export const getTradesByDate = (date?:string) => useSelector((state: { trades: a
 
     if(!date) {
         // Retrun all by default 
-        return trades.filter((trade:ITrade) => trade.date === filterByDate);
+        return trades.filter((trade:ITrade) => trade.date === filterByDate && trade.notes === true);
     } else {
         // Return all by Date
-        return trades.find((trade:ITrade) => trade.date === date)
+        const trade = trades.find((trade:ITrade) => trade.date === date)
+        if(trade === undefined) {
+            return []
+        } else {
+            return [trade];
+        }
     }
 
 })

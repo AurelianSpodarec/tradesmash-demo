@@ -1,13 +1,20 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Editor } from '@tinymce/tinymce-react';
 
-function JournalContentEditor() {
+function JournalContentEditor({ data }:any) {
     const [editorValue, setEditorValue] = useState("")
     const editorRef:any = useRef(null);
     
+    const content = data && data.content;
+    console.log("editorrrr", content)
     function onChange(e:any) {
         setEditorValue(e)
     }
+
+    useEffect(() => {
+        setEditorValue(content)
+        // console.log("hi", data)
+    }, [data])
 
     return (
         <Editor

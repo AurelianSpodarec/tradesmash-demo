@@ -7,7 +7,7 @@ function JournalIndex() {
     const notes = reduxJournal && reduxJournal.notes
 
     return (
-        <div className="h-full">
+        <div className="h-full overflow-hidden">
             <div className="grid grid-cols-11 h-full">
 
                 <aside className="col-span-4">
