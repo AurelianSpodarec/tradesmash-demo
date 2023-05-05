@@ -10,7 +10,7 @@ function AnalyticsIndex() {
             <PageHeader title="Analytics" />
 
             <section>
-                <div className="grid grid-cols-2  gap-4 h-[500px]">
+                <div className="grid grid-cols-2  gap-4 h-auto">
                 <Card className="h-full">
                     <h1 className="text-2xl font-semibold mb-6">Programming Languages</h1>
                     <ChartLine /> 
