@@ -1,7 +1,7 @@
 import dateFormatter from "@/utils/dateFormatter";
 
 function JournalCalendarDay({ item, onClick, isActive }:any) {
-    const { dayName, dayNumber, hasNote, currentDay, dateISO, date } = item;
+    const { dayName, dayNumber, hasNote, date } = item;
 
     const formatedDate = dateFormatter.formatDateISO(date)
     console.log("hi",date, isActive)

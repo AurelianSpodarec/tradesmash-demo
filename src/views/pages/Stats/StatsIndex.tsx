@@ -1,4 +1,4 @@
-import StatsList from "./_components/StatsList";
+// import StatsList from "./_components/StatsList";
 
 function StatsIndex() {
     return (

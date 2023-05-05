@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import Container from '../_components/Container';
 import Card from '@/views/atoms/Card';
 import PageHeader from '@/views/components/PageHeader';

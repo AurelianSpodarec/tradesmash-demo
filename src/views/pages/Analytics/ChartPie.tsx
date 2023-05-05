@@ -2,8 +2,8 @@ import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer } from "recha
 
 
     
-function CustomTooltip({ active, payload, label }:any) {
-    if (active) {
+function CustomTooltip({ active, payload }:any) {
+    if (!active) return <></>
     return (
         <div
             className="custom-tooltip"
@@ -15,8 +15,7 @@ function CustomTooltip({ active, payload, label }:any) {
         >
             <label>{`${payload[0].name} : ${payload[0].value}%`}</label>
         </div>
-        );
-    }
+    );
 }
 
 
@@ -58,7 +57,7 @@ function ChartPie() {
                 outerRadius={120}
                 fill="#8884d8"
             >
-                {pieData.map((entry, index) => (
+                {pieData.map((index:any) => (
                     <Cell
                         key={`cell-${index}`}
                         fill={COLORS[index % COLORS.length]}

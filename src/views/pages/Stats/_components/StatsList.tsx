@@ -1,12 +1,12 @@
-import { fakeDailyStats } from "@/database/fakeDailyStats";
-import StatItem from "./StatItem";
-import IDailyStats from "@/interface/IDailyStat";
+
+// import StatItem from "./StatItem";
+// import IDailyStats from "@/interface/IDailyStat";
 
 
 function StatsList() {
     return (
         <div className="space-y-6">
-        {fakeDailyStats && fakeDailyStats.map((dailyStat:IDailyStats) => <StatItem item={dailyStat} />)}
+        {/* {fakeDailyStats && fakeDailyStats.map((dailyStat:IDailyStats) => <StatItem item={dailyStat} />)} */}
         </div>
     )
 }

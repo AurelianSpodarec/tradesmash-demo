@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Editor } from '@tinymce/tinymce-react';
 
 function JournalContentEditor({ data }:any) {
@@ -6,7 +6,7 @@ function JournalContentEditor({ data }:any) {
     const editorRef:any = useRef(null);
     
     const content = data && data.content;
-    // console.log("editorrrr", content)
+    
     function onChange(e:any) {
         setEditorValue(e)
     }
@@ -19,7 +19,7 @@ function JournalContentEditor({ data }:any) {
         <Editor
             onChange={(e) => onChange(e)}
             apiKey='your-api-key'
-            onInit={(evt, editor) => editorRef.current = editor}
+            onInit={(editor) => editorRef.current = editor}
             initialValue={editorValue}
             init={{
             height: "100%",

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import Layout from "./pages/Layout"
 import { getTrades } from '@/services/apis/demo/requests/trades';
 import { useDispatch } from 'react-redux';

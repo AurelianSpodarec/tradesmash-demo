@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import JournalCalendarDay from './_components/JournalCalendarDay';
 
 import dateFormatter from '@/utils/dateFormatter';
 import { useDispatch, useSelector } from 'react-redux';
 import { setSelectedDate } from '@/store/features/journal/journalSlice';
+import ITrade from '@/interface/ITrade';
   
 
 function JournalCalendar({ data }:any) {
@@ -13,22 +14,13 @@ function JournalCalendar({ data }:any) {
     const selectedDate = reduxJournal.filterByDate
     const dispatch = useDispatch()
 
-    const hasNote = false;
-    
-    
-    // console.log("Journal calendar", tradingData)
-
-
     const [previousWeek, setPreviousWeek] = useState([]);
     const [activeWeek, setActiveWeek] = useState(0)
     const today = new Date();
 
-
-    // const tradeByDate = getTradesByDate("2023-04-26")
-    // console.log("tradeByDate", tradeByDate)
-
     function setWeek() {
-        const week = []
+        const week:any = []
+
         for (let i = 0; i < 7; i++) {
             const currentDate = new Date(today);
             const dateISO = dateFormatter.formatDateISO(currentDate)
@@ -39,16 +31,8 @@ function JournalCalendar({ data }:any) {
             const formattedDate = new Intl.DateTimeFormat('en-GB', { dateStyle: 'medium' }).format(currentDate);
             const currentDay = currentDate.toDateString() === today.toDateString();
             const isActive = selectedDate === dateFormatter.formatDateISO(today);
-            const hasNote = tradingData.find(trade => trade.date === dateFormatter.formatDateISO(currentDate) && trade.notes === true)
+            const hasNote = tradingData.find((trade:ITrade) => trade.date === dateFormatter.formatDateISO(currentDate) && trade.notes === true)
 
-
-            // console.log("hasNote", tradingData.find(trade => trade.date === dateFormatter.formatDateISO(currentDate) && trade.notes === true))
-
-            // console.log("woo", tradingData.find(trade => trade.date === formatDateISO(currentDate)))
-            // console.log(formatDateISO(currentDate))
-            // console.log("hasNote",  tradingData.find(trade => trade.date === dateISO))
-            // console.log(dateISO)
-            // console.log("current today", formatDateISO(currentDate) === tradingData)
             const dayInfo = {
                 dateISO,
                 dayName,
@@ -98,12 +82,12 @@ function JournalCalendar({ data }:any) {
             </div>
 
             <ol className="grid grid-cols-7">
-                {previousWeek && previousWeek.map((day) => {
+                {previousWeek && previousWeek.map((day:any) => {
                     return (
                         <>
                         {console.log("day")}
                         <JournalCalendarDay 
-                            key={day.formattedDate}
+                            key={day.date}
                             item={day}
                             onClick={() => onDayClick(day)}
                             isActive={selectedDate}

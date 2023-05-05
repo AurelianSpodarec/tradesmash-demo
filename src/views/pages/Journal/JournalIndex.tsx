@@ -1,12 +1,12 @@
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import JournalNavIndex from './Navigation/JournalNavIndex';
-import JournalContent from './Content/JournalContentIndex';
+import { useDispatch } from 'react-redux';
 import { setSelectedDate } from '@/store/features/journal/journalSlice';
 
+import JournalNavIndex from './Navigation/JournalNavIndex';
+import JournalContent from './Content/JournalContentIndex';
+
 function JournalIndex() {
-    const reduxJournal = useSelector((state:any) => state.notes);
-    const notes = reduxJournal && reduxJournal.notes
+    // const reduxJournal = useSelector((state:any) => state.notes);
     const dispatch = useDispatch()
 
     const date = new Date()
@@ -20,7 +20,7 @@ function JournalIndex() {
             <div className="grid grid-cols-11 h-full">
 
                 <aside className="col-span-4">
-                    <JournalNavIndex data={notes} />
+                    <JournalNavIndex />
                 </aside>
                 <section className="col-span-7">
                     <JournalContent />
