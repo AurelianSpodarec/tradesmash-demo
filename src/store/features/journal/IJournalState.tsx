@@ -1,6 +1,6 @@
 import INote from "@/interface/INote";
 
-export interface JournalState {
+export interface IJournalState {
     activeNote: INote;
     activeNoteIndex: number;
     notes: INote[];

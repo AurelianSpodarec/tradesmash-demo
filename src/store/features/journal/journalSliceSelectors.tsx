@@ -1,10 +1,4 @@
 import { useSelector } from "react-redux";
-import { JournalState } from "./IJournalState";
+import { IJournalState } from "./IJournalState";
 
-
-export const getNoteByTradeID = (id:any) => useSelector((state: { journal:JournalState }) => state.journal.notes.find(note => note.tradeID === id))
-
-export const getActiveJournal = () => useSelector((state: { notes: any, journal: { activeNote: number, activeNoteTrade: number } }) => {
-    const activeNoteIndex = state.journal.activeNoteIndex;
-    return state.notes.notes.find(note => note.id === activeNoteIndex);
-});
+export const getNoteByTradeID = (id:number) => useSelector((state: { journal: IJournalState }) => state.journal.notes.find(note => note.tradeID === id))

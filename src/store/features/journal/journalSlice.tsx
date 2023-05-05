@@ -5,15 +5,16 @@ import { createSelector, createSlice } from "@reduxjs/toolkit";
 import INote from "@/interface/INote";
 import { updateTradeHasNote } from "../trades/tradesSlice";
 import dateFormatter from "@/utils/dateFormatter";
+import { IJournalState } from "./IJournalState";
 
-interface NotesState {
-    activeNote: INote;
-    activeNoteIndex: number;
-    notes: INote[];
-    filterByDate: string;
-}
+// interface NotesState {
+//     activeNote: INote;
+//     activeNoteIndex: number;
+//     notes: INote[];
+//     filterByDate: string;
+// }
 
-const initialState: NotesState = {
+const initialState: IJournalState = {
     activeNote: {},
     activeNoteIndex: 0,
     notes: [],
