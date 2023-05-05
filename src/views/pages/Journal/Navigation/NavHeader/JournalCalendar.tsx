@@ -6,6 +6,36 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setSelectedDate } from '@/store/features/journal/journalSlice';
 import ITrade from '@/interface/ITrade';
   
+const MONTH_NAMES_SHORT = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec"
+];
+
+const MONTH_NAMES_FULL = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December"
+];
+  
 
 function JournalCalendar({ data }:any) {
 
@@ -18,6 +48,7 @@ function JournalCalendar({ data }:any) {
     const [activeWeek, setActiveWeek] = useState(0)
     const today = new Date();
 
+    const [date, setDate] = useState()
     function setWeek() {
         const week:any = []
 
@@ -43,12 +74,29 @@ function JournalCalendar({ data }:any) {
                 isActive,
                 hasNote
             };
+            setDate(currentDate)
             week.unshift(dayInfo);
         }
         
         setPreviousWeek(week)
     }
 
+    
+    function getMonthName(date: Date, isFull = true) {
+        const monthIndex = date.getMonth();
+        if (monthIndex === 0) {
+            return isFull ? MONTH_NAMES_FULL[0] : null;
+        }
+        if (monthIndex === 11) {
+            return isFull ? MONTH_NAMES_FULL[11] : null;
+        }
+        const prevMonth = new Date(date.getFullYear(), monthIndex - 1);
+        const nextMonth = new Date(date.getFullYear(), monthIndex + 1);
+        if (prevMonth.getFullYear() !== date.getFullYear() || nextMonth.getFullYear() !== date.getFullYear()) {
+            return null;
+        }
+        return isFull ? MONTH_NAMES_FULL[monthIndex] : MONTH_NAMES_SHORT[monthIndex];
+    }
 
     function navigateNextWeek() {
         setActiveWeek(activeWeek => activeWeek + 7)
@@ -69,9 +117,9 @@ function JournalCalendar({ data }:any) {
     return (
         <div className="border border-b-gray-300 px-8 pt-8 mb-2">
             <div className="flex justify-between items-center mb-8">
-                <span className="font-semibold text-lg">April - May 2023</span>
-                <div>
-                    <button type="button" onClick={() => dispatch(setSelectedDate(dateFormatter.formatDateISO(new Date())))} className="border p-1 mr-2">Today</button>
+                <span className="font-semibold text-lg">{date && getMonthName(date)} - {date && date.getFullYear() }</span>
+                <div className="flex items-center">
+                    <button type="button" onClick={() => setDate(new Date())} className="text-xs border px-2 h-6 mr-2">Today</button>
                     <button type="button" className="h-6 w-6 border p-1" onClick={() => navigatePreviousWeek()}>
                     <svg className="h-full w-full" viewBox="0 0 320 512"><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/></svg>
                     </button>
