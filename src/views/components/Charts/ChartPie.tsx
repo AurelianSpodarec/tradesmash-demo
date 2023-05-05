@@ -19,7 +19,7 @@ function CustomTooltip({ active, payload }:any) {
 }
 
 
-function ChartPie() {
+function ChartPie({ aspect, legend, xAxies, yAxies, toolTip }:any) {
     const COLORS = ["#8884d8", "#82ca9d", "#FFBB28", "#FF8042", "#AF19FF"];
     const pieData = [
         {
@@ -45,7 +45,7 @@ function ChartPie() {
     ];
 
     return (
-        <ResponsiveContainer aspect={2}>
+        <ResponsiveContainer aspect={aspect}>
         <PieChart>
             <Pie
                 data={pieData}
@@ -64,8 +64,8 @@ function ChartPie() {
                     />
                 ))}
             </Pie>
-            <Tooltip content={<CustomTooltip />} />
-            <Legend />
+            {toolTip && <Tooltip content={<CustomTooltip />} />}
+            {legend && <Legend /> }
         </PieChart>
         </ResponsiveContainer>
     )

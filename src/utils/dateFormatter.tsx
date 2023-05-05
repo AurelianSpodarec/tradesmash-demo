@@ -5,6 +5,11 @@ const dateFormatter = {
         const day = String(date.getDate()).padStart(2, '0');
         return `${year}-${month}-${day}`;
     },
+    getMonthName(month: number, option: 'numeric' | '2-digit' | 'narrow' | 'short' | 'long' = 'long') {
+        const date = new Date();
+        date.setMonth(month - 1); // months are 0-indexed in Date object
+        return date.toLocaleString('en-US', { month: option });
+    },
     formatDate(timestamp: number) {
         // const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
         // const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];

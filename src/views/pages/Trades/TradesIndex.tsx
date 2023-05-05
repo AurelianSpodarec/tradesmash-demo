@@ -51,38 +51,38 @@ function TradesIndex() {
 
                             <TableTH name="Symbol" />
                             <TableTH name="B/S" />
-                            <TableTH name="Entry Date" />
+                            {/* <TableTH name="Entry Date" />
                             <TableTH name="Entry Price" />
                             <TableTH name="Units" />
                             <TableTH name="Exit Date" />
                             <TableTH name="Exit Price" />
                             <TableTH name="Fees" />
                             <TableTH name="Stop Loss" />
-                            <TableTH name="Take Profit" />
+                            <TableTH name="Take Profit" /> */}
                             <TableTH name="Strategy" />
                             <TableTH name="Value" />
                             <TableTH name="Risk %" />
-                            <TableTH name="Avg Entry Price" />
-                            <TableTH name="Avg Exit Price" />
+                            {/* <TableTH name="Avg Entry Price" /> */}
+                            {/* <TableTH name="Avg Exit Price" /> */}
                             <TableTH name="R-R Ratio" />
                             <TableTH name="P/L" />
-                            <TableTH name="Market" />
-                            <TableTH name="Duration" />
+                            {/* <TableTH name="Market" /> */}
+                            {/* <TableTH name="Duration" /> */}
                             <TableTH name="Type" />
-                            <TableTH name="Emotion" />
-                            <TableTH name="Entry Reason" />
-                            <TableTH name="Exit Reason" />
+                            {/* <TableTH name="Emotion" /> */}
+                            {/* <TableTH name="Entry Reason" /> */}
+                            {/* <TableTH name="Exit Reason" /> */}
                             <TableTH name="Max Profit" />
                             <TableTH name="Max Loss" />
                             <TableTH name="Wins" />
                             <TableTH name="Losses" />
-                            <TableTH name="Win %" />
-                            <TableTH name="Score" />
+                            {/* <TableTH name="Win %" />
+                            <TableTH name="Score" /> */}
                             <TableTH name="Notes" />
 
 
-                            <TableTH name="Updated At" />
-                            <TableTH name="Created At" />
+                            {/* <TableTH name="Updated At" /> */}
+                            {/* <TableTH name="Created At" /> */}
                         </tr>
                     </thead>
                     <tbody>

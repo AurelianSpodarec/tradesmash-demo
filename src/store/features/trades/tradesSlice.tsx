@@ -26,7 +26,7 @@ const tradeSlice = createSlice({
 
             const tradeToUpdate = state.trades.find((trade) => trade.id === id);
             if (tradeToUpdate) {
-              tradeToUpdate.notes = notes;
+              tradeToUpdate.hasNote = notes;
             }
         },
     },

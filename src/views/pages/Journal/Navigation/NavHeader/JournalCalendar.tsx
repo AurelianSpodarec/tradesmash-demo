@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useState, useEffect } from 'react';
 import JournalCalendarDay from './_components/JournalCalendarDay';
 
@@ -5,38 +6,7 @@ import dateFormatter from '@/utils/dateFormatter';
 import { useDispatch, useSelector } from 'react-redux';
 import { setSelectedDate } from '@/store/features/journal/journalSlice';
 import ITrade from '@/interface/ITrade';
-  
-const MONTH_NAMES_SHORT = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec"
-];
-
-const MONTH_NAMES_FULL = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December"
-];
-  
-
+    
 function JournalCalendar({ data }:any) {
 
     const tradingData = data
@@ -53,7 +23,7 @@ function JournalCalendar({ data }:any) {
         const week:any = []
 
         for (let i = 0; i < 7; i++) {
-            const currentDate = new Date(today);
+            const currentDate:any = new Date(today);
             const dateISO = dateFormatter.formatDateISO(currentDate)
             currentDate.setDate(today.getDate() - i + activeWeek);
         
@@ -62,7 +32,7 @@ function JournalCalendar({ data }:any) {
             const formattedDate = new Intl.DateTimeFormat('en-GB', { dateStyle: 'medium' }).format(currentDate);
             const currentDay = currentDate.toDateString() === today.toDateString();
             const isActive = selectedDate === dateFormatter.formatDateISO(today);
-            const hasNote = tradingData.find((trade:ITrade) => trade.date === dateFormatter.formatDateISO(currentDate) && trade.notes === true)
+            const hasNote = tradingData.find((trade:ITrade) => trade.date === dateFormatter.formatDateISO(currentDate) && trade.hasNote === true)
 
             const dayInfo = {
                 dateISO,
@@ -79,23 +49,6 @@ function JournalCalendar({ data }:any) {
         }
         
         setPreviousWeek(week)
-    }
-
-    
-    function getMonthName(date: Date, isFull = true) {
-        const monthIndex = date.getMonth();
-        if (monthIndex === 0) {
-            return isFull ? MONTH_NAMES_FULL[0] : null;
-        }
-        if (monthIndex === 11) {
-            return isFull ? MONTH_NAMES_FULL[11] : null;
-        }
-        const prevMonth = new Date(date.getFullYear(), monthIndex - 1);
-        const nextMonth = new Date(date.getFullYear(), monthIndex + 1);
-        if (prevMonth.getFullYear() !== date.getFullYear() || nextMonth.getFullYear() !== date.getFullYear()) {
-            return null;
-        }
-        return isFull ? MONTH_NAMES_FULL[monthIndex] : MONTH_NAMES_SHORT[monthIndex];
     }
 
     function navigateNextWeek() {
@@ -117,7 +70,7 @@ function JournalCalendar({ data }:any) {
     return (
         <div className="border border-b-gray-300 px-8 pt-8 mb-2">
             <div className="flex justify-between items-center mb-8">
-                <span className="font-semibold text-lg">{date && getMonthName(date)} - {date && date.getFullYear() }</span>
+                <span className="font-semibold text-lg">{date && dateFormatter.getMonthName(date.getMonth() + 1)} - {date && date.getFullYear() }</span>
                 <div className="flex items-center">
                     <button type="button" onClick={() => setDate(new Date())} className="text-xs border px-2 h-6 mr-2">Today</button>
                     <button type="button" className="h-6 w-6 border p-1" onClick={() => navigatePreviousWeek()}>

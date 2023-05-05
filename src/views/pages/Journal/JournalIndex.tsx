@@ -6,9 +6,7 @@ import JournalNavIndex from './Navigation/JournalNavIndex';
 import JournalContent from './Content/JournalContentIndex';
 
 function JournalIndex() {
-    // const reduxJournal = useSelector((state:any) => state.notes);
     const dispatch = useDispatch()
-
     const date = new Date()
 
     useEffect(() => {

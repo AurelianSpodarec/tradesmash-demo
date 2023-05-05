@@ -10,10 +10,13 @@ import {
     getProfitLossRatio, 
     getTotalScalpGrossPL, 
     getTotalSwingGrossPL, 
+    getTotalTrades, 
     getTotalTradesGrossPnL 
 } from "@/store/features/trades/tradeSliceSelectors";
 import { useSelector } from "react-redux";
 import ChartPerformance from "../../components/Charts/ChartPerfomance";
+import ChartLine from "@/views/components/Charts/ChartLine";
+import ChartPie from "@/views/components/Charts/ChartPie";
 
 
 function HomeIndex() {    
@@ -32,6 +35,17 @@ function HomeIndex() {
            
             <PageHeader title="Overview" />
 
+
+            <div className="grid grid-cols-3 gap-x-4">
+                {/* <CardMetric title="Average PnL" value={0} /> */}
+                <CardMetric title="Total Trades" value={getTotalTrades()} />
+                <CardMetric title="Acccumulative returns" value={"66%"} chart={<ChartLine aspect={3} legend={false} xAxies={false} />} />
+                <CardMetric title="Best performing stock" value="TSLA" chart={<ChartPie aspect={3} legend={false} xAxies={false} yAxies={false} tooltip={false} /> } />
+                {/* Best performing stock company */}
+
+                {/* maybe have icon for the above? */}
+                {/* Total Trades - buy/sell pie chart */}
+            </div>
             <section className="mb-4">
 
                 <Card className="h-[500px]">

@@ -81,7 +81,7 @@ export const getTradesByDate = (date?:string) => useSelector((state: { trades: a
 
     if(!date) {
         // Retrun all by default 
-        return trades.filter((trade:ITrade) => trade.date === filterByDate && trade.notes === true);
+        return trades.filter((trade:ITrade) => trade.date === filterByDate && trade.hasNote);
     } else {
         // Return all by Date
         const trade = trades.find((trade:ITrade) => trade.date === date)
@@ -100,3 +100,5 @@ export const getTradesByDate = (date?:string) => useSelector((state: { trades: a
 
 export const hasTradeNotes = (id: number) => useSelector((state: { notes:any }) => state.notes.notes.find((note:any) => note.id === id));
 export const getTradeByID = (tradeID:number) => useSelector((state: { trades: TradeState }) => state.trades.trades.find(trade => trade.id === tradeID))
+
+export const getTotalTrades = () => useSelector((state: { trades: TradeState }) => state.trades.trades.length)

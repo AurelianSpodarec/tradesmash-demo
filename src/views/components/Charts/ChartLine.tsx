@@ -41,22 +41,24 @@ const pdata = [
     },
 ];
 
-function ChartLine() {
+function ChartLine({ aspect, legend, xAxis, yAxis }:any) {
     return (
-        <ResponsiveContainer aspect={1.7}>
+        <ResponsiveContainer aspect={aspect}>
             <LineChart data={pdata}>
                 <CartesianGrid />
 
-                <XAxis dataKey="name" 
-                    interval={'preserveStartEnd'} />
-                <YAxis></YAxis>
-                <Legend />
+                {xAxis && <XAxis dataKey="name" interval={'preserveStartEnd'} />}
+                {yAxis && <YAxis/>}
+
+                {legend &&
+                    <Legend />
+                }
                 <Tooltip />
 
                 <Line dataKey="student"
                     stroke="black" activeDot={{ r: 8 }} />
-                <Line dataKey="fees"
-                    stroke="red" activeDot={{ r: 8 }} />
+                {/* <Line dataKey="fees"
+                    stroke="red" activeDot={{ r: 8 }} /> */}
             </LineChart>
         </ResponsiveContainer>
     )
