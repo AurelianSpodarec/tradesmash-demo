@@ -3,6 +3,9 @@ import Container from '../_components/Container';
 import Card from '@/views/atoms/Card';
 import PageHeader from '@/views/components/PageHeader';
 import ITrade from '@/interface/ITrade';
+import CellStatus from '@/views/components/Table/Cells/CellStatus';
+import CellBuySell from '@/views/components/Table/Cells/CellBuySell';
+import Button from '@/views/atoms/Button/Button';
 
 
 function TableTH({ name }:any) {
@@ -35,7 +38,11 @@ function TradesIndex() {
     return (
         <Container>
 
-            <PageHeader title="Trades" />
+            <PageHeader title="Trades" className="flex justify-between items-center">
+                <div>
+                    <Button label="Add Trade" />
+                </div>
+            </PageHeader>
 
             {/* <section className="pt-8"> */}
 
@@ -90,12 +97,14 @@ function TradesIndex() {
                         <tr key={trade.id}>
                             <TableTD name={trade.id} />
                             <TableTD name={trade.date} />
-                            <TableTD name={trade.status} />
+                            <TableTD name={<CellStatus item={trade.status} />} />
+                            <TableTD name={trade.symbol} />
+                            <TableTD name={<CellBuySell item={trade.buySell} />} />
 
-
-
-                            <TableTD name={trade.createdAt} />
-                            <TableTD name={trade.updatedAt} />
+                            <TableTD name={trade.strategy} />
+                            <TableTD name={trade.value} />
+                            <TableTD name={trade.riskPercentage} />
+                            <TableTD name={trade.riskRewardRatio} />
                         </tr>
                         ))}
                     </tbody>

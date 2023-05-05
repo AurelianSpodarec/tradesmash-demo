@@ -10,11 +10,9 @@ function CellStatus({ item }: { item?: CellStatus }) {
 
     if(!item) return <></>
     return (
-        <td className={`whitespace-nowrap px-3 py-4 text-sm`}>
-            <div className={`px-1.5 py-1 rounded-md w-full text-center text-xs ${mediaTypes[item]}`}>
-                <span>{capitalizeFirstLetter(item)}</span>
-            </div>
-        </td>
+        <div className={`px-1.5 py-1 rounded-md w-full text-center text-xs ${mediaTypes[item]}`}>
+            <span>{capitalizeFirstLetter(item)}</span>
+        </div>
     );
 }
 
