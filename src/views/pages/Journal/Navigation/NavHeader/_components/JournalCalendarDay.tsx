@@ -6,7 +6,6 @@ function JournalCalendarDay({ item, onClick, isActive }:any) {
     const formatedDate = dateFormatter.formatDateISO(date)
     const active = isActive === formatedDate
 
-    console.log("hi",date, isActive)
     return (
         <li onClick={onClick} className={`cursor-pointer flex flex-col text-center relative mb-4`}>
 
