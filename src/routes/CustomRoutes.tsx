@@ -9,6 +9,7 @@ import StatsIndex from "@/views/pages/Stats/StatsIndex";
 import JournalIndex from "@/views/pages/Journal/JournalIndex";
 import CalendarIndex from "@/views/pages/Calendar/CalendarIndex";
 import AnalyticsIndex from "@/views/pages/Analytics/AnalyticsIndex";
+import ResourcesIndex from "@/views/pages/Resources/ResourcesIndex";
 
 function CustomRoutes() {
     let routes = useRoutes([
@@ -39,6 +40,10 @@ function CustomRoutes() {
         {
             path: "/journal",
             element: <JournalIndex />
+        },
+        {
+            path: "/resources",
+            element: <ResourcesIndex />
         },
         {
             path: "/calendar",
