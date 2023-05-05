@@ -3,8 +3,11 @@ import { TradeState } from "./ITradesState";
 import currencyFormatter from "@/utils/currencyFormatter";
 import ITrade from "@/interface/ITrade";
 
-export const hasTradeNotes = (id: number) => useSelector((state: { notes:any }) => state.notes.notes.find((note:any) => note.id === id));
 
+
+// ===============================================================================
+// Trade Slice: Calculations
+// ===============================================================================
 export const getTotalTradesGrossPnL = () => {
     return useSelector((state: { trades: TradeState }) => {
         const total = state.trades.trades.reduce((acc, trade) => {
@@ -49,8 +52,6 @@ export const getTotalScalpGrossPL = () => useSelector((state: { trades: TradeSta
     return currencyFormatter.format(total)
 });
 
-
-
 export const getProfitLossRatio = () => useSelector((state: { trades: TradeState }) => {
     let totalProfit = 0;
     let totalLoss = 0;
@@ -92,3 +93,10 @@ export const getTradesByDate = (date?:string) => useSelector((state: { trades: a
     }
 
 })
+
+// ===============================================================================
+// Trade Slice: other
+// ===============================================================================
+
+export const hasTradeNotes = (id: number) => useSelector((state: { notes:any }) => state.notes.notes.find((note:any) => note.id === id));
+export const getTradeByID = (tradeID:number) => useSelector((state: { trades: TradeState }) => state.trades.trades.find(trade => trade.id === tradeID))
