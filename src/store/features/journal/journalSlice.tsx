@@ -16,7 +16,7 @@ import { IJournalState } from "./IJournalState";
 
 const initialState: IJournalState = {
     activeNote: {},
-    activeNoteIndex: 0,
+    activeNoteIndex: null,
     notes: [],
     filterByDate: "", // 2023-04-26 get getll trades from that date
 };
