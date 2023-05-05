@@ -84,15 +84,12 @@ function JournalCalendar({ data }:any) {
             <ol className="grid grid-cols-7">
                 {previousWeek && previousWeek.map((day:any) => {
                     return (
-                        <>
-                        {console.log("day")}
                         <JournalCalendarDay 
                             key={day.date}
                             item={day}
                             onClick={() => onDayClick(day)}
                             isActive={selectedDate}
                         />
-                        </>
                     )
                 })}
             </ol>

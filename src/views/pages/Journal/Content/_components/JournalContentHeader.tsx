@@ -1,8 +1,10 @@
 import INote from "@/interface/INote";
-import ITrade from "@/interface/ITrade";
+import { getTradeByID } from "@/store/features/trades/tradeSliceSelectors";
 import dateFormatter from "@/utils/dateFormatter";
 
-function JournalContentHeader({ note, trade }:JournalContentHeaderProps) {
+function JournalContentHeader({ note }:JournalContentHeaderProps) {
+    const trade = note && getTradeByID(note.tradeID);
+
     return (
         <div className=" bg-white p-6 border-b border-b-gray-300 flex justify-between items-start w-full">
                 {/* <h3>Journal: {dateHelper.formatDate(notes[0].createdAt)}</h3> */}
@@ -11,7 +13,11 @@ function JournalContentHeader({ note, trade }:JournalContentHeaderProps) {
                 <div className="flex space-x-4 mb-2">
                     <div className="flex items-center space-x-2">
                         <div className="h-4 w-4 bg-blue-300 rounded"></div>
-                        <span className="text-xl font-bold">Trade #{trade.id}</span>
+                        {trade ?
+                            <span className="text-xl font-bold">Trade #{trade && trade.id}</span>
+                            :
+                            <span>Assign a trade</span>
+                        }
                     </div>
                     
                     {/* <span className="text-xl font-bold">Net P&L: £2323.94</span> */}
@@ -19,11 +25,15 @@ function JournalContentHeader({ note, trade }:JournalContentHeaderProps) {
 
 
                 <div className="flex space-x-4">
+                    {trade && 
+                        <div>
+                            <span className="font-medium">Emotional State:</span> {trade && trade.emotionalState}
+                        </div>
+                    }
                     <div>
-                        <span className="font-medium">Emotional State:</span> {trade.emotionalState}
-                    </div>
-                    <div>
-                        <span className="font-medium">Last Saved:</span> {dateFormatter.formatDate(note.updatedAt)}
+                        <span className="font-medium">Last Saved:</span> {note && dateFormatter.formatDate(note.updatedAt)}
+                        {/* Saving... */}
+                        {/* Last saved a few seconds ago */}
                     </div>
                 </div>
 
@@ -44,6 +54,5 @@ function JournalContentHeader({ note, trade }:JournalContentHeaderProps) {
 export default JournalContentHeader;
 
 interface JournalContentHeaderProps {
-    note: INote;
-    trade: ITrade;
+    note?: INote;
 }
