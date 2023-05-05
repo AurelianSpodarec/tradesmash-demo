@@ -43,7 +43,6 @@ const pdata = [
 
 function ChartLine() {
     return (
-        // <div className="h-full w-full">
         <ResponsiveContainer aspect={1.7}>
             <LineChart data={pdata}>
                 <CartesianGrid />
@@ -60,7 +59,6 @@ function ChartLine() {
                     stroke="red" activeDot={{ r: 8 }} />
             </LineChart>
         </ResponsiveContainer>
-        // </div>
     )
 }
 

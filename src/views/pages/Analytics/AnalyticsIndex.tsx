@@ -1,8 +1,8 @@
 import PageHeader from "@/views/components/PageHeader";
 import Container from "../_components/Container";
 import Card from "@/views/atoms/Card";
-import ChartLine from "./ChartLine";
-import ChartPie from "./ChartPie";
+import ChartLine from "../../components/Charts/ChartLine";
+import ChartPie from "../../components/Charts/ChartPie";
 
 function AnalyticsIndex() {
     return (
