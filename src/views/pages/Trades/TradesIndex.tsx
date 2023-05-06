@@ -8,8 +8,6 @@ import Container from '../_components/Container';
 import PageHeader from '@/views/components/PageHeader';
 import Card from '@/views/atoms/Card';
 import Button from '@/views/atoms/Button/Button';
-import TableTH from '@/views/components/Table/TableTH/TableTH';
-import TableTD from '@/views/components/Table/TableTD/TableTD';
 import TableTDList from '@/views/components/Table/TableTD/TableTDList';
 import TableTHList from '@/views/components/Table/TableTH/TableTHList';
 
