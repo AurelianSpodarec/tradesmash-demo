@@ -25,6 +25,25 @@ function TableTD({ name }:any) {
     )
 }
 
+// Date
+// Open Trade Date
+// Close Trade Date
+// Price
+// Size
+// Risk 
+// Asset Class
+// Transaction Fees/Commission
+// Stock Name/Exchange
+
+
+//Gross PLN
+// Net PLN
+
+
+// 10-20-30 days a day on high volatility
+
+
+// - Emotions and thoughts, confidence, reason for trade
 
 
 function TradesIndex() {
@@ -85,7 +104,7 @@ function TradesIndex() {
                             <TableTH name="Losses" />
                             {/* <TableTH name="Win %" />
                             <TableTH name="Score" /> */}
-                            <TableTH name="Notes" />
+                            {/* <TableTH name="Notes" /> */}
 
 
                             {/* <TableTH name="Updated At" /> */}

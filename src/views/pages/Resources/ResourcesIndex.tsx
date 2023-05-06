@@ -10,7 +10,7 @@ const books = [
     },
     {
         title: "One Good Trade: Inside the Highly Competitive World of Proprietary Trading",
-        image: "",
+        image: "https://m.media-amazon.com/images/I/51c7ZOayErL._SY346_.jpg",
         author: "Mike Bellafiore"
     },
     {
@@ -34,14 +34,14 @@ const books = [
         author: "John Stepek",
     },
     {
-        title: "The Art of Execution by Lee Freeman-Shor",
-        image: "",
-        author: "",
+        title: "The Art of Execution",
+        image: "https://m.media-amazon.com/images/I/5158HrCHutL.jpg",
+        author: "Lee Freeman-Shor",
     },
     {
         title: "Monster Stocks",
-        image: "",
-        author: "",
+        image: "https://images-eu.ssl-images-amazon.com/images/I/41DwHIwBwAL._AC_UL232_SR232,232_.jpg",
+        author: "John Boik",
     },
     {
         title: "How to Make 6 Figures in Stocks",
@@ -50,20 +50,19 @@ const books = [
     },
     {
         title: "The Playbook",
-        image: "",
-        author: "",
+        image: "https://m.media-amazon.com/images/I/41UhoVwT6CL._SY346_.jpg",
+        author: "Mike Bellafiore",
     },
     {
         title: "Reminiscences of a Stock Operator",
-        image: "",
-        author: "",
+        image: "https://m.media-amazon.com/images/I/51H6WGw4O9L._SY346_.jpg",
+        author: "Edwin Lefevre",
     },
     {
         title: "Atomic Habits by James Clear",
-        image: "",
-        author: "",
+        image: "https://m.media-amazon.com/images/I/51-nXsSRfZL._SY346_.jpg",
+        author: "James Clear",
     },
-
     {
         title: "The UK Stock Trading Handbook",
         image: "https://shiftingshares.b-cdn.net/wp-content/uploads/2021/01/ebook-the-uk-stock-trading-handbook.jpg",
@@ -78,14 +77,17 @@ const books = [
 ]
 
 
+// Learn how to read screens
+// Learn how to read charts
+// 
 
 function CardBook({ title, image }:any) {
     return (
         <article className="relative flex flex-col">
-            <div className="mb-2">
-                <img className="h-full w-full" src={image} />
+            <div className="mb-1">
+                <img className="h-full rounded-lg border w-full  h-[370px] object-cover" src={image} />
             </div>
-            <div>
+            <div className="py-2">
                 <h3 className="font-medium text-lg">{title}</h3>
             </div>
         </article>
@@ -102,7 +104,7 @@ function ResourcesIndex() {
                 <aside className="col-span-3">
                 <Card>
 
-                    hi
+                    Sidebar categories filter
 
                 </Card>
                 </aside>
@@ -110,7 +112,7 @@ function ResourcesIndex() {
                 <section className="col-span-9">
                 <Card>
 
-                    <div className="grid grid-cols-4 gap-3">
+                    <div className="grid grid-cols-4 gap-6">
 
                         {books && books.map((book:any) => {
                             return (
