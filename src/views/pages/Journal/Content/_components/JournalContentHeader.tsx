@@ -1,6 +1,7 @@
 import INote from "@/interface/INote";
 import { getTradeByID } from "@/store/features/trades/tradeSliceSelectors";
 import dateFormatter from "@/utils/dateFormatter";
+import Button from "@/views/atoms/Button/Button";
 
 function JournalContentHeader({ note }:JournalContentHeaderProps) {
     const trade = note && getTradeByID(note.tradeID);
@@ -44,9 +45,9 @@ function JournalContentHeader({ note }:JournalContentHeaderProps) {
                 </div>
             </div>
 
-            <button type="button" className="block rounded-md bg-skin-brand-600 px-3 py-1.5 text-center text-sm font-semibold leading-6 text-white shadow-sm hover:bg-skin-brand-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-skin-brand-600">
+            <Button>
                 Save
-            </button>
+            </Button>
         </div>
     )
 }

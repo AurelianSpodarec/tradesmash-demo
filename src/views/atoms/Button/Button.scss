@@ -13,9 +13,10 @@
     line-height: 1;
     @apply 
     text-white
-    text-sm font-light px-5 py-2.5
-    transform duration-100 ease-in-out;
-
+    text-sm font-light px-5 py-2
+    transform duration-100 ease-in-out
+    rounded-md;
+    
     &:hover {
         transform: scale(1.03);
     }
@@ -28,7 +29,7 @@
         &.button-primary {
             // bg-brand-600
             @apply 
-            bg-black
+            bg-skin-brand-500
         }
     
         &.button-secondary {
