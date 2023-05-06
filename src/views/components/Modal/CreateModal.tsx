@@ -1,12 +1,13 @@
 import { useState, useEffect, useRef } from 'react';
 import * as ReactDOM from 'react-dom';
 import ModalNote from './ModalTrade/ModalTrade';
+import useModal from '@/hooks/useModal';
 
 
 const doc = document.getElementById('root');
 function CreateModal() {
-    // const modalContext = useModal()
-    // const modalData = modalContext.data;
+    const modalContext = useModal()
+    const modalData = modalContext.data;
     const modalRef:any = useRef(undefined)
 
     const modalOptions:any = {
@@ -23,7 +24,7 @@ function CreateModal() {
     //     handleModalClose()
     // }, [])
 
-    // if(!modalContext.open || !doc) return <></>
+    if(!modalContext.open || !doc) return <></>
     return ReactDOM.createPortal(
         <dialog
             ref={modalRef}
@@ -38,9 +39,9 @@ function CreateModal() {
                 m-auto opacity-0 bg-black/50 
                 p-4 overflow-y-auto
                 h-full w-full
-                visible  opacity-100 hidden animate-open 
+                hidden animate-open 
+                ${modalContext.isOpen ? 'visible opacity-100 ' : 'opacity-100'} 
             `}
-            // ${modalContext.isOpen ? 'visible opacity-100 ' : 'opacity-100'} 
         >
         <div className="flex min-h-full items-end justify-center text-center sm:items-center">
             {/* {modalOptions[modalData.type]} */}

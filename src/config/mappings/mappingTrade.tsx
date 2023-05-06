@@ -1,5 +1,11 @@
 const mappingTrade = [
     {
+        id: "id",
+        name: "Trade ID",
+        displayName: "Trade No.",
+        tip: ""
+    },
+    {
         id: "tradeDate",
         name: "Date",
         displayName: "Date",
