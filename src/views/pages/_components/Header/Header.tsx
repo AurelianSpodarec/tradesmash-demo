@@ -16,13 +16,9 @@ function Header() {
     const currentName = namesMap[location.pathname]
 
     return (
-        <header className="sticky top-0 z-40 flex h-12 shrink-0 items-center gap-x-4 border-b border-gray-200 bg-white shadow-sm sm:gap-x-6">
+        <header className="z-40 flex h-[48px] shrink-0 items-center gap-x-4 border-b border-gray-200 bg-white shadow-sm sm:gap-x-6">
 
-            <Link to="/" className="flex w-[50px] p-1 shrink-0 items-center"> 
-                <img src="https://i.ibb.co/MMzrXqX/image.png" className="w-full" />
-                 <span className="ml-3 text-xl font-bold sr-only">{configApp.name}</span>
-            </Link>
-            
+ 
             {/* Mobile button */}
             <button type="button" className="-m-2.5 p-2.5 text-gray-700 lg:hidden">
             <span className="sr-only">Open sidebar</span>
@@ -34,8 +30,12 @@ function Header() {
 
             <div className="flex flex-1 gap-x-6 items-center self-stretch lg:gap-x-8">
 
-                <div className="relative flex flex-1">
+                {/* <div className="relative flex flex-1 px-8">
                     <h1 className="text-2xl font-semibold">{currentName}</h1>
+                </div> */}
+
+                <div className="flex-1">
+
                 </div>
           
                 <div className="flex items-center gap-x-4 lg:gap-x-6">

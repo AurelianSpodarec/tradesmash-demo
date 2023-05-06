@@ -17,12 +17,14 @@ function Layout() {
             <MadeBy />
 
             <div id="context-wrap" className={`flex flex-col h-full`}> 
-                <Header />
                 
-                <div className="flex flex-row h-full relative">
-                    <Navigation />
+                <Navigation />
 
-                    <main className="pl-[50px] h-full w-full">
+                <div className="flex pl-[50px] flex-col h-full relative">
+
+                    <Header />
+
+                    <main className="h-full w-full">
                         <CustomRoutes />
                     </main>      
                 </div>            
