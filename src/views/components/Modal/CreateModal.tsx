@@ -38,7 +38,7 @@ function CreateModal() {
                 m-auto opacity-0 bg-black/50 
                 p-4 overflow-y-auto
                 h-full w-full
-                visible  opacity-100 animate-open 
+                visible  opacity-100 hidden animate-open 
             `}
             // ${modalContext.isOpen ? 'visible opacity-100 ' : 'opacity-100'} 
         >

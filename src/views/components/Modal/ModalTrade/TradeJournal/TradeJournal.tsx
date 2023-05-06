@@ -15,6 +15,16 @@ function ModalTradeJournal() {
                <h4 className="block mb-2 text-sm font-medium text-gray-900">Confidence</h4>
                 <span>1-10</span>
             </div>
+
+            <div className="mb-4">
+               <h4 className="block mb-2 text-sm font-medium text-gray-900">Emotions</h4>
+                <span>1-10</span>
+            </div>
+
+            <div className="mb-4">
+               <h4 className="block mb-2 text-sm font-medium text-gray-900">Reason for trade</h4>
+                <span>1-10</span>
+            </div>
         </div>
     )
 }
