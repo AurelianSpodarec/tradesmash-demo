@@ -6,6 +6,7 @@ import ITrade from '@/interface/ITrade';
 import CellStatus from '@/views/components/Table/Cells/CellStatus';
 import CellBuySell from '@/views/components/Table/Cells/CellBuySell';
 import Button from '@/views/atoms/Button/Button';
+import mapNames from '@/utils/mapNames';
 
 
 function TableTH({ name }:any) {
@@ -25,36 +26,21 @@ function TableTD({ name }:any) {
     )
 }
 
-// Date
-// Open Trade Date
-// Close Trade Date
-// Price
-// Size
-// Risk 
-// Asset Class
-// Transaction Fees/Commission
-// Stock Name/Exchange
-
-// Gross PLN
-// Net PLN
-
 
 // - Emotions and thoughts, confidence, reason for trade
 
 
 
-// 10-20-30 days a day on high volatility
-
-
-
+// Display all except XYZ ids
 //  One edit and have modal that edits the trade itself but also notes
 
 function TradesIndex() {
     const reduxTrades = useSelector((state:any) => state.trades);
     const trades = reduxTrades.trades
 
-    console.log(trades)
+    const mappedTradeNames = mapNames.trades({exclude: ["createdAt", "updatedAt"]})
 
+    console.log(mappedTradeNames)
 
     // TODO: Add calendar view, trades view etc...
     return (
@@ -83,44 +69,11 @@ function TradesIndex() {
                                     // onChange={toggleAll}
                                 />
                             </th>
-                            <TableTH name="Trade No." />
-                            <TableTH name="Date" />
-                            <TableTH name="Status" />
-
-                            <TableTH name="Symbol" />
-                            <TableTH name="B/S" />
-                            {/* <TableTH name="Entry Date" />
-                            <TableTH name="Entry Price" />
-                            <TableTH name="Units" />
-                            <TableTH name="Exit Date" />
-                            <TableTH name="Exit Price" />
-                            <TableTH name="Fees" />
-                            <TableTH name="Stop Loss" />
-                            <TableTH name="Take Profit" /> */}
-                            <TableTH name="Strategy" />
-                            <TableTH name="Value" />
-                            <TableTH name="Risk %" />
-                            {/* <TableTH name="Avg Entry Price" /> */}
-                            {/* <TableTH name="Avg Exit Price" /> */}
-                            <TableTH name="R-R Ratio" />
-                            <TableTH name="P/L" />
-                            {/* <TableTH name="Market" /> */}
-                            {/* <TableTH name="Duration" /> */}
-                            <TableTH name="Type" />
-                            {/* <TableTH name="Emotion" /> */}
-                            {/* <TableTH name="Entry Reason" /> */}
-                            {/* <TableTH name="Exit Reason" /> */}
-                            <TableTH name="Max Profit" />
-                            <TableTH name="Max Loss" />
-                            <TableTH name="Wins" />
-                            <TableTH name="Losses" />
-                            {/* <TableTH name="Win %" />
-                            <TableTH name="Score" /> */}
-                            {/* <TableTH name="Notes" /> */}
-
-
-                            {/* <TableTH name="Updated At" /> */}
-                            {/* <TableTH name="Created At" /> */}
+                            {
+                                mappedTradeNames && mappedTradeNames.map((item:any) => {
+                                    return <TableTH name={item.displayName} />
+                                })
+                            }
                             <th></th>
                         </tr>
                     </thead>
@@ -143,16 +96,13 @@ function TradesIndex() {
                                     // }
                                 />
                             </td>
-                            <TableTD name={trade.id} />
-                            <TableTD name={trade.date} />
-                            <TableTD name={<CellStatus item={trade.status} />} />
-                            <TableTD name={trade.symbol} />
-                            <TableTD name={<CellBuySell item={trade.buySell} />} />
 
-                            <TableTD name={trade.strategy} />
-                            <TableTD name={trade.value} />
-                            <TableTD name={trade.riskPercentage} />
-                            <TableTD name={trade.riskRewardRatio} />
+                            {
+                                mappedTradeNames && mappedTradeNames.map((item:any) => {
+                                    return <TableTD name={trade[item.id]} />
+                                })
+                            }
+                            
                             <td>
                                 <button type="button" className="w-4">
                                     <svg className="h-full w-full" viewBox="0 0 512 512"><path d="M441 58.9L453.1 71c9.4 9.4 9.4 24.6 0 33.9L424 134.1 377.9 88 407 58.9c9.4-9.4 24.6-9.4 33.9 0zM209.8 256.2L344 121.9 390.1 168 255.8 302.2c-2.9 2.9-6.5 5-10.4 6.1l-58.5 16.7 16.7-58.5c1.1-3.9 3.2-7.5 6.1-10.4zM373.1 25L175.8 222.2c-8.7 8.7-15 19.4-18.3 31.1l-28.6 100c-2.4 8.4-.1 17.4 6.1 23.6s15.2 8.5 23.6 6.1l100-28.6c11.8-3.4 22.5-9.7 31.1-18.3L487 138.9c28.1-28.1 28.1-73.7 0-101.8L474.9 25C446.8-3.1 401.2-3.1 373.1 25zM88 64C39.4 64 0 103.4 0 152V424c0 48.6 39.4 88 88 88H360c48.6 0 88-39.4 88-88V312c0-13.3-10.7-24-24-24s-24 10.7-24 24V424c0 22.1-17.9 40-40 40H88c-22.1 0-40-17.9-40-40V152c0-22.1 17.9-40 40-40H200c13.3 0 24-10.7 24-24s-10.7-24-24-24H88z"/></svg>
