@@ -1,13 +1,13 @@
 import JournalEditor from "@/views/components/JournalEditor";
 
-function ModalTradeJournal() {
+function ModalTradeJournal({ journal }:any) {
     return (
         <div className="flex flex-col">
 
             <div className="mb-4">
                 <h4 className="block mb-2 text-sm font-medium text-gray-900">Notes</h4>
                 <div className="h-[330px] border">
-                <JournalEditor editorValue="Hello"/>
+                <JournalEditor editorValue={journal.content}/>
                 </div>
             </div>
 

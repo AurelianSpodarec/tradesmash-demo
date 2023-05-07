@@ -21,13 +21,28 @@ const tradeSlice = createSlice({
                 state.trades.unshift(newTrade);
             }
         },
-        updateTradeNote: (state, action) => {
-            const { id, notes } = action.payload;
+        updateTrade: (state, action) => {
+            const newTrade = action.payload;
+console.log(newTrade)
+            // const tradeToUpdate = state.trades.find((trade) => trade.id === id);
+            // if (tradeToUpdate) {
+            //     tradeToUpdate = [...trade]
+            //     // tradeToUpdate.hasNote = notes;
+            // }
+            const tradeToUpdate = state.trades.find((trade) => trade.id === newTrade.id);
 
-            const tradeToUpdate = state.trades.find((trade) => trade.id === id);
+            
             if (tradeToUpdate) {
-              tradeToUpdate.hasNote = notes;
+            // update trade properties
+                const updatedTrade = {
+                    ...tradeToUpdate,
+                    ...newTrade,
+                    hasNote: false,
+                };
+                const tradeIndex = state.trades.findIndex((trade) => trade.id === newTrade.id);
+                state.trades[tradeIndex] = updatedTrade;
             }
+
         },
     },
 });
@@ -35,7 +50,7 @@ const tradeSlice = createSlice({
 export const { 
     setTrades, 
     createTrade, 
-    updateTradeNote 
+    updateTrade 
 } = tradeSlice.actions;
 
 export default tradeSlice.reducer;

@@ -30,6 +30,10 @@ function ModalProvider({ children }: {children: ReactNode}) {
         document.body.style.overflow = 'auto';
     }
 
+    function setModalConfig() {
+
+    }
+
     function onValueChange(e:any) {
         formState.handleChange(e)
     }
@@ -39,6 +43,7 @@ function ModalProvider({ children }: {children: ReactNode}) {
         data: config,
         isOpen,
         setConfig,
+        setModalConfig,
         close: setModalClose,
         open: setModalOpen,
         onValueChange,

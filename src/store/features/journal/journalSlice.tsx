@@ -36,7 +36,7 @@ const journalSlice = createSlice({
         setNotes: (state, action) => {
             state.notes = action.payload
         },
-        createNote: (state, action) => {
+        createJournal: (state, action) => {
             const { id, content } = action.payload;
             const newNote: INote = {
                 id: state.notes.length + 1,
@@ -47,7 +47,7 @@ const journalSlice = createSlice({
             };
             state.notes.push(newNote);           
         },
-        updateNote: (state, action) => {
+        updateJournal: (state, action) => {
             const { id, content } = action.payload;
             const index = state.notes.findIndex(note => note.id === id);
             if (index !== -1) {
@@ -59,12 +59,12 @@ const journalSlice = createSlice({
                 };
             }
         },
-        deleteNote: (state, action) => {
+        deleteJournal: (state, action) => {
             const noteId = action.payload;
             state.notes = state.notes.filter(note => note.id !== noteId);
         }
     },
 });
 
-export const { setSelectedDate, setNotes, createNote, setActiveNote, updateNote, deleteNote } = journalSlice.actions;
+export const { setSelectedDate, setNotes, createJournal, setActiveNote, updateJournal, deleteJournal } = journalSlice.actions;
 export default journalSlice.reducer;
