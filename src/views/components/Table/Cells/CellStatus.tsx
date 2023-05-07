@@ -1,6 +1,6 @@
 import { capitalizeFirstLetter } from "@/utils/common";
 
-function CellStatus({ item }: { item?: CellStatus }) {
+function CellStatus({ status }: { status?: CellStatus }) {
 
     const mediaTypes: Record<CellStatus, string> = {
         open: "bg-blue-300 text-blue-900",
@@ -8,10 +8,10 @@ function CellStatus({ item }: { item?: CellStatus }) {
         decreased: "bg-red-300 text-red-900"
     };
 
-    if(!item) return <></>
+    if(!status) return <></>
     return (
-        <div className={`px-1.5 py-1 rounded-md w-full text-center text-xs ${mediaTypes[item]}`}>
-            <span>{capitalizeFirstLetter(item)}</span>
+        <div className={`px-1.5 py-1 rounded-md w-full text-center text-xs ${mediaTypes[status]}`}>
+            <span>{capitalizeFirstLetter(status)}</span>
         </div>
     );
 }

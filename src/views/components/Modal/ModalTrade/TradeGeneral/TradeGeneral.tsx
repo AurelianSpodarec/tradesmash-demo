@@ -1,6 +1,9 @@
 import Input from "@/views/atoms/Input";
 
 function ModalTradeGeneral() {
+
+    
+
     return (
         <div>
 

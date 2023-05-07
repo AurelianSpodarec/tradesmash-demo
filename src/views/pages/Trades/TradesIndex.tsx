@@ -15,8 +15,8 @@ import useModal from '@/hooks/useModal';
 // - Emotions and thoughts, confidence, reason for trade
 
 function TradesIndex() {
-
     const ModalContextAPI = useModal() 
+
     const reduxTrades = useSelector((state:any) => state.trades);
     const trades = reduxTrades.trades
     const mappedTradeNames = mapNames.trades({exclude: ["createdAt", "updatedAt", "hasNote"]})
@@ -33,7 +33,7 @@ function TradesIndex() {
     return (
         <Container>
 
-            <PageHeader title="Trades" className="flex justify-between items-center">
+            <PageHeader title={`Trades ${trades.length}`} className="flex justify-between items-center">
                 <div>
                     <Button label="Add Trade" onClick={() => openModalTrade()} />
                 </div>

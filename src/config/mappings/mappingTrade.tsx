@@ -6,7 +6,7 @@ const mappingTrade = [
         tip: ""
     },
     {
-        id: "tradeDate",
+        id: "date",
         name: "Date",
         displayName: "Date",
         tip: "Date",
