@@ -1,25 +1,49 @@
 import { useEffect, useRef, useState } from 'react';
+import { useDispatch } from 'react-redux';
+
+import { updateJournal } from '@/store/features/journal/journalSlice';
 import { Editor } from '@tinymce/tinymce-react';
 
+
 function JournalContentEditor({ data }:any) {
+    const dispatch = useDispatch();
+    
     const [editorValue, setEditorValue] = useState("")
     const editorRef:any = useRef(null);
-    
+
     const content = data && data.content;
+    
     
     function onChange(e:any) {
         setEditorValue(e)
     }
+    
+    function saveJournal() {
+        const content = editorRef.current.getContent();
+        dispatch(updateJournal({
+            id: data.id,
+            tradeID: data.tradeID,
+            content: content
+        }))
+    }
 
+
+    
     useEffect(() => {
-        setEditorValue(content)
+        if(content) {
+            setEditorValue(content && content)
+        } else {
+            setEditorValue("")
+        }
     }, [data])
 
     return (
+        <>
+        <button onClick={() => saveJournal()}>Hi</button>
         <Editor
             onChange={(e) => onChange(e)}
             apiKey='your-api-key'
-            onInit={(editor) => editorRef.current = editor}
+            onInit={(evt, editor) => editorRef.current = editor}
             initialValue={editorValue}
             init={{
             height: "100%",
@@ -36,6 +60,7 @@ function JournalContentEditor({ data }:any) {
             content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
             }}
         />
+        </>
     )
 }
 

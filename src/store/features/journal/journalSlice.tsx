@@ -50,6 +50,7 @@ const journalSlice = createSlice({
         updateJournal: (state, action) => {
             const { id, content } = action.payload;
             const index = state.notes.findIndex(note => note.id === id);
+            
             if (index !== -1) {
                 state.notes[index] = {
                     ...state.notes[index],
