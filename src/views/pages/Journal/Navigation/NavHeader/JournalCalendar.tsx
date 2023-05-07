@@ -32,8 +32,8 @@ function JournalCalendar({ data }:any) {
             const formattedDate = new Intl.DateTimeFormat('en-GB', { dateStyle: 'medium' }).format(currentDate);
             const currentDay = currentDate.toDateString() === today.toDateString();
             const isActive = selectedDate === dateFormatter.formatDateISO(today);
-            const hasNote = tradingData.find((trade:ITrade) => trade.date === dateFormatter.formatDateISO(currentDate) && trade.hasNote === true)
-
+            const hasNote = tradingData.find((trade:ITrade) => trade.date === dateFormatter.formatDateISO(currentDate) && trade.hasNote)
+console.log(tradingData)
             const dayInfo = {
                 dateISO,
                 dayName,

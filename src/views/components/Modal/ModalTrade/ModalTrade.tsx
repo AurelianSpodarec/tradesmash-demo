@@ -20,6 +20,18 @@ function ModalTrade() {
         ModalContext.close()
     }
 
+
+
+
+    function updateTrade() {
+
+    }
+
+    function updateJournal() {
+
+    }
+
+
     return (
         <div>
             <header>
