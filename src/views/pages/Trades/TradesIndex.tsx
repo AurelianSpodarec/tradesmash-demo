@@ -19,7 +19,7 @@ function TradesIndex() {
     const ModalContextAPI = useModal() 
     const reduxTrades = useSelector((state:any) => state.trades);
     const trades = reduxTrades.trades
-    const mappedTradeNames = mapNames.trades({exclude: ["createdAt", "updatedAt"]})
+    const mappedTradeNames = mapNames.trades({exclude: ["createdAt", "updatedAt", "hasNote"]})
 
     function openModalTrade() {
         ModalContextAPI.open()
