@@ -7,7 +7,7 @@ function ModalTradeJournal({ journal }:any) {
             <div className="mb-4">
                 <h4 className="block mb-2 text-sm font-medium text-gray-900">Notes</h4>
                 <div className="h-[330px] border">
-                <JournalEditor editorValue={journal.content}/>
+                    <JournalEditor editorValue={journal && journal.content}/>
                 </div>
             </div>
 

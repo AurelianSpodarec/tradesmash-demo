@@ -1,9 +1,7 @@
 import Input from "@/views/atoms/Input";
 
-function ModalTradeGeneral() {
-
-    
-
+function ModalTradeGeneral({ trade }:any) {
+    console.log("Modal TRade General")
     return (
         <div>
 

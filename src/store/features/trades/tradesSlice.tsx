@@ -23,27 +23,25 @@ const tradeSlice = createSlice({
         },
         updateTrade: (state, action) => {
             const newTrade = action.payload;
-console.log(newTrade)
-            // const tradeToUpdate = state.trades.find((trade) => trade.id === id);
-            // if (tradeToUpdate) {
-            //     tradeToUpdate = [...trade]
-            //     // tradeToUpdate.hasNote = notes;
-            // }
             const tradeToUpdate = state.trades.find((trade) => trade.id === newTrade.id);
 
-            
             if (tradeToUpdate) {
-            // update trade properties
+                const tradeIndex = state.trades.findIndex((trade) => trade.id === newTrade.id);
                 const updatedTrade = {
                     ...tradeToUpdate,
                     ...newTrade,
                     hasNote: false,
                 };
-                const tradeIndex = state.trades.findIndex((trade) => trade.id === newTrade.id);
+                
                 state.trades[tradeIndex] = updatedTrade;
             }
-
         },
+        // updateTradeNoteStatus()
+          // const tradeToUpdate = state.trades.find((trade) => trade.id === id);
+            // if (tradeToUpdate) {
+            //     tradeToUpdate = [...trade]
+            //     // tradeToUpdate.hasNote = notes;
+            // }
     },
 });
 

@@ -1,16 +1,16 @@
-import { useState, useEffect } from "react";
-import useModal from "@/hooks/useModal";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
+import { getNoteByTradeID } from "@/store/features/journal/journalSliceSelectors";
+import { createTrade, updateTrade } from "@/store/features/trades/tradesSlice";
+import { createJournal } from "@/store/features/journal/journalSlice";
+
+import useModal from "@/hooks/useModal";
 
 import ModalTradeJournal from "./TradeJournal/TradeJournal";
 import ModalTradeGeneral from "./TradeGeneral/TradeGeneral";
 
 import TabMenuButton from "./_components/TabMenuButton";
-import { createTrade, updateTrade } from "@/store/features/trades/tradesSlice";
-import { useDispatch, useSelector } from "react-redux";
-import { createJournal, createNote } from "@/store/features/journal/journalSlice";
-import { getNoteByTradeID } from "@/store/features/journal/journalSliceSelectors";
-import { getTradeByID } from "@/store/features/trades/tradeSliceSelectors";
 
 function ModalTrade() {
     const ModalContext = useModal();
@@ -24,46 +24,23 @@ function ModalTrade() {
     const trades = reduxTrades.trades
     const notes = reduxJournal.notes
 
-    const [tradeExists, setStradeExists] = useState(false)
-    const [tradeJournal, setTradeJournal] = useState({})
 
-    // function checkTradeExists() {
-    //     if(tradeID) {
-    //         getTradeByID(tradeID)
-    //         setStradeExists(true)
-    //     }
-    // }
-
-    // function checkJournalExist() {
-    //     if(tradeExists && tradeID) {
-    //         getNoteByTradeID(tradeID)
-    //     }
-    // }
-
-    // useEffect(() => {
-    //     checkTradeExists()
-    // }, [])
-
-    // useEffect(() => {
-    //     checkJournalExist()
-    // }, [tradeExists])
-
+    const tradeJournal = getNoteByTradeID(tradeID)
 
     const [tabOption, setTabOption] = useState("general");
-
     function switchTab(tab:"general" | "journal") {
         setTabOption(tab)
     }
 
-    function handleCancel(e:any) {
-        e.preventDefault()
+    function handleCloseModal(e?:any) {
+        // e.preventDefault()
         ModalContext.close()
+        setTabOption('general')
     }
 
-    // check if the trade already exits, if not create a new one
-
-
     function saveTrade() {
+        updateJournal()
+        handleCloseModal()
 
         if(tradeID) {
             dispatch(updateTrade({
@@ -92,7 +69,8 @@ function ModalTrade() {
                 hasNote: true,
             }]))
         }
-        updateJournal()
+
+       
     }
 
     function updateJournal() {
@@ -110,11 +88,11 @@ function ModalTrade() {
                 <div className="flex justify-between items-center  border-b">
 
                     <div className="p-4">
-                        <h3 className="text-xl font-semibold text-gray-900">New/Update Trade</h3>
+                        <h3 className="text-xl font-semibold text-gray-900">{tradeID ? "Update" : "New"} Trade {tradeID && `#${tradeID}`}</h3>
                     </div>
 
                     <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
-                    <button type="button" onClick={(e) => handleCancel(e)} className="rounded-md bg-white text-gray-700 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                    <button type="button" onClick={(e) => handleCloseModal(e)} className="rounded-md bg-white text-gray-700 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
                         <span className="sr-only">Close</span>
                         <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" aria-hidden="true">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12"></path>
@@ -132,14 +110,14 @@ function ModalTrade() {
             </header>
 
             <section className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
-                {tabOption === 'general' && <ModalTradeGeneral />}
-                {tabOption === 'journal' && <ModalTradeJournal journal={reduxJournal} />}
+                {tabOption === 'general' && <ModalTradeGeneral trade={trades} />}
+                {tabOption === 'journal' && <ModalTradeJournal journal={tradeJournal} />}
             </section>
             
             <footer className="bg-gray-100 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
             <div className="sm:flex sm:flex-row-reverse">
                 <button type="button" onClick={() => saveTrade()} className="inline-flex w-full justify-center rounded-md bg-skin-brand-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-skin-brand-500 sm:ml-3 sm:w-auto">Save</button>
-                <button type="button" onClick={(e) => handleCancel(e)}className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto">Cancel</button>
+                <button type="button" onClick={(e) => handleCloseModal(e)}className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto">Cancel</button>
             </div>
             </footer>
 
