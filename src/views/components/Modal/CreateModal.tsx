@@ -7,8 +7,8 @@ import { getKey } from '@/utils/common';
 
 const doc = document.getElementById('root');
 function CreateModal() {
-    const modalContext = useModal()
-    const modalData = modalContext.data;
+    const ModalContext = useModal()
+    const modalData = ModalContext.data;
     const modalRef:any = useRef(undefined)
 
     const modalOptions:any = {
@@ -16,7 +16,7 @@ function CreateModal() {
     }
 
     function handleModalClose() {
-        const handleKeyDown = (e:any) => getKey('ESC') === e.keyCode && modalContext.close();
+        const handleKeyDown = (e:any) => getKey('ESC') === e.keyCode && ModalContext.close();
         document.addEventListener('keydown', handleKeyDown);      
         return document.addEventListener('keydown', handleKeyDown);
     }
@@ -25,7 +25,7 @@ function CreateModal() {
         handleModalClose()
     }, [])
 
-    if(!modalContext.open || !doc) return <></>
+    if(!ModalContext.open || !doc) return <></>
     return ReactDOM.createPortal(
         <dialog
             ref={modalRef}
@@ -41,7 +41,7 @@ function CreateModal() {
                 p-4 overflow-y-auto
                 h-full w-full
                 animate-open 
-                ${modalContext.isOpen ? 'visible opacity-100 ' : 'opacity-0 hidden'} 
+                ${ModalContext.isOpen ? 'visible opacity-100 ' : 'opacity-0 hidden'} 
             `}
         >
         <div className="flex min-h-full items-end justify-center text-center sm:items-center">
