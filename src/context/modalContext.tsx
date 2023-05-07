@@ -10,7 +10,7 @@ function ModalProvider({ children }: {children: ReactNode}) {
     const [config, setConfig] = useState(
         {
             id: undefined,
-            type: 'updatePayment',
+            type: '',
             option: undefined,
             action: undefined,
             title: undefined,

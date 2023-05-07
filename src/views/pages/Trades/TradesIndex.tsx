@@ -10,20 +10,32 @@ import Card from '@/views/atoms/Card';
 import Button from '@/views/atoms/Button/Button';
 import TableTDList from '@/views/components/Table/TableTD/TableTDList';
 import TableTHList from '@/views/components/Table/TableTH/TableTHList';
+import useModal from '@/hooks/useModal';
 
 // - Emotions and thoughts, confidence, reason for trade
 
 function TradesIndex() {
+
+    const ModalContextAPI = useModal() 
     const reduxTrades = useSelector((state:any) => state.trades);
     const trades = reduxTrades.trades
     const mappedTradeNames = mapNames.trades({exclude: ["createdAt", "updatedAt"]})
+
+    function openModalTrade() {
+        ModalContextAPI.open()
+        ModalContextAPI.setConfig({
+            type: "trade",
+            option: "update",
+            // fields: [{...agent}] 
+        })
+    }
 
     return (
         <Container>
 
             <PageHeader title="Trades" className="flex justify-between items-center">
                 <div>
-                    <Button label="Add Trade" />
+                    <Button label="Add Trade" onClick={() => openModalTrade()} />
                 </div>
             </PageHeader>
 
