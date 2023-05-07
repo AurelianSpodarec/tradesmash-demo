@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import * as ReactDOM from 'react-dom';
 import ModalNote from './ModalTrade/ModalTrade';
 import useModal from '@/hooks/useModal';
+import { getKey } from '@/utils/common';
 
 
 const doc = document.getElementById('root');
@@ -14,17 +15,15 @@ function CreateModal() {
         trade: <ModalNote />,
     }
 
-    console.log(modalContext)
+    function handleModalClose() {
+        const handleKeyDown = (e:any) => getKey('ESC') === e.keyCode && modalContext.close();
+        document.addEventListener('keydown', handleKeyDown);      
+        return document.addEventListener('keydown', handleKeyDown);
+    }
 
-    // function handleModalClose() {
-    //     const handleKeyDown = (e:any) => getKey('ESC') === e.keyCode && modalContext.close();
-    //     document.addEventListener('keydown', handleKeyDown);      
-    //     return document.addEventListener('keydown', handleKeyDown);
-    // }
-
-    // useEffect(() => {
-    //     handleModalClose()
-    // }, [])
+    useEffect(() => {
+        handleModalClose()
+    }, [])
 
     if(!modalContext.open || !doc) return <></>
     return ReactDOM.createPortal(
