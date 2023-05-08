@@ -16,7 +16,7 @@ import {
 import { useSelector } from "react-redux";
 import ChartPerformance from "../../components/Charts/ChartPerfomance";
 import ChartLine from "@/views/components/Charts/ChartLine";
-import ChartPie from "@/views/components/Charts/ChartPie";
+// import ChartPie from "@/views/components/Charts/ChartPie";
 
 
 function HomeIndex() {    
