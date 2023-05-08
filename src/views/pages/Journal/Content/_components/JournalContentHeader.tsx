@@ -3,7 +3,7 @@ import { getTradeByID } from "@/store/features/trades/tradeSliceSelectors";
 import dateFormatter from "@/utils/dateFormatter";
 import Button from "@/views/atoms/Button/Button";
 
-function JournalContentHeader({ note }:JournalContentHeaderProps) {
+function JournalContentHeader({ note, onClickSaveJournal }:JournalContentHeaderProps) {
     const trade = note && getTradeByID(note.tradeID);
 
     return (
@@ -45,7 +45,7 @@ function JournalContentHeader({ note }:JournalContentHeaderProps) {
                 </div>
             </div>
 
-            <Button>
+            <Button onClick={onClickSaveJournal}>
                 Save
             </Button>
         </div>
@@ -56,4 +56,5 @@ export default JournalContentHeader;
 
 interface JournalContentHeaderProps {
     note?: INote;
+    onClickSaveJournal: any;
 }

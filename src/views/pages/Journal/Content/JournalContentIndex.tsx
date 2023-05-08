@@ -1,11 +1,45 @@
-import { useSelector } from 'react-redux';
+import { useState, useEffect, useRef } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import JournalContentEditor from './_components/JournalContentEditor';
 import JournalContentHeader from './_components/JournalContentHeader';
 import { getNoteByTradeID } from '@/store/features/journal/journalSliceSelectors';
+import { updateJournal } from '@/store/features/journal/journalSlice';
 
 function JournalContent() {
+    const dispatch = useDispatch();
+
     const activeNoteId = useSelector((state:any) => state.journal.activeNote?.id);
     const note = getNoteByTradeID(activeNoteId);
+
+    const [editorValue, setEditorValue] = useState("")
+    const editorRef:any = useRef(null);
+    const content = note && note.content;
+
+    function saveJournal() {
+        const content = editorRef.current.getContent();
+        dispatch(updateJournal({
+            id: note && note.id,
+            tradeID: note && note.tradeID,
+            content: content
+        }))
+    }
+
+    
+    
+    
+    function onChange(e:any) {
+        setEditorValue(e)
+    }
+
+    
+    useEffect(() => {
+        if(content) {
+            setEditorValue(content && content)
+        } else {
+            setEditorValue("")
+        }
+    }, [note])
+
 
     if(!note) return (
         <div className="w-full flex items-center justify-center h-full bg-white">
@@ -17,8 +51,8 @@ function JournalContent() {
     )
     return (
         <div className="flex flex-col h-full">
-            <JournalContentHeader note={note} />
-            <JournalContentEditor data={note} />
+            <JournalContentHeader note={note}  onClickSaveJournal={saveJournal} />
+            <JournalContentEditor data={note} editorRef={editorRef} onChange={onChange} editorValue={editorValue}/>
         </div>
     );
 }
