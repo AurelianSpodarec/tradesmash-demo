@@ -14,6 +14,11 @@ const books = [
         author: "Mike Bellafiore"
     },
     {
+        title: "The UK Stock Trading Handbook",
+        image: "https://shiftingshares.b-cdn.net/wp-content/uploads/2021/01/ebook-the-uk-stock-trading-handbook.jpg",
+        author: "Michael Taylor",
+    },
+    {
         title: "Trade Like a Stock Market Wizard: How to Achieve Super Performance in Stocks in Any Market ",
         image: "https://m.media-amazon.com/images/P/0071807225.01._SCLZZZZZZZ_SX500_.jpg",
         author: "Mark Minervini"
@@ -32,6 +37,11 @@ const books = [
         title: "The Sceptical Investor",
         image: "https://m.media-amazon.com/images/I/41OsrBJeorL._SY346_.jpg",
         author: "John Stepek",
+    },
+    {
+        title: "The Guide to Shorting",
+        image: "https://shiftingshares.b-cdn.net/wp-content/uploads/2021/01/ebook-shortselling-guide.jpg",
+        author: "Michael Taylor",
     },
     {
         title: "The Art of Execution",
@@ -63,17 +73,8 @@ const books = [
         image: "https://m.media-amazon.com/images/I/51-nXsSRfZL._SY346_.jpg",
         author: "James Clear",
     },
-    {
-        title: "The UK Stock Trading Handbook",
-        image: "https://shiftingshares.b-cdn.net/wp-content/uploads/2021/01/ebook-the-uk-stock-trading-handbook.jpg",
-        author: "Michael Taylor",
-    },
 
-    {
-        title: "The Guide to Shorting",
-        image: "https://shiftingshares.b-cdn.net/wp-content/uploads/2021/01/ebook-shortselling-guide.jpg",
-        author: "Michael Taylor",
-    }
+
 ]
 
 

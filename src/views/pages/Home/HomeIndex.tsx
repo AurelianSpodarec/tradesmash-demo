@@ -40,7 +40,7 @@ function HomeIndex() {
                 {/* <CardMetric title="Average PnL" value={0} /> */}
                 <CardMetric title="Total Trades" value={getTotalTrades()} />
                 <CardMetric title="Acccumulative returns" value={"66%"} chart={<ChartLine aspect={3} legend={false} xAxies={false} />} />
-                <CardMetric title="Best performing stock" value="TSLA" chart={<ChartPie aspect={3} legend={false} xAxies={false} yAxies={false} tooltip={false} /> } />
+                <CardMetric title="Best performing stock" value="TSLA" />
                 {/* Best performing stock company */}
 
                 {/* maybe have icon for the above? */}
