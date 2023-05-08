@@ -1,5 +1,6 @@
 import Input from "@/views/atoms/Input";
 
+// @ts-ignore
 function ModalTradeGeneral({ trade }:any) {
     console.log("Modal TRade General")
     return (
@@ -8,7 +9,7 @@ function ModalTradeGeneral({ trade }:any) {
 
             <div className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                 <div className="col-span-1">
-                    <Input label="Stock" name="stock" />
+                    <Input label="Stock" name="stock"/>
                 </div>
                 <div className="col-span-2">
                     <Input label="Asset" name="asset" />

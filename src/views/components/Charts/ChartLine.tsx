@@ -48,7 +48,7 @@ function ChartLine({ aspect, legend, xAxis, yAxis }:any) {
                 <CartesianGrid />
 
                 {xAxis && <XAxis dataKey="name" interval={'preserveStartEnd'} />}
-                {yAxis && <YAxis/>}
+                {yAxis && <YAxis />}
 
                 {legend &&
                     <Legend />
@@ -57,8 +57,8 @@ function ChartLine({ aspect, legend, xAxis, yAxis }:any) {
 
                 <Line dataKey="student"
                     stroke="black" activeDot={{ r: 8 }} />
-                {/* <Line dataKey="fees"
-                    stroke="red" activeDot={{ r: 8 }} /> */}
+                <Line dataKey="fees"
+                    stroke="red" activeDot={{ r: 8 }} />
             </LineChart>
         </ResponsiveContainer>
     )

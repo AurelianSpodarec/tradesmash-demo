@@ -36,7 +36,7 @@ function HomeIndex() {
             <PageHeader title="Overview" />
 
 
-            <div className="grid grid-cols-3 gap-x-4">
+            <div className="grid md:grid-cols-3 gap-x-4">
                 {/* <CardMetric title="Average PnL" value={0} /> */}
                 <CardMetric title="Total Trades" value={getTotalTrades()} />
                 <CardMetric title="Acccumulative returns" value={"66%"} chart={<ChartLine aspect={3} legend={false} xAxies={false} />} />
@@ -48,15 +48,20 @@ function HomeIndex() {
             </div>
             <section className="mb-4">
 
-                <Card className="h-[500px]">
+            <div className="grid md:grid-cols-10 gap-x-4">
+                <Card className="col-span-7 h-[600px]">
                     <ChartPerformance data={trades} />
                 </Card>
+                <Card className="col-span-3">
+
+                </Card>
+            </div>
 
             </section>
 
             <section className="mb-4">
 
-                <div className="grid grid-cols-4 gap-x-4">
+                <div className="grid md:grid-cols-4 gap-x-4">
                     <CardMetric title="Total Gross P&L £" value={totalGrossPnL} />
                     <CardMetric title="Biggest Profit £" value={biggestProfit} />
                     <CardMetric title="Biggest Loss £" value={biggestLoss} />

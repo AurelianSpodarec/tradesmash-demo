@@ -43,6 +43,7 @@ function JournalContentEditor({ data }:any) {
         <Editor
             onChange={(e) => onChange(e)}
             apiKey='your-api-key'
+            // @ts-ignore
             onInit={(evt, editor) => editorRef.current = editor}
             initialValue={editorValue}
             init={{

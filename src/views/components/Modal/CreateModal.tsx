@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import * as ReactDOM from 'react-dom';
 import ModalNote from './ModalTrade/ModalTrade';
 import useModal from '@/hooks/useModal';

@@ -15,7 +15,7 @@ return (
     <div className="mb-8">
         <h1 className="text-lg font-semibold">Gross Profit and Loss</h1>
     </div>  
-    <ResponsiveContainer aspect={3.5}>
+    <ResponsiveContainer aspect={2}>
         <BarChart data={data} barCategoryGap={0}>
         <CartesianGrid vertical={false} strokeDasharray="3 3"/>
         <XAxis 

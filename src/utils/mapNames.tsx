@@ -2,7 +2,7 @@ import mappingTrade from "@/config/mappings/mappingTrade";
 
 const mapNames = {
     trades({ include = [], exclude = [] }:any) {
-        let result = mappingTrade;
+        let result:any = mappingTrade;
 
         if (include.length === 1) {
             result = mappingTrade.find(({ id }) => id === include[0]);
@@ -11,9 +11,9 @@ const mapNames = {
         }
     
         if (exclude.length === 1) {
-            result = result.filter(({ id }) => id !== exclude[0]);
+            result = result.filter(({ id }:any) => id !== exclude[0]);
         } else if (exclude.length > 1) {
-            result = result.filter(({ id }) => !exclude.includes(id));
+            result = result.filter(({ id }:any) => !exclude.includes(id));
         }
     
         return result;

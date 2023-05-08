@@ -21,7 +21,7 @@ function TradesIndex() {
     const trades = reduxTrades.trades
     const mappedTradeNames = mapNames.trades({exclude: ["createdAt", "updatedAt", "hasNote"]})
 
-    function openModalTrade(trade:any) {
+    function openModalTrade(trade?:any) {
         ModalContextAPI.open()
         console.log(trade)
         if(trade) {

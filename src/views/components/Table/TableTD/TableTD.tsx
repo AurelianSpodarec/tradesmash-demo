@@ -1,7 +1,4 @@
-import CellBuySell from "../Cells/CellBuySell";
-import CellStatus from "../Cells/CellStatus";
-
-function TableTD({ name, data }:any) {
+function TableTD({ name }:any) {
 
     // const cells = {
     //     // buySell: <CellBuySell item={data['status']} />,

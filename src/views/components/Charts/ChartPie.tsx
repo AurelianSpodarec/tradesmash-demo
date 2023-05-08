@@ -19,7 +19,7 @@ function CustomTooltip({ active, payload }:any) {
 }
 
 
-function ChartPie({ aspect, legend, xAxies, yAxies, toolTip }:any) {
+function ChartPie({ aspect, legend, toolTip }:any) {
     const COLORS = ["#8884d8", "#82ca9d", "#FFBB28", "#FF8042", "#AF19FF"];
     const pieData = [
         {

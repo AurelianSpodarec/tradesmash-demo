@@ -3,6 +3,7 @@ import { Editor } from "@tinymce/tinymce-react";
 function JournalEditor({ editorValue, onChange, ref }:JournalEditorProps) {
     return (
         <Editor
+            ref={ref}
             onChange={onChange}
             apiKey='your-api-key'
             // onInit={(editor) => editorRef.current = editor}

@@ -13,11 +13,15 @@ function AnalyticsIndex() {
                 <div className="grid grid-cols-2  gap-4 h-auto">
                 <Card className="h-full">
                     <h1 className="text-2xl font-semibold mb-6">Programming Languages</h1>
-                    <ChartLine /> 
+                    <div  className="h-[400px]">
+                        <ChartLine aspect={1.7} legend={true} xAxie={true} yAxie={true} /> 
+                    </div>
                 </Card>
                 <Card>
                     <h1 className="text-2xl font-semibold mb-6">Statsitics Pie Chart</h1>
-                    <ChartPie />
+                    <div className="h-[400px]">
+                        <ChartPie legend={true} xAxie={true} yAxie={true} toolTip={true}/>
+                    </div>
                 </Card>
                 </div>
 
