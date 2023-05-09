@@ -1,21 +1,11 @@
-// @ts-nocheck
-import { useDispatch, useSelector } from "react-redux";
-import { createSelector, createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 import INote from "@/interface/INote";
-import { updateTradeHasNote } from "../trades/tradesSlice";
 import dateFormatter from "@/utils/dateFormatter";
 import { IJournalState } from "./IJournalState";
 
-// interface NotesState {
-//     activeNote: INote;
-//     activeNoteIndex: number;
-//     notes: INote[];
-//     filterByDate: string;
-// }
-
 const initialState: IJournalState = {
-    activeNote: {},
+    activeNote: null,
     activeNoteIndex: null,
     notes: [],
     filterByDate: "", // 2023-04-26 get getll trades from that date
@@ -40,7 +30,7 @@ const journalSlice = createSlice({
             const { id, content } = action.payload;
             const newNote: INote = {
                 id: state.notes.length + 1,
-                id,
+                tradeID: id,
                 content,
                 updatedAt: Date.now(),
                 createdAt: Date.now()

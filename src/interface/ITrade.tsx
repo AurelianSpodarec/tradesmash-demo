@@ -34,5 +34,4 @@ export default interface ITrade {
     hasNote: boolean;
     updatedAt: number; // in seconds
     createdAt: number; // in seconds
-
 }

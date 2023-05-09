@@ -35,13 +35,7 @@ const tradeSlice = createSlice({
                 
                 state.trades[tradeIndex] = updatedTrade;
             }
-        },
-        // updateTradeNoteStatus()
-          // const tradeToUpdate = state.trades.find((trade) => trade.id === id);
-            // if (tradeToUpdate) {
-            //     tradeToUpdate = [...trade]
-            //     // tradeToUpdate.hasNote = notes;
-            // }
+        }
     },
 });
 

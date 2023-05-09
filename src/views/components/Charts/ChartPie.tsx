@@ -1,6 +1,5 @@
 import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer } from "recharts";
 
-
     
 function CustomTooltip({ active, payload }:any) {
     if (!active) return <></>
@@ -17,7 +16,6 @@ function CustomTooltip({ active, payload }:any) {
         </div>
     );
 }
-
 
 function ChartPie({ aspect, legend, toolTip }:any) {
     const COLORS = ["#8884d8", "#82ca9d", "#FFBB28", "#FF8042", "#AF19FF"];

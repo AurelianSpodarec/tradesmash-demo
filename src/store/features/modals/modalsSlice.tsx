@@ -1,16 +1,7 @@
-// @ts-nocheck
-import INote from "@/interface/INote";
-import { createSelector, createSlice } from "@reduxjs/toolkit";
-import { useSelector } from "react-redux";
+import { createSlice } from "@reduxjs/toolkit";
+import { IModalsState } from "./IModalState";
 
-
-interface ModalsState {
-    modalType: "" | "notes";
-    isOpen: boolean;
-    content: string;
-}
-
-const initialState: ModalsState = {
+const initialState: IModalsState = {
     modalType: "",
     isOpen: false,
     content: "",
@@ -35,11 +26,6 @@ const modalsSlice = createSlice({
         }
     },
 });
-
-
-// export const pagesActivePage = () => useSelector((state: { pages:PagesState }) => state.pages.pages.find(page => page.id === state.pages.currentPage))
-// export const pagesActiveDOM = () => useSelector((state: { pages:PagesState }) => state.pages.pagesDOM.find(page => page.id === state.pages.currentPage))?.dom
-// export const pagesHomePage = () => useSelector((state: { pages:PagesState }) => state.pages.pages.find(page => page.isHome))
 
 export const { openModal, closeModal, setModalType } = modalsSlice.actions;
 export default modalsSlice.reducer;

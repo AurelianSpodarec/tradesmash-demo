@@ -1,8 +1,10 @@
 import { useEffect, useRef } from 'react';
 import * as ReactDOM from 'react-dom';
-import ModalNote from './ModalTrade/ModalTrade';
+
 import useModal from '@/hooks/useModal';
 import { getKey } from '@/utils/common';
+
+import ModalNote from './ModalTrade/ModalTrade';
 
 
 const doc = document.getElementById('root');

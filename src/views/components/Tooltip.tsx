@@ -1,11 +1,9 @@
-// @ts-nocheck
 import React, { useState, useRef } from 'react';
 
-function Tooltip(props: any) {
+function Tooltip(props: TooltipProps) {
     const { children, name, dangerouslySetInnerHTML, dely, position = 'top', hideAfter } = props;
 
     const [isOpen, setIsOpen] = useState(false);
-    const [tooltipPosition, setTooltipPosition] = useState('top');
     const timeout = useRef<number | null>(null);
 
     const positions:any = {
@@ -82,3 +80,12 @@ function Tooltip(props: any) {
 }
 
 export default Tooltip
+
+interface TooltipProps {
+    children: React.ReactNode;
+    name?: string;
+    dangerouslySetInnerHTML?: string;
+    dely?: number;
+    position?: "top" | "right" | "bottom" | "left";
+    hideAfter?: number;
+}

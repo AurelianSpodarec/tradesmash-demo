@@ -2,7 +2,7 @@ import TableTD from "./TableTD";
 
 function TableTDList({ mappedNames, data }:TableTDListProps) {
     return mappedNames && mappedNames.map((item:any, index:number) => {
-        return <TableTD key={data[item.id] + index} item={data} name={data[item.id]} />
+        return <TableTD key={`${data[item.id]}_${index}`} name={data[item.id]} />
     })    
 }
 

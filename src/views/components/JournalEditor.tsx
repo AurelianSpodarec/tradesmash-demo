@@ -6,7 +6,6 @@ function JournalEditor({ editorValue, onChange, ref }:JournalEditorProps) {
             ref={ref}
             onChange={onChange}
             apiKey='your-api-key'
-            // onInit={(editor) => editorRef.current = editor}
             initialValue={editorValue}
             init={{
             height: "100%",
@@ -30,6 +29,6 @@ export default JournalEditor;
 
 interface JournalEditorProps {
     editorValue: string;
-    onChange?: any;
-    ref?: any;
+    onChange?: () => void;
+    ref?: React.RefObject<Editor>;
 }

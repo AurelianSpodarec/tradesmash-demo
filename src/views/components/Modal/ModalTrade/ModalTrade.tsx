@@ -14,9 +14,8 @@ import TabMenuButton from "./_components/TabMenuButton";
 
 function ModalTrade() {
     const ModalContext = useModal();
-    const tradeID = ModalContext.data.id
+    const tradeID = ModalContext.data?.id;
 
-    console.log("modal trade id", ModalContext.data)
     const dispatch = useDispatch();
 
     const reduxTrades = useSelector((state:any) => state.trades);
@@ -24,7 +23,6 @@ function ModalTrade() {
     const trades = reduxTrades.trades
     const notes = reduxJournal.notes
 
-    // @ts-ignore
     const tradeJournal = getNoteByTradeID(tradeID)
 
     const [tabOption, setTabOption] = useState("general");
@@ -33,7 +31,6 @@ function ModalTrade() {
     }
 
     function handleCloseModal() {
-        // e.preventDefault()
         ModalContext.close()
         setTabOption('general')
     }
@@ -69,8 +66,6 @@ function ModalTrade() {
                 hasNote: true,
             }]))
         }
-
-       
     }
 
     function updateJournal() {
